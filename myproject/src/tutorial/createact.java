@@ -57,6 +57,7 @@ public class createact extends ActionSupport {
 	public String execute(){
 		String ret = ERROR;
 		Connection conn = null;
+		String[] date=time.split("+-+");
 		if(name==null||name.length()<=0||creator==null||creator.length()<=0||place==null||place.length()<=0||time==null||time.length()<=0||type==null||type.length()<=0)
 		{
 			return "inputempty";
@@ -66,7 +67,7 @@ public class createact extends ActionSupport {
 		    conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
 		    Statement stmt=conn.createStatement();
 		    String sql;
-		    sql="insert into act(actid,name,creatoremail,creator,place,time,type) values(NULL,'"+name+"','"+creatoremail+"','"+creator+"','"+place+"','"+time+"','"+type+"')";
+		    sql="insert into act(actid,name,creatoremail,creator,place,sdate,edate,type) values(NULL,'"+name+"','"+creatoremail+"','"+creator+"','"+place+"','"+date[0]+"','"+date[1]+"','"+type+"')";
             stmt.executeUpdate(sql);
             ret = SUCCESS;
             sql="select * from act where name ='"+name+"'";
