@@ -26,9 +26,9 @@ public class collecting extends ActionSupport {
 		Connection conn = null;
 		try{			
 			Class.forName("com.mysql.jdbc.Driver");
-		    conn=DriverManager.getConnection("jdbc:mysql://localhost/bookdb?useUnicode=true&characterEncoding=utf-8", "root", "123456");
+		    conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
 		    Statement stmt=conn.createStatement();
-		    String sql="insert into "+email+"(actid) values('"+actid+"')";
+		    String sql="insert into c"+email+"(actid) values('"+actid+"')";
             stmt.executeUpdate(sql);   
             stmt.close();
         	conn.close();

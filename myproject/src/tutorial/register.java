@@ -47,7 +47,7 @@ public class register extends ActionSupport {
 		}
 		try{			
 			Class.forName("com.mysql.jdbc.Driver");
-			conn=DriverManager.getConnection("jdbc:mysql://localhost/bookdb?useUnicode=true&characterEncoding=utf-8", "root", "123456");
+			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
 		    Statement stmt=conn.createStatement();
 		    String sql="select * from user";
 		    ResultSet rs=stmt.executeQuery(sql);
@@ -68,7 +68,7 @@ public class register extends ActionSupport {
 		    	sql="insert into user(email,name,password,phonenumber) values('"+email+"','"+name+"','"+password+"','"+phonenumber+"')";
 		    	stmt.executeUpdate(sql);
 		    	ret = SUCCESS;
-		    	sql="CREATE TABLE `"+email+"` (`actid` varchar(30) NOT NULL,PRIMARY KEY (`actid`) );";
+		    	sql="CREATE TABLE c"+email+"(actid bigint(30) NOT NULL,PRIMARY KEY (actid) );";
 		    	stmt.executeQuery(sql);
 		    }	    
             stmt.close();

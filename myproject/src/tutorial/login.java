@@ -29,7 +29,7 @@ public class login extends ActionSupport {
 		}
 		try{			
 			Class.forName("com.mysql.jdbc.Driver");
-		    conn=DriverManager.getConnection("jdbc:mysql://localhost/bookdb?useUnicode=true&characterEncoding=utf-8", "root", "123456");
+		    conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
 		    Statement stmt=conn.createStatement();
 		    String sql;
 		    sql="select * from user";
