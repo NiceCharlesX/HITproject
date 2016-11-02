@@ -6,14 +6,13 @@
 	
 <struts>
     <include file="struts-default.xml"/>
-    <package name="tutorial"  extends="struts-default"  >
+    <package name="tutorial" extends="struts-default">
         <action name="register" class="tutorial.register">
-            <result name = "error">home.jsp</result>
-            <result name = "success">home.jsp</result>
-            <result name = "samephonenumber">home.jsp</result>
-            <result name = "sameemail">home.jsp</result>
-        </action>
+            <result>home.jsp</result>
        
+        </action>
+        
+        
     </package>
     
    
