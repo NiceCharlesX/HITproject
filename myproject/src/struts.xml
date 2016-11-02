@@ -8,7 +8,10 @@
     <include file="struts-default.xml"/>
     <package name="tutorial" extends="struts-default">
         <action name="register" class="tutorial.register">
-            <result>hello.jsp</result>
+            <result name="success">register_success.jsp</result>
+            <result name="error">register_error.jsp</result>
+            <result name="sameemail">register_sameemail.jsp</result>
+            <result name="samephone">register_samephone.jsp</result>
         </action>
         
         

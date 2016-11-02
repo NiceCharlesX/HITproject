@@ -66,8 +66,8 @@ public class register extends ActionSupport {
 		    	sql="insert into user(email,name,password,phonenumber) values('"+email+"','"+name+"','"+password+"','"+phonenumber+"')";
 		    	stmt.executeUpdate(sql);
 		    	ret = SUCCESS;
-		    	sql="CREATE TABLE c"+email+"(actid bigint(30) NOT NULL,PRIMARY KEY (actid));";
-		    	stmt.executeQuery(sql);
+		    	 sql="CREATE TABLE c"+email+"(actid bigint(30) not null,primary key (actid));";
+		    	stmt.executeUpdate(sql);
 		    }	    
             stmt.close();
         	conn.close();
