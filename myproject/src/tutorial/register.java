@@ -10,6 +10,7 @@ public class register extends ActionSupport {
 	public String name;
 	public  String password;
 	public  String phonenumber;	
+	
 	public String getemail(){
         return email;
     }
@@ -41,10 +42,7 @@ public class register extends ActionSupport {
 	public String execute(){
 		String ret = ERROR;
 		Connection conn = null;
-		if(name==null||name.length()<=0||password==null||password.length()<=0||email==null||email.length()<=0||phonenumber==null||phonenumber.length()<=0)
-		{
-			return "inputempty";
-		}
+		
 		try{			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");

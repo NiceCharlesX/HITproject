@@ -63,26 +63,26 @@
                         </div>
 
                         <div id="register" class="animate form">
-                            <form  action="hello.jsp" autocomplete="on"> 
+                            <form  action="register" autocomplete="on"> 
                                 <h1> Sign up </h1> 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
-                                    <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
+                                    <input id="usernamesignup" name="name" required="required" type="text" placeholder="mysuperusername690" />
                                 </p>
                                 
                                 <p> 
                                     <label for="usernamesignup" class="uname" data-icon="u">Your phone</label>
-                                    <input id="usernamesignup" name="phonesignup" required="required" type="text" placeholder="123456789" />
+                                    <input id="usernamesignup" name="phonenumber" required="required" type="text" placeholder="123456789" />
                                 </p>
                                 
                                 <p> 
                                     <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                    <input id="emailsignup" name="email" required="required" type="email" placeholder="mysupermail@mail.com"/> 
                                 </p>
                                 
                                 <p> 
                                     <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
-                                    <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                                    <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p> 
                                     <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
