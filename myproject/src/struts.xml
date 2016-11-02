@@ -6,11 +6,13 @@
 	
 <struts>
     <include file="struts-default.xml"/>
-  	<package name="tutorial" extends="struts-default">
-        <action name="Register" class="tutorial.register">
+    <package name="tutorial" extends="struts-default">
+        <action name="register" class="tutorial.register">
             <result>hello.jsp</result>
         </action>
-         
+        
+        
     </package>
- 
+    
+   
 </struts>
