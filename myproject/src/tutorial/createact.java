@@ -15,6 +15,8 @@ public class createact extends ActionSupport {
 	public String place;
 	public String time;
 	public String type;
+	public String brief;
+	public String[] date;
 	public String getname(){
 		return name;
 	}	
@@ -52,22 +54,27 @@ public class createact extends ActionSupport {
     public void settype(String type){
         this.type = type;
     }
+    public String getbrief(){
+		return brief;
+	}	
+	public void setbrief(String brief){
+		this.brief = brief;
+	}
+    
 
 
 	public String execute(){
 		String ret = ERROR;
 		Connection conn = null;
-		String[] date=time.split("+-+");
-		if(name==null||name.length()<=0||creator==null||creator.length()<=0||place==null||place.length()<=0||time==null||time.length()<=0||type==null||type.length()<=0)
-		{
-			return "inputempty";
-		}
+		date=time.split("[ - ]");
+	
+		
 		try{			
 			Class.forName("com.mysql.jdbc.Driver");
 		    conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
 		    Statement stmt=conn.createStatement();
 		    String sql;
-		    sql="insert into act(actid,name,creatoremail,creator,place,sdate,edate,type) values(NULL,'"+name+"','"+creatoremail+"','"+creator+"','"+place+"','"+date[0]+"','"+date[1]+"','"+type+"')";
+		    sql="insert into act(name,creatoremail,creator,place,sdate,edate,type,brief) values('"+name+"','"+creatoremail+"','"+creator+"','"+place+"','"+date[0]+"','"+date[2]+"','"+type+"','"+brief+"')";
             stmt.executeUpdate(sql);
             ret = SUCCESS;
             sql="select * from act where name ='"+name+"'";
@@ -78,7 +85,7 @@ public class createact extends ActionSupport {
             }
             rs.close();
             sql="CREATE TABLE s"+actid+"(sid bigint(30) not null AUTO_INCREMENT, time varchar(30) not null, contents varchar(30) not null,place varchar(30) not null,person varchar(30) not null,primary key (sid));";
-            stmt.executeUpdate(sql);
+            stmt.executeUpdate(sql); 
             stmt.close();
         	conn.close();
 		}

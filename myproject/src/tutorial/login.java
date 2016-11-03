@@ -1,13 +1,25 @@
 package tutorial;
 
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
+import java.util.Map;
+
 
 
 public class login extends ActionSupport {
 	public String email;
 	public String password;
+	Map<String,Object> session = ActionContext.getContext().getSession();
+	public Map<String,Object>  getsession(){
+		return session;
+	}
+	
+	public void setsession(Map<String,Object> session){
+		this.session = session;
+	}
+	
 	public String getemail(){
       return email;
     }   
@@ -37,7 +49,8 @@ public class login extends ActionSupport {
 		    while(rs.next())
 		    {
 		    	if(email.equals(rs.getString(1))&&password.equals(rs.getString(3)))
-		    	{
+		    	{		    		
+		    		session.put("email", "abc");
 		    		return SUCCESS;
 		    	}
 		    }

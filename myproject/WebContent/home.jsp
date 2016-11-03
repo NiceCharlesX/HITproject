@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE >
 <html>
 <head>
@@ -108,7 +109,7 @@
 		<div class="col-md-2 column">
 			<img alt="140x140" src="images/touxiang.jpg" class="img-circle" />
 			<h2>
-				Heading
+				<s:property value="email" />
 			</h2>
 			<p>
 				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
@@ -156,10 +157,6 @@
 			<div class="row clearfix">
 				<div class="col-md-12 column">
 				
-
-	
-					
-					
 					<div class="carousel slide" id="carousel-634407">
 						<ol class="carousel-indicators">
 							<li data-slide-to="0" data-target="#carousel-634407">
@@ -248,6 +245,7 @@
 						
 					</ul>
 				</section>
+				
 				<section class="slideshow">
 					<ul>
 						<li>
@@ -255,8 +253,15 @@
 								<figcaption>
 									<h3>Letterpress asymmetrical</h3>
 									<p>Kale chips lomo biodiesel stumptown Godard Tumblr, mustache sriracha tattooed cray aute slow-carb placeat delectus. Letterpress asymmetrical fanny pack art party est pour-over skateboard anim quis, ullamco craft beer.</p>
+									
+									
 								</figcaption>
 								<img src="images/large/1.png" alt="img01"/>
+								<a href="<s:url action="collecting">
+                        				<s:param name="actid">1</s:param>
+                        				<s:param name="phonenumber">7895</s:param>
+                       					</s:url>
+                      				 ">添加到我的收藏</a>
 							</figure>
 						</li>
 						

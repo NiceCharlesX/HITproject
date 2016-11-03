@@ -11,7 +11,7 @@ public class showact extends ActionSupport {
 	}
 	public void setorderby(String orderby){
 		this.orderby = orderby;
-	}	
+	}
 	public String execute(){
 		String ret = ERROR;
 		Connection con = null;
@@ -37,6 +37,7 @@ public class showact extends ActionSupport {
                 map.put("sdate", rs.getString(6));
                 map.put("edate", rs.getString(7));
                 map.put("type", rs.getString(8));
+                map.put("brief", rs.getString(9));
                 list.add(map);
             }
             rs.close();

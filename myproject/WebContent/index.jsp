@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -16,7 +17,20 @@
 	<li><a href="search.jsp" target="frameBord">查询作者著作</a></li>
 	<li><a href="add.jsp" target="frameBord">添加图书</a></li>
 </ul>
-<iframe id="frameBord" name="frameBord" frameborder="0" width="100%" height="100%" src="mainlist.action"></iframe>
+
+<s:property value = "name"/> 
+<s:property value = "type"/> 
+<s:property value = "place"/> 
+<s:property value = "creator"/> 
+<s:property value = "creatoremail"/> 
+<s:property value = "time"/> 
+<s:property value = "brief"/> 
+</br>
+
+
+
+
+
 </font>
 </body>
 </html>

@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<script language='javaScript'> alert('注册成功，点击确定后自动跳到登录界面！');</script>
+<script language='javaScript'> alert('登录失败，点击确定后自动跳到登录界面！');</script>
 <% response.setHeader("refresh","1;url=login.jsp"); %>
 
   

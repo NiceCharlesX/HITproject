@@ -6,6 +6,7 @@
 <%@ page import="javax.servlet.http.*,javax.servlet.*" %>
 <%@ page import ="java.net.*" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
 <!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8 lt8"> <![endif]-->
@@ -25,6 +26,10 @@
 		<link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
     </head>
     <body>
+        
+        
+        
+        
         <div class="container">
             
             <header>
@@ -38,11 +43,11 @@
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="register" autocomplete="on"> 
+                            <form  action="login" autocomplete="on"> 
                                 <h1>Log in</h1> 
                                 <p> 
                                     <label for="username" class="uname" data-icon="u" > Your email or username </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                                    <input id="username" name="email" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
                                 </p>
                                 <p> 
                                     <label for="password" class="youpasswd" data-icon="p"> Your password </label>
@@ -60,6 +65,10 @@
 									<a href="#toregister" class="to_register">Join us</a>
 								</p>
                             </form>
+                            
+                          
+                            
+                          
                         </div>
 
                         <div id="register" class="animate form">

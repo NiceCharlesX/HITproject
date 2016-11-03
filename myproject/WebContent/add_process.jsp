@@ -309,204 +309,57 @@ $(document).ready(function() {
 </script>
 </head>
 
-
 <body>
-	<div class="container">
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<nav class="navbar navbar-default" role="navigation">
-				<div class="navbar-header">
-					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
-				</div>
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active">
-							 <a href="#">Link</a>
-						</li>
-						<li>
-							 <a href="#">Link</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									 <a href="#">Action</a>
-								</li>
-								<li>
-									 <a href="#">Another action</a>
-								</li>
-								<li>
-									 <a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">Separated link</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">One more separated link</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
-						<div class="form-group">
-							<input type="text" class="form-control" />
-						</div> <button type="submit" class="btn btn-default">Submit</button>
-					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							 <a href="#">Link</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									 <a href="#">Action</a>
-								</li>
-								<li>
-									 <a href="#">Another action</a>
-								</li>
-								<li>
-									 <a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">Separated link</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</nav>
-			<ul class="breadcrumb">
-				<li>
-					 <a href="#">Home</a>
-				</li>
-				<li>
-					 <a href="#">Library</a>
-				</li>
-				<li class="active">
-					Data
-				</li>
-			</ul>
-		</div>
-	</div>
-	<div class="row clearfix">
-		<div class="col-md-8 column">
-			
-			<form class="form-horizontal" role="form" action="createact">
-				<div class="form-group">
-					 <label for="Name" class="col-md-2">活动名称</label>
-					 <div class = "col-md-10 col-lg-4">
-					 	<input type="text" class="form-control" id="Name"  name="name"/>
-					 </div>
-				</div>
-				
-				<div class="form-group">
-					 <label for="exampleInputEmail1" class="col-md-2">联系方式邮箱</label>
-					 <div class = "col-md-10 col-lg-4">
-					 	<input type="email" class="form-control" id="exampleInputEmail1" name="creatoremail"/>
-					 </div>
-				</div>
-				
-				<div class="form-group">
-					 <label for="Name" class="col-md-2">举办者</label>
-					 <div class = "col-md-10 col-lg-4">
-					 	<input type="text" class="form-control" id="Name" name="creator"/>
-					 </div>
-				</div>
-				
-				<div class="form-group">
-					 <label for="Name" class="col-md-2">地点</label>
-					 <div class = "col-md-10 col-lg-4">
-					 	<input type="text" class="form-control" id="Name" name="place"/>
-					 </div>
-				</div>
+<label for="Name" >填写进程</label>
+			<div class="yd_box">	
+	
+				<div class = "movie_box">
+					<br/>
+					<ul class="wjdc_list">
+					 <li>
+          				<div class="tm_btitlt"><i class="btwenzi">活动进程</i><i class="nmb">1</i></div>
+       				</li>
+					<li>
+					<div class="form-group">
+						<label for="Name" class="col-md-2">起止时间</label>
+	          			<div class="input-prepend input-group col-md-5 ">
+	                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+	                       <input type="text" style="width: 250px" name="reservation"  class="form-control reservationtime input-sm" value="08/01/2013 1:00 PM - 08/01/2013 1:30 PM"  class="span4"/>
+	                     </div>        			       	         			
+					</div>
+					</li>
+					<li>
+					<div class="form-group">
+						<label for="Name" class="col-md-2">主持人</label>
+	          			<div class = "col-md-10 col-lg-4">
+					 		<input type="text" class="form-control input-sm" id="Name" />
+					 	</div>	          		      			       	         			
+					</div>	
+					</li>
+					<li>
+					<div class="form-group">
+						<label for="Name" class="col-md-2">地点</label>
+						<div class = "col-md-10 col-lg-4">
+							<input type="text" class="form-control input-sm" id="Name"/>
+						</div>
+					</div>
+					</li>
 					
-				<div class="form-group">
+					<li>
+					<div class="form-group">
+						<label for="Name" class="col-md-2">内容</label>
+						<div class="textarea col-md-10" >
+                  			<textarea rows = "2" cols = "29"> </textarea>
+           			 	</div>
+					</div>
+					</li>
 					
-					<label for="Name" class="col-md-2">起止时间</label>
-					 <div class="input-prepend input-group col-md-10 ">
-                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" readonly style="width: 205px" name="time" class="form-control reservation" value="2014-5-21 - 2014-6-21" /> 
-                   </div>
-                   
-       
+					</ul>
+					<br/>
+					
 				</div>
-				
-				 <div class="form-group">
-      				<label for="Name" class="col-md-2">选择类别</label>
-     					<div class="col-md-10 col-lg-4">
-        					<select id="basic" class="selectpicker show-tick form-control" name="type">
-         						<option selected>请选择类别</option>
-         						<option>会议</option>
-          						<option>展览</option>
-          						<option>论坛</option>
-          						<option>课程</option>
-          						<option>讲座</option>
-        					</select>
-      					</div>
-    			</div>
-    			
-			
-			<br/>
-			<div class="control-group">
-          		<label class="Name">活动简介</label>
-          		<div class="controls">
-            		<div class="textarea">
-                  		<textarea rows = "5" cols = "47" name="brief"> </textarea>
-           			 </div>
-         		</div>
-        	</div>
-			
-			
-			<br/>
-			<button type="submit" class="btn btn-default">Submit</button>
-			</form>
-		</div>
-		
-		<div class="col-md-4 column">
-			<img alt="140x140" src="images/touxiang.jpg" />
-			<br/>
-			<ul class="pagination">
-				<li>
-					 <a href="#">Prev</a>
-				</li>
-				<li>
-					 <a href="#">1</a>
-				</li>
-				<li>
-					 <a href="#">2</a>
-				</li>
-				<li>
-					 <a href="#">3</a>
-				</li>
-				<li>
-					 <a href="#">4</a>
-				</li>
-				<li>
-					 <a href="#">5</a>
-				</li>
-				<li>
-					 <a href="#">Next</a>
-				</li>
-			</ul>
-		
-		</div>
-	</div>
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="progress">
-				<div class="progress-bar progress-success">
-				</div>
+				<a href="javascript:void(0)" class="zjxx">增加活动进程</a> 
 			</div>
-		</div>
-	</div>
-</div>
-
 
 </body>
 </html>

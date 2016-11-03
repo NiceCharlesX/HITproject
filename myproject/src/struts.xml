@@ -6,14 +6,29 @@
 	
 <struts>
     <include file="struts-default.xml"/>
-    <package name="tutorial"  extends="struts-default"  >
+    <package name="tutorial" extends="struts-default">
         <action name="register" class="tutorial.register">
-            <result name = "error">home.jsp</result>
-            <result name = "success">home.jsp</result>
-            <result name = "samephonenumber">home.jsp</result>
-            <result name = "sameemail">home.jsp</result>
+         	<result name = "inputempty">register_error.jsp</result>
+            <result name = "success">login.jsp</result>
+            <result name = "error">register_error.jsp</result>
+            <result name = "sameemail">register_sameemail.jsp</result>
+            <result name = "samephonenumber">register_samephone.jsp</result>
         </action>
-       
+        
+        <action name="login" class="tutorial.login">
+        	<result name = "success">home.jsp</result>
+        	<result name = "error">login_error.jsp</result>
+        </action>
+        
+        <action name="createact" class="tutorial.createact">
+        	<result name = "success">home.jsp</result>
+        	<result name = "error">index.jsp</result>
+        </action>
+        
+        <action name="collecting" class="tutorial.collecting">
+        	<result name = "success">home.jsp</result>
+        	<result name = "error">index.jsp</result>
+        </action>
     </package>
     
    

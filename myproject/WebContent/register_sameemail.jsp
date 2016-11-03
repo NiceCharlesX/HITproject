@@ -14,7 +14,7 @@
 <body>
 
 <script language='javaScript'> alert('注册失败！邮箱已注册！');</script>
-<% response.setHeader("refresh","1;url=books.action"); %>
+<% response.setHeader("refresh","1;url=login.jsp"); %>
 
   
 </body>

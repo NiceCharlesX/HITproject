@@ -14,7 +14,7 @@
 <body>
 
 <script language='javaScript'> alert('注册失败！电话已注册！');</script>
-<% response.setHeader("refresh","1;url=books.action"); %>
+<% response.setHeader("refresh","1;url=login.jsp"); %>
 
   
 </body>

@@ -10,7 +10,6 @@ public class register extends ActionSupport {
 	public String name;
 	public  String password;
 	public  String phonenumber;	
-	
 	public String getemail(){
         return email;
     }
@@ -40,9 +39,12 @@ public class register extends ActionSupport {
 		this.phonenumber = phonenumber;
 	}
 	public String execute(){
-		String ret  = ERROR;
+		String ret = ERROR;
 		Connection conn = null;
-		
+		if(name==null||name.length()<=0||password==null||password.length()<=0||email==null||email.length()<=0||phonenumber==null||phonenumber.length()<=0)
+		{
+			return "inputempty";
+		}
 		try{			
 			Class.forName("com.mysql.jdbc.Driver");
 			conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
@@ -66,7 +68,7 @@ public class register extends ActionSupport {
 		    	sql="insert into user(email,name,password,phonenumber) values('"+email+"','"+name+"','"+password+"','"+phonenumber+"')";
 		    	stmt.executeUpdate(sql);
 		    	ret = SUCCESS;
-		    	 sql="CREATE TABLE c"+phonenumber+"(actid bigint(30) not null,primary key (actid));";
+		    	sql="CREATE TABLE c"+phonenumber+"(actid bigint(30) NOT NULL,PRIMARY KEY (actid));";
 		    	stmt.executeUpdate(sql);
 		    }	    
             stmt.close();
@@ -84,7 +86,5 @@ public class register extends ActionSupport {
 			}
 		}
 		return ret;
-	
 	}
-	
 }

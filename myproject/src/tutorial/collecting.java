@@ -6,20 +6,20 @@ import java.sql.*;
 
 
 public class collecting extends ActionSupport {
-	public  String actid;
-	public String email;
+	public String actid;
+	public String phonenumber;
 	public String getactid(){
 		return actid;
 	}	
 	public void setactid(String actid){
 		this.actid = actid;
 	}
-	public String getemail(){
-		return email;
+	public String getphonenumber(){
+		return phonenumber;
 	}
 	
-	public void setemail(String email){
-		this.email = email;
+	public void setphonenumber(String phonenumber){
+		this.phonenumber = phonenumber;
 	}
 	public String execute(){
 		String ret = ERROR;
@@ -28,10 +28,11 @@ public class collecting extends ActionSupport {
 			Class.forName("com.mysql.jdbc.Driver");
 		    conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
 		    Statement stmt=conn.createStatement();
-		    String sql="insert into c"+email+"(actid) values('"+actid+"')";
+		    String sql="insert into c"+phonenumber+"(actid) values('"+actid+"')";
             stmt.executeUpdate(sql);   
             stmt.close();
         	conn.close();
+        	ret = SUCCESS;
 		}
 		catch(Exception e){
 			ret =  ERROR;
