@@ -27,8 +27,12 @@
 <s:property value = "brief"/> 
 </br>
 
-<h1><s:property value = "time"/></h1>
 
+<h1><s:property value = "temp1"/></h1></br>
+<h1><s:property value = "temp2"/></h1></br>
+<h1><s:property value = "temp3"/></h1></br>
+<h1><s:property value = "temp4"/></h1></br>
+<h1><s:property value = "temp5"/></h1></br>
 
 
 </font>

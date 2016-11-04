@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE >
 <html>
 <head>
@@ -403,9 +404,9 @@ $(document).ready(function() {
 		<div class="col-md-8 column">
 			
 			
-	<form class="form-horizontal" role="form" action="test">
-				
-<label for="Name" >填写进程</label>
+	<form class="form-horizontal" role="form" action="createschedule">
+		<input type="hidden" name="actid" value="<s:property value = "actid"/>" />			
+		<label for="Name">填写进程</label>
 			<div class="yd_box">		
 				<div class = "movie_box">
 					<br/>
@@ -427,7 +428,7 @@ $(document).ready(function() {
 					<div class="form-group">
 						<label for="Name" class="col-md-2">主持人</label>
 	          			<div class = "col-md-10 col-lg-4">
-					 		<input type="text" class="form-control input-sm" id="Name" />
+					 		<input type="text" class="form-control input-sm" id="Name" name="person"/>
 					 	</div>	          		      			       	         			
 					</div>	
 					</li>
@@ -435,7 +436,7 @@ $(document).ready(function() {
 					<div class="form-group">
 						<label for="Name" class="col-md-2">地点</label>
 						<div class = "col-md-10 col-lg-4">
-							<input type="text" class="form-control input-sm" id="Name"/>
+							<input type="text" class="form-control input-sm" id="Name" name="place"/>
 						</div>
 					</div>
 					</li>
@@ -444,7 +445,7 @@ $(document).ready(function() {
 					<div class="form-group">
 						<label for="Name" class="col-md-2">内容</label>
 						<div class="textarea col-md-10" >
-                  			<textarea rows = "2" cols = "29"> </textarea>
+                  			<textarea rows = "2" cols = "29" name="contents"> </textarea>
            			 	</div>
 					</div>
 					</li>

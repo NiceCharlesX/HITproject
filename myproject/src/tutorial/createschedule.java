@@ -9,6 +9,7 @@ public class createschedule extends ActionSupport {
 	public String[] contents;
 	public String[] place;
 	public String[] person;
+
 	public String getactid(){
 		return actid;
 	}
@@ -42,6 +43,7 @@ public class createschedule extends ActionSupport {
     
 	public String execute(){
 		String ret = ERROR;
+
 		Connection conn = null;
 		try{
   		    Class.forName("com.mysql.jdbc.Driver");

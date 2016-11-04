@@ -84,7 +84,7 @@ public class createact extends ActionSupport {
                 actid= rs.getInt(1);
             }
             rs.close();
-            sql="CREATE TABLE s"+actid+"(sid bigint(30) not null AUTO_INCREMENT, time varchar(30) not null, contents varchar(30) not null,place varchar(30) not null,person varchar(30) not null,primary key (sid));";
+            sql="CREATE TABLE s"+actid+"(sid bigint(30) not null AUTO_INCREMENT, time varchar(100) not null, contents varchar(100) not null,place varchar(30) not null,person varchar(30) not null,primary key (sid));";
             stmt.executeUpdate(sql); 
             stmt.close();
         	conn.close();
