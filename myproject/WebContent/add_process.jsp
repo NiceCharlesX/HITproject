@@ -41,6 +41,7 @@
 	<script> var jq183 = jQuery.noConflict(true); </script>
 
 <script>
+
 jq183(document).ready(function(e) {
     jq183(".btwen_text").val("题目");
 	 jq183(".btwen_text_dx").val("单选题目");
@@ -220,7 +221,7 @@ jq183(document).ready(function(e) {
 			jq183(this).before("<div class='movie_box'>"+zjxxx_html+"</div>");
 			var zjxxx = jq183(this).prev(".movie_box");
 			var leng = jq183(this).parent(".yd_box").children(".movie_box").length;
-			zjxxx.children(".wjdc_list").find(".nmb").text(leng);	
+			zjxxx.children(".wjdc_list").find(".nmb").text(leng);
 		});
 		
 	
@@ -296,7 +297,8 @@ $(document).ready(function() {
 		console.log(start.toISOString(), end.toISOString(), label);
 		});
 		
-		$('.reservationtime').daterangepicker({
+		$('.reservationtime').daterangepicker(
+				{
             timePicker: true,
             timePickerIncrement: 30,
             format: 'MM/DD/YYYY h:mm A'
@@ -307,15 +309,108 @@ $(document).ready(function() {
 	});
 
 </script>
+
+
+
 </head>
 
 <body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							 <a href="#">Link</a>
+						</li>
+						<li>
+							 <a href="#">Link</a>
+						</li>
+						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									 <a href="#">Action</a>
+								</li>
+								<li>
+									 <a href="#">Another action</a>
+								</li>
+								<li>
+									 <a href="#">Something else here</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									 <a href="#">Separated link</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									 <a href="#">One more separated link</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" />
+						</div> <button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							 <a href="#">Link</a>
+						</li>
+						<li class="dropdown">
+							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li>
+									 <a href="#">Action</a>
+								</li>
+								<li>
+									 <a href="#">Another action</a>
+								</li>
+								<li>
+									 <a href="#">Something else here</a>
+								</li>
+								<li class="divider">
+								</li>
+								<li>
+									 <a href="#">Separated link</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<ul class="breadcrumb">
+				<li>
+					 <a href="#">Home</a>
+				</li>
+				<li>
+					 <a href="#">Library</a>
+				</li>
+				<li class="active">
+					Data
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-8 column">
+			
+			
+	<form class="form-horizontal" role="form" action="test">
+				
 <label for="Name" >填写进程</label>
-			<div class="yd_box">	
-	
+			<div class="yd_box">		
 				<div class = "movie_box">
 					<br/>
 					<ul class="wjdc_list">
+					
 					 <li>
           				<div class="tm_btitlt"><i class="btwenzi">活动进程</i><i class="nmb">1</i></div>
        				</li>
@@ -324,7 +419,7 @@ $(document).ready(function() {
 						<label for="Name" class="col-md-2">起止时间</label>
 	          			<div class="input-prepend input-group col-md-5 ">
 	                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-	                       <input type="text" style="width: 250px" name="reservation"  class="form-control reservationtime input-sm" value="08/01/2013 1:00 PM - 08/01/2013 1:30 PM"  class="span4"/>
+	                       <input type="text" style="width: 250px" name="time"  class="form-control reservationtime input-sm" value="08/01/2013 1:00 PM - 08/01/2013 1:30 PM"  class="span4" />
 	                     </div>        			       	         			
 					</div>
 					</li>
@@ -360,6 +455,51 @@ $(document).ready(function() {
 				</div>
 				<a href="javascript:void(0)" class="zjxx">增加活动进程</a> 
 			</div>
-
+				
+			
+			
+			<br/>
+			<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+		
+		<div class="col-md-4 column">
+			<img alt="140x140" src="images/touxiang.jpg" />
+			<br/>
+			<ul class="pagination">
+				<li>
+					 <a href="#">Prev</a>
+				</li>
+				<li>
+					 <a href="#">1</a>
+				</li>
+				<li>
+					 <a href="#">2</a>
+				</li>
+				<li>
+					 <a href="#">3</a>
+				</li>
+				<li>
+					 <a href="#">4</a>
+				</li>
+				<li>
+					 <a href="#">5</a>
+				</li>
+				<li>
+					 <a href="#">Next</a>
+				</li>
+			</ul>
+		
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="progress">
+				<div class="progress-bar progress-success">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>

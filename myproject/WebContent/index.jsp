@@ -27,7 +27,7 @@
 <s:property value = "brief"/> 
 </br>
 
-
+<h1><s:property value = "time"/></h1>
 
 
 

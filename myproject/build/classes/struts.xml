@@ -29,6 +29,11 @@
         	<result name = "success">home.jsp</result>
         	<result name = "error">index.jsp</result>
         </action>
+        
+        <action name="test" class="tutorial.test">
+        	<result name = "success">index.jsp</result>
+        	<result name = "error">home.jsp</result>
+        </action>
     </package>
     
    
