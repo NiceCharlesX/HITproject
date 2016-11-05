@@ -36,5 +36,6 @@
         </action>
     </package>
     
-   
+
+   	<constant name="struts.action.excludePattern" value="/websocket*,^ws://.$"/>
 </struts>
