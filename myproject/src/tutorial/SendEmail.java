@@ -1,8 +1,10 @@
 package tutorial;
 
-import java.util.Date;  
+import java.util.Date;
+
 import java.util.Properties;  
-  
+ 
+import java.util.*;
 import javax.mail.*;  
 import javax.mail.internet.*;  
 
@@ -14,6 +16,7 @@ public class SendEmail {
 	String toAddr;
 	String subject;
 	String content;
+	Address[] address;
 
 	public SendEmail()
 	{
@@ -53,7 +56,14 @@ public class SendEmail {
 			//设置源地址
 			msg.setFrom(new InternetAddress(fromAddr));
 			//设置目的地址
-			msg.setRecipient(Message.RecipientType.TO,new InternetAddress(toAddr));
+			
+		
+			String[] gods = toAddr.split("[,]");			
+			address = new InternetAddress[gods.length];
+			for(int i=0;i<gods.length;i++){
+				address[i] = new InternetAddress(gods[i]);
+			}
+			msg.setRecipients(Message.RecipientType.TO,address);
 			//设置主题
 			msg.setSubject(subject);
 
@@ -144,5 +154,7 @@ public class SendEmail {
 	{
 		this.content = content;
 	}
+	
+
 
 }
