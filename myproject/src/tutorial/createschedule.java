@@ -9,7 +9,13 @@ public class createschedule extends ActionSupport {
 	public String[] contents;
 	public String[] place;
 	public String[] person;
-
+	public String phonenumber;
+    public String getphonenumber(){
+        return phonenumber;
+    }
+    public void setphonenumber(String phonenumber){
+        this.phonenumber = phonenumber;
+    }   
 	public String getactid(){
 		return actid;
 	}

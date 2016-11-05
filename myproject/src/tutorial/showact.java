@@ -6,6 +6,13 @@ import java.util.*;
 public class showact extends ActionSupport {
 	public String orderby;
 	public ArrayList<Map<String,String>> list;
+	public String phonenumber;
+    public String getphonenumber(){
+        return phonenumber;
+    }
+    public void setphonenumber(String phonenumber){
+        this.phonenumber = phonenumber;
+    }   
 	public String getorderby(){
 		return orderby;
 	}
@@ -31,7 +38,7 @@ public class showact extends ActionSupport {
                 Map<String,String> map = new HashMap<String,String>();
                 map.put("actid", rs.getString(1));
                 map.put("name", rs.getString(2));
-                map.put("creatoremail", rs.getString(3));
+                map.put("cphonenumber", rs.getString(3));
                 map.put("creator", rs.getString(4));
                 map.put("place", rs.getString(5));
                 map.put("sdate", rs.getString(6));

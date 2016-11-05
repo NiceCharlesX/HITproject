@@ -11,6 +11,13 @@ import java.util.Map;
 public class login extends ActionSupport {
 	public String email;
 	public String password;
+	public String phonenumber;
+    public String getphonenumber(){
+        return phonenumber;
+    }
+    public void setphonenumber(String phonenumber){
+        this.phonenumber = phonenumber;
+    }   
 	Map<String,Object> session = ActionContext.getContext().getSession();
 	public Map<String,Object>  getsession(){
 		return session;
@@ -51,6 +58,7 @@ public class login extends ActionSupport {
 		    	if(email.equals(rs.getString(1))&&password.equals(rs.getString(3)))
 		    	{		    		
 		    		session.put("email", "abc");
+		    		phonenumber = rs.getString(4);
 		    		return SUCCESS;
 		    	}
 		    }
