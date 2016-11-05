@@ -6,6 +6,13 @@ import java.util.*;
 public class showact extends ActionSupport {
 	public String orderby;
 	public ArrayList<Map<String,String>> list;
+	public String phonenumber;
+    public String getphonenumber(){
+        return phonenumber;
+    }
+    public void setphonenumber(String phonenumber){
+        this.phonenumber = phonenumber;
+    }   
 	public String getorderby(){
 		return orderby;
 	}

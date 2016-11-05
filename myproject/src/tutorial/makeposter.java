@@ -14,6 +14,13 @@ public class makeposter extends ActionSupport {
     public String edate;
     public String type;
     public String brief;
+    public String phonenumber;
+    public String getphonenumber(){
+        return phonenumber;
+    }
+    public void setphonenumber(String phonenumber){
+        this.phonenumber = phonenumber;
+    }   
     public String getbrief(){
       return brief;
     }   

@@ -17,6 +17,13 @@ public class createact extends ActionSupport {
 	public String type;
 	public String brief;
 	public String[] date;
+	public String phonenumber;
+    public String getphonenumber(){
+        return phonenumber;
+    }
+    public void setphonenumber(String phonenumber){
+        this.phonenumber = phonenumber;
+    }   
 	public String getname(){
 		return name;
 	}	

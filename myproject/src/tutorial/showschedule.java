@@ -6,6 +6,13 @@ import java.util.*;
 public class showschedule extends ActionSupport {
 	public String actid;
 	public ArrayList<Map<String,String>> list;
+	public String phonenumber;
+    public String getphonenumber(){
+        return phonenumber;
+    }
+    public void setphonenumber(String phonenumber){
+        this.phonenumber = phonenumber;
+    }   
 	public String getactid(){
 		return actid;
 	}

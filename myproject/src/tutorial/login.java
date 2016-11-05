@@ -11,6 +11,13 @@ import java.util.Map;
 public class login extends ActionSupport {
 	public String email;
 	public String password;
+	public String phonenumber;
+    public String getphonenumber(){
+        return phonenumber;
+    }
+    public void setphonenumber(String phonenumber){
+        this.phonenumber = phonenumber;
+    }   
 	Map<String,Object> session = ActionContext.getContext().getSession();
 	public Map<String,Object>  getsession(){
 		return session;

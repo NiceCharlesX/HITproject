@@ -30,12 +30,15 @@ public class mycollection extends ActionSupport {
 	            ResultSet rs=stmt.executeQuery(s);
 	            rs.next();
 	            Map<String,String> map = new HashMap<String,String>();
-	            map.put("ISBN", rs.getString(1));
-	            map.put("Title", rs.getString(2));
-	            map.put("AuthorID", rs.getString(3));
-	            map.put("Publisher", rs.getString(4));
-	            map.put("PublishDate", rs.getString(5));
-	            map.put("Price", rs.getString(6));
+                map.put("actid", rs.getString(1));
+                map.put("name", rs.getString(2));
+                map.put("creatoremail", rs.getString(3));
+                map.put("creator", rs.getString(4));
+                map.put("place", rs.getString(5));
+                map.put("sdate", rs.getString(6));
+                map.put("edate", rs.getString(7));
+                map.put("type", rs.getString(8));
+                map.put("brief", rs.getString(9));
 	            list.add(map);
 	            rs.close();
 		    }
