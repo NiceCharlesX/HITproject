@@ -7,19 +7,26 @@ public class makeposter extends ActionSupport {
     public String actid;
     public ArrayList<Map<String,String>> list;
     public  String name;
-    public  String creatoremail;
+    public  String cphonenumber;
     public String creator;
     public String place;
     public String sdate;
     public String edate;
     public String type;
     public String brief;
-    public String phonenumber;
+    public  String phonenumber;
     public String getphonenumber(){
-        return phonenumber;
+      return phonenumber;
     }
+    
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
+    }
+    public String getcphonenumber(){
+        return cphonenumber;
+    }
+    public void setcphonenumber(String cphonenumber){
+        this.cphonenumber = cphonenumber;
     }   
     public String getbrief(){
       return brief;
@@ -32,13 +39,6 @@ public class makeposter extends ActionSupport {
     }   
     public void setname(String name){
         this.name = name;
-    }
-    public String getcreatoremail(){
-        return creatoremail;
-    }
-    
-    public void setcreatoremail(String creatoremail){
-        this.creatoremail = creatoremail;
     }
     public String getcreator(){
         return creator;
@@ -70,8 +70,6 @@ public class makeposter extends ActionSupport {
     public void settype(String type){
         this.type = type;
     }
-  
-  
     public String getactid(){
         return actid;
     }
@@ -103,7 +101,7 @@ public class makeposter extends ActionSupport {
             ResultSet rss=stmt.executeQuery(s);
             rss.next();
             name=rss.getString(2);
-            creatoremail=rss.getString(3);
+            cphonenumber=rss.getString(3);
             creator=rss.getString(4);
             place=rss.getString(5);
             sdate=rss.getString(6);

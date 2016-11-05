@@ -10,32 +10,32 @@ import java.util.Map;
 public class createact extends ActionSupport {
     public int actid;
 	public  String name;
-	public  String creatoremail;
+	public  String cphonenumber;
 	public String creator;
 	public String place;
 	public String time;
 	public String type;
 	public String brief;
 	public String[] date;
-	public String phonenumber;
-    public String getphonenumber(){
-        return phonenumber;
+	public  String phonenumber;
+	public String getphonenumber(){
+      return phonenumber;
     }
+    
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
+    }
+    public String getcphonenumber(){
+        return cphonenumber;
+    }
+    public void setcphonenumber(String cphonenumber){
+        this.cphonenumber = cphonenumber;
     }   
 	public String getname(){
 		return name;
 	}	
 	public void setname(String name){
 		this.name = name;
-	}
-	public String getcreatoremail(){
-		return creatoremail;
-	}
-	
-	public void setcreatoremail(String creatoremail){
-		this.creatoremail = creatoremail;
 	}
 	public String getcreator(){
 		return creator;
@@ -81,7 +81,7 @@ public class createact extends ActionSupport {
 		    conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
 		    Statement stmt=conn.createStatement();
 		    String sql;
-		    sql="insert into act(name,creatoremail,creator,place,sdate,edate,type,brief) values('"+name+"','"+creatoremail+"','"+creator+"','"+place+"','"+date[0]+"','"+date[2]+"','"+type+"','"+brief+"')";
+		    sql="insert into act(name,cphonenumber,creator,place,sdate,edate,type,brief) values('"+name+"','"+cphonenumber+"','"+creator+"','"+place+"','"+date[0]+"','"+date[2]+"','"+type+"','"+brief+"')";
             stmt.executeUpdate(sql);
             ret = SUCCESS;
             sql="select * from act where name ='"+name+"'";

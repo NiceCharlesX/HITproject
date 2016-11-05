@@ -58,6 +58,7 @@ public class login extends ActionSupport {
 		    	if(email.equals(rs.getString(1))&&password.equals(rs.getString(3)))
 		    	{		    		
 		    		session.put("email", "abc");
+		    		phonenumber = rs.getString(4);
 		    		return SUCCESS;
 		    	}
 		    }
