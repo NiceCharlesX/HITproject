@@ -10,10 +10,10 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-core-2.5.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/小明/Desktop/hibernate-release-5.2.4.Final/lib/required/hibernate-core-5.2.4.Final.jar"/>
-	<classpathentry kind="lib" path="C:/Users/小明/Desktop/catalina.jar和websocket-api.jar，java开发html5必备包/catalina.jar"/>
-	<classpathentry kind="lib" path="C:/Users/小明/Desktop/catalina.jar和websocket-api.jar，java开发html5必备包/websocket-api.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/activation.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mail.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/catalina.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/hibernate-core-5.2.4.Final.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/websocket-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
