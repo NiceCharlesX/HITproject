@@ -407,9 +407,9 @@ $(document).ready(function() {
 				</div>
 				
 				<div class="form-group">
-					 <label for="exampleInputEmail1" class="col-md-2">联系方式邮箱</label>
+					 <label for="exampleInputEmail1" class="col-md-2">联系方式</label>
 					 <div class = "col-md-10 col-lg-4">
-					 	<input type="email" class="form-control" id="exampleInputEmail1" name="creatoremail"/>
+					 	<input type="text" class="form-control"  id="Name" name="cphonenumber" />
 					 </div>
 				</div>
 				
