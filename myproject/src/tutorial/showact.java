@@ -31,7 +31,15 @@ public class showact extends ActionSupport {
   		    Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
             Statement stmt=con.createStatement();
-        	String s="select * from act order by "+orderby+"";
+            String s;
+            if(orderby.equals("Ê±¼ä"))
+            {
+                s="select * from act where edate>=now() order by sdate";
+            }
+            else
+            {
+                s="select * from act where edate>=now() and type='"+orderby+"' order by sdate";
+            }
         	ResultSet rs=stmt.executeQuery(s);
             while(rs.next())
             {
