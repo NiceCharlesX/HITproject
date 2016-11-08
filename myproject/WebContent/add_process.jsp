@@ -405,7 +405,9 @@ $(document).ready(function() {
 			
 			
 	<form class="form-horizontal" role="form" action="createschedule">
-		<input type="hidden" name="actid" value="<s:property value = "actid"/>" />			
+		<input type="hidden" name="actid" value="<s:property value = "actid"/>" />
+		<input type="hidden" name="phonenumber" value="<s:property value = "phonenumber" />" />			
+		
 		<label for="Name">填写进程</label>
 			<div class="yd_box">		
 				<div class = "movie_box">

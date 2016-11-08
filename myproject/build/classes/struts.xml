@@ -16,8 +16,13 @@
         </action>
         
         <action name="login" class="tutorial.login">
+	        	<result name = "success" type = "redirect">showact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
+	        	<result name = "error">login_error.jsp</result>
+        </action>
+        
+        <action name="showact" class="tutorial.showact">
         	<result name = "success">home.jsp</result>
-        	<result name = "error">login_error.jsp</result>
+        	<result name = "error">404.jsp</result>
         </action>
         
         <action name="createact" class="tutorial.createact">
@@ -26,15 +31,26 @@
         </action>
         
         <action name="collecting" class="tutorial.collecting">
-        	<result name = "success">home.jsp</result>
+        	<result name = "success" type = "redirect">showact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
         	<result name = "error">index.jsp</result>
         </action>
         
         <action name="createschedule" class="tutorial.createschedule">
-        	<result name = "success">home.jsp</result>
+        	<result name = "success" type = "redirect">showact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
         	<result name = "error">index.jsp</result>
         </action>
+        
+        <action name="myact" class="tutorial.myact">
+        	<result name = "success">myact.jsp</result>
+        	<result name = "error">404.jsp</result>
+        </action>
+        
+        <action name="mycollection" class="tutorial.mycollection">
+        	<result name = "success">mycollection.jsp</result>
+        	<result name = "error">404.jsp</result>
+        </action>
     </package>
+    
     
 
    	<constant name="struts.action.excludePattern" value="/websocket*,^ws://.$"/>
