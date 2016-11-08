@@ -28,19 +28,33 @@ public class MyTask extends TimerTask{
   
     public void run() {  
         Calendar cal = Calendar.getInstance();  
+        whocollect co= new whocollect();
+        co.execute();
+        String actname= "error";
         if (!isRunning) {  
             if (C_SCHEDULE_HOUR == cal.get(Calendar.HOUR_OF_DAY)) {  
                 isRunning = true;  
                 context.log("开始执行指定任务");  
-  
-                SendEmail send = new SendEmail();
-                send.setToAddr("921159963@qq.com");
-                send.setFromAddr("18245010845@163.com");
-                send.setUsername("18245010845@163.com");
-                send.setPassword("as123456");
-                send.setSubject("ding shi fa song");
-                send.setContent("ding shi ren wu ce shi!");
-                send.sendMail();
+                for(String temp:co.list)
+                {
+                	  if(temp.indexOf("@")==-1)
+                	  {
+                		    actname= temp;
+                	  }
+                	  else
+                	  {
+                		  System.out.println(actname); 
+                		  System.out.println(temp);
+                		  SendEmail send = new SendEmail();
+                           send.setToAddr(temp);
+                           send.setFromAddr("18245010845@163.com");
+                           send.setUsername("18245010845@163.com");
+                           send.setPassword("as123456");
+                           send.setSubject("ding shi fa song");
+                           send.setContent("<"+actname+">已经临近");
+                           send.sendMail();
+                	  }
+                }        
                 // new YouCode().changeState();  
                 
                 isRunning = false;  
