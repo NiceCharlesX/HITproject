@@ -409,9 +409,11 @@ $(document).ready(function() {
 				<div class="form-group">
 					 <label for="exampleInputEmail1" class="col-md-2">联系方式</label>
 					 <div class = "col-md-10 col-lg-4">
-					 	<input type="text" class="form-control"  id="Name" name="cphonenumber" />
+					 	<input type="text" class="form-control"  id="Name" name="cphonenumber" value=<%=request.getParameter("phonenumber") %> />
 					 </div>
 				</div>
+				
+				<input type="hidden" name="phonenumber" value=<%=request.getParameter("phonenumber") %> />
 				
 				<div class="form-group">
 					 <label for="Name" class="col-md-2">举办者</label>

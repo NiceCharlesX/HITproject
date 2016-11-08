@@ -35,14 +35,11 @@
 			<nav class="navbar navbar-default  " role="navigation">
 				<div class="navbar-header">
 					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
-					 <a class="navbar-brand" href="<s:url action="showact"> 
+					<a class="navbar-brand" href="<s:url action="showact"> 
 					 <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 					 <s:param name="orderby">time</s:param>
 					 </s:url>
 					 ">主页</a>
-					
-					
-				
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
@@ -127,14 +124,13 @@
 			</p> 
 			<a style='text-decoration:none;' href="#"><button type="button" class="btn btn-block btn-default">编辑信息</button></a>
 			</br>
-	
 			<a style='text-decoration:none' href="<s:url action="myact.action">	   
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                  </s:url>
 	                  "><button type="button" class="btn btn-block btn-default">我的活动</button></a>
 	         
-	         </br>    
-	        <a style='text-decoration:none' href="<s:url action="mycollection">	
+	         </br>
+	         <a style='text-decoration:none' href="<s:url action="mycollection">	
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                  </s:url>
 	                  "><button type="button" class="btn btn-block btn-default">我的收藏</button></a>
@@ -145,10 +141,11 @@
 				<div class="col-md-12 column">
 					<ol class="breadcrumb">
 						<li><a style='text-decoration:none'  href="<s:url action="showact"> 
-					 <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
-					 <s:param name="orderby">time</s:param>
-					 </s:url>
-					 ">主页</a></li>
+						 	<s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
+						 	<s:param name="orderby">time</s:param>
+						 	</s:url>
+					      ">主页</a>
+					     </li>		
 						<li><a href="#">2013</a></li>
 						<li class="active">十一月</li>
 						<li class="dropdown pull-right">
@@ -179,61 +176,9 @@
 				
 			</div>
 			
-			<div class="row clearfix">
-				<div class="col-md-12 column">
-				
-					<div class="carousel slide" id="carousel-634407">
-						<ol class="carousel-indicators">
-							<li data-slide-to="0" data-target="#carousel-634407">
-							</li>
-							<li data-slide-to="1" data-target="#carousel-634407">
-							</li>
-							<li data-slide-to="2" data-target="#carousel-634407" class="active">
-							</li>
-						</ol>
-						<div class="carousel-inner">
-							<div class="item">
-								<img alt="" src="images/big1.jpg" />
-								<div class="carousel-caption">
-									<h4>
-										First Thumbnail label
-									</h4>
-									<p>
-										Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-									</p>
-								</div>
-							</div>
-							<div class="item">
-								<img alt="" src="images/big2.jpg" />
-								<div class="carousel-caption">
-									<h4>
-										Second Thumbnail label
-									</h4>
-									<p>
-										Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-									</p>
-								</div>
-							</div>
-							<div class="item active">
-								<img alt="" src="images/big3.jpg" />
-								<div class="carousel-caption">
-									<h4>
-										Third Thumbnail label
-									</h4>
-									<p>
-										Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-									</p>
-								</div>
-							</div>
-						</div> <a class="left carousel-control" href="#carousel-634407" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-634407" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-					</div>
-				</div>
-			</div>
 			
 			
-			
-						
-		
+	
 			
 			<div class="row clearfix">
 				<div class="col-md-12 column">
@@ -269,11 +214,7 @@
 									</figcaption>
 									<img src="images/large/1.png" alt="img01"/>
 									</br>
-									<a href="<s:url action="collecting">
-	                        				<s:param name="actid"><s:property value='#var.actid' /></s:param>
-	                        				<s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
-	                       					</s:url>
-	                      				 ">添加到我的收藏</a>
+									<a style='text-decoration:none;' href="#">修改活动</a>
 								</figure>
 							</li>
 						</s:iterator>	
@@ -284,9 +225,7 @@
 						<span class="icon nav-close"></span>
 					</nav>
 				</section>
-				</div>
-				
-				
+				</div>								
 				<br/>
 				<br/>
 				<br/>

@@ -10,6 +10,7 @@ public class createschedule extends ActionSupport {
 	public String[] place;
 	public String[] person;
 	public String phonenumber;
+	
     public String getphonenumber(){
         return phonenumber;
     }

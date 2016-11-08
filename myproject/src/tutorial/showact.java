@@ -7,6 +7,12 @@ public class showact extends ActionSupport {
 	public String orderby;
 	public ArrayList<Map<String,String>> list;
 	public String phonenumber;
+	public int temp=0;
+	
+
+	public int gettemp(){
+		return temp;
+	}
     public String getphonenumber(){
         return phonenumber;
     }
@@ -32,9 +38,13 @@ public class showact extends ActionSupport {
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
             Statement stmt=con.createStatement();
             String s;
-            if(orderby.equals("Ê±¼ä"))
+            if(orderby.equals(null))
             {
-                s="select * from act where edate>=now() order by sdate";
+            	s="select * from act where edate>=now() order by sdate";
+            }
+            else if(orderby.equals("time"))
+            {
+                s="select * from act order by sdate";
             }
             else
             {
@@ -54,6 +64,7 @@ public class showact extends ActionSupport {
                 map.put("type", rs.getString(8));
                 map.put("brief", rs.getString(9));
                 list.add(map);
+                temp++;
             }
             rs.close();
             stmt.close();

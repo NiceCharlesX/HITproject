@@ -18,6 +18,7 @@ public class createact extends ActionSupport {
 	public String brief;
 	public String[] date;
 	public  String phonenumber;
+	
 	public String getphonenumber(){
       return phonenumber;
     }

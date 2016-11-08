@@ -6,6 +6,7 @@ import java.util.*;
 public class mycollection extends ActionSupport {
 	public String phonenumber;
 	public ArrayList<Map<String,String>> list;
+	public ArrayList<String> actid;
 	public String getphonenumber(){
 		return phonenumber;
 	}
@@ -15,18 +16,22 @@ public class mycollection extends ActionSupport {
 	public String execute(){
 		String ret = ERROR;
 		Connection con = null;
+		actid = new ArrayList<String>();
 		list = new ArrayList<Map<String,String>>();
 		try{
-		    String actid;
-			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://cnphlspinrfu.rds.sae.sina.com.cn:10468/bookdb?useUnicode=true&characterEncoding=utf-8", "bookdb", "02111996");
+		    Class.forName("com.mysql.jdbc.Driver");
+		    con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
 		    Statement stmt=con.createStatement();
 		    String s="select * from c"+phonenumber+"";
             ResultSet rss=stmt.executeQuery(s);
 		    while(rss.next())
+		    {  	
+		        actid.add(rss.getString(1));
+		    }
+		    rss.close();
+		    for(String temp:actid)
 		    {
-		        actid= rss.getString(1);
-		        s="select * from book where actid ='"+actid+"'";
+		        s="select * from act where actid ='"+temp+"'";
 	            ResultSet rs=stmt.executeQuery(s);
 	            rs.next();
 	            Map<String,String> map = new HashMap<String,String>();
@@ -42,7 +47,6 @@ public class mycollection extends ActionSupport {
 	            list.add(map);
 	            rs.close();
 		    }
-		    rss.close();
             stmt.close();
         	con.close();
             ret = SUCCESS;
