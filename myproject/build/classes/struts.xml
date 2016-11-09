@@ -13,6 +13,7 @@
             <result name = "error">register_error.jsp</result>
             <result name = "sameemail">register_sameemail.jsp</result>
             <result name = "samephonenumber">register_samephone.jsp</result>
+            <result name = "samename">register_samename.jsp</result>
         </action>
         
         <action name="login" class="tutorial.login">
@@ -47,6 +48,10 @@
         
         <action name="mycollection" class="tutorial.mycollection">
         	<result name = "success">mycollection.jsp</result>
+        	<result name = "error">404.jsp</result>
+        </action>
+        <action name="whocollect" class="tutorial.whocollect">
+        	<result name = "success">index.jsp</result>
         	<result name = "error">404.jsp</result>
         </action>
     </package>

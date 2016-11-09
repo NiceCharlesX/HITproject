@@ -1,3 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebContent/404.jsp=UTF-8
 encoding//WebContent/websocket.jsp=UTF-8
+encoding//src/tutorial/ContextListener.java=UTF-8
+encoding//src/tutorial/MyTask.java=UTF-8
+encoding//src/tutorial/SendEmail.java=UTF-8

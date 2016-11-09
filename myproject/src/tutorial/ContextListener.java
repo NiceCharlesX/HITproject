@@ -14,25 +14,29 @@ public class ContextListener implements  ServletContextListener{
 	public void contextInitialized(ServletContextEvent event) {
 		
 		/**
-		 * 设置一个定时器
+		 * 璁剧疆涓�涓畾鏃跺櫒
 		 */
 		timer = new java.util.Timer(true);
 		
-		event.getServletContext().log("定时器已启动");
+		event.getServletContext().log("瀹氭椂鍣ㄥ凡鍚姩");
 
 		/**
-		 * 定时器到指定的时间时,执行某个操作(如某个类,或方法)
+		 * 瀹氭椂鍣ㄥ埌鎸囧畾鐨勬椂闂存椂,鎵ц鏌愪釜鎿嶄綔(濡傛煇涓被,鎴栨柟娉�)
 		 */
+<<<<<<< HEAD
 		//后边最后一个参数代表监视器的监视周期,现在为一小时
+=======
+		//鍚庤竟鏈�鍚庝竴涓弬鏁颁唬琛ㄧ洃瑙嗗櫒鐨勭洃瑙嗗懆鏈�,鐜板湪涓轰竴灏忔椂
+>>>>>>> project/xxx
 		timer.schedule(new MyTask(event.getServletContext()), 0, 60*60*1000);
 
-		event.getServletContext().log("已经添加任务调度表");
+		event.getServletContext().log("宸茬粡娣诲姞浠诲姟璋冨害琛�");
 	}
 
 	public void contextDestroyed(ServletContextEvent event) {
 		timer.cancel();
-		System.out.println("定时器销毁");
-		event.getServletContext().log("定时器销毁");
+		System.out.println("瀹氭椂鍣ㄩ攢姣�");
+		event.getServletContext().log("瀹氭椂鍣ㄩ攢姣�");
 	}
 
 }
