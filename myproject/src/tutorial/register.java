@@ -61,6 +61,10 @@ public class register extends ActionSupport {
 		    	{
 		    		return "samephonenumber";
 		    	}
+		    	if(name.equals(rs.getString(2)))
+		    	{
+		    	    return "samename";
+		    	}
 		    }
 		    rs.close();
 		    if(ret.equals(ERROR))

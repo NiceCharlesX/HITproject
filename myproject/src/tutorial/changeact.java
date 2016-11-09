@@ -84,6 +84,7 @@ public class changeact extends ActionSupport {
             String sql="update act set actid='"+actid+"',name='"+name+"',cphonenumber='"+cphonenumber+"',creator='"+creator+"',place='"+place+"',sdate='"+sdate+"',edate='"+edate+"',type='"+type+"',brief='"+brief+"' where actid='"+actid+"'";
             stmt.executeUpdate(sql);
             sql= "drop table s"+actid+"";
+            stmt.executeUpdate(sql);
             stmt.close();
             con.close();
             ret = SUCCESS;

@@ -34,7 +34,7 @@ public class whocollect extends ActionSupport {
             while(r.next())
             {
                 actid.add(r.getString(1));
-                list.add(r.getString(2));
+                actid.add(r.getString(2));
             }
             r.close();
             s="select * from user";
@@ -45,25 +45,35 @@ public class whocollect extends ActionSupport {
                 up.add(rs.getString(4));
             }
             rs.close();
+            boolean tf= false;
             for(String temp:actid)
             {
-               for(String ptemp:up)
+               if(tf)
                {
-                    if(ptemp.indexOf("@")!=-1)
-                    {
-                        email=ptemp;
-                    }
-                    else
-                    {
-                        s="select * from c"+ptemp+" where actid='"+temp+"'";
-                        ResultSet rss=stmt.executeQuery(s);
-                        if(rss.next())
-                        {
-                            list.add(email);
-                        }
-                        rss.close();
-                    }
-                }               
+                    list.add(temp);
+               }
+               else
+               {
+                     for(String ptemp:up)
+                     {
+                          if(ptemp.indexOf("@")!=-1)
+                          {
+                              email=ptemp;
+                          }
+                          else
+                          {
+                              s="select * from c"+ptemp+" where actid='"+temp+"'";
+                              ResultSet rss=stmt.executeQuery(s);
+                              if(rss.next())
+                              {
+                                  list.add(email);
+                              }
+                              rss.close();
+                          }
+                      }   
+                 }
+                 tf=!tf;
+            
             }
             stmt.close();
             conn.close();

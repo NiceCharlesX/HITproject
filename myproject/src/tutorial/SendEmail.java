@@ -20,14 +20,14 @@ public class SendEmail {
 
 	public SendEmail()
 	{
-		// 变量初始化
+		// 鍙橀噺鍒濆鍖�
 		host = "smtp.163.com";
 		username = "";
 		password = "";
 		fromAddr = "@";
 	}
 
-	// 发送邮件
+	// 鍙戦�侀偖浠�
 	public boolean sendMail()
 	{
 		Properties prop;
@@ -36,47 +36,47 @@ public class SendEmail {
 
 		try
 		{
-			prop = new Properties(); // 存储连接参数
+			prop = new Properties(); // 瀛樺偍杩炴帴鍙傛暟
 			prop.put("mail.smtp.host",host);
 			prop.put("mail.smtp.auth","true");
 
-			session = Session.getDefaultInstance(prop,null); // 获得一个邮件的Session
-			msg = new MimeMessage(session); // 邮件信息
+			session = Session.getDefaultInstance(prop,null); // 鑾峰緱涓�涓偖浠剁殑Session
+			msg = new MimeMessage(session); // 閭欢淇℃伅
 
-			// 检查邮件地址是否合法
+			// 妫�鏌ラ偖浠跺湴鍧�鏄惁鍚堟硶
 			if(fromAddr == null || fromAddr.equals(""))
 			{
-				throw new Exception("发件地址错误");
+				throw new Exception("鍙戜欢鍦板潃閿欒");
 			}
 			if(toAddr == null || toAddr.equals(""))
 			{
-				throw new Exception("目标地址错误");
+				throw new Exception("鐩爣鍦板潃閿欒");
 			}
 
-			//设置源地址
+			//璁剧疆婧愬湴鍧�
 			msg.setFrom(new InternetAddress(fromAddr));
-			//设置目的地址
+			//璁剧疆鐩殑鍦板潃
 			
 		
 			String[] gods = toAddr.split("[,]");			
-			address = new InternetAddress[gods.length];
-			for(int i=0;i<gods.length;i++){
+			address = new InternetAddress[gods.length-1];
+			for(int i=0;i<gods.length-1;i++){
 				address[i] = new InternetAddress(gods[i]);
 			}
 			msg.setRecipients(Message.RecipientType.TO,address);
-			//设置主题
-			msg.setSubject(subject);
+			//璁剧疆涓婚
+			msg.setSubject(subject,"GBK");
 
-			Multipart mp = new MimeMultipart(); //邮件内容
+			Multipart mp = new MimeMultipart(); //閭欢鍐呭
 			MimeBodyPart mbpContent = new MimeBodyPart();
-			mbpContent.setContent(content,"text/html"); // 邮件格式
+			mbpContent.setContent(content,"text/html;charset=GBK"); // 閭欢鏍煎紡
 
 
 			mp.addBodyPart(mbpContent);
-			msg.setContent(mp);
+			msg.setContent(mp,"text/html;charset=GBK");
 			msg.setSentDate(new Date());
 
-			// 发送邮件
+			// 鍙戦�侀偖浠�
 			Transport transport = session.getTransport("smtp");
 			transport.connect((String)prop.get("mail.smtp.host"),username,password);
 			transport.sendMessage(msg,msg.getRecipients(MimeMessage.RecipientType.TO));

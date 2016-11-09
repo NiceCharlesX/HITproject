@@ -15,7 +15,7 @@
 <ul id="globalNav">
 	<li><a href="mainlist.action" target="frameBord">图书目录</a></li>
 	<li><a href="search.jsp" target="frameBord">查询作者著作</a></li>
-	<li><a href="add.jsp" target="frameBord">添加图书</a></li>
+	<li><a href="whocollect.action" target="frameBord">添加图书</a></li>
 </ul>
 
 <s:property value = "name"/> 
@@ -30,6 +30,10 @@
 
 <h1><s:property value = "actid"/></h1></br>
 <h1><s:property value = "phonenumber"/></h1></br>
+
+						<s:iterator value="#request.list" var = "var">
+									<p>邮箱<s:property value="#var"/></p>
+						</s:iterator>	
 
 
 

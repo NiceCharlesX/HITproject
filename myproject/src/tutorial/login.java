@@ -61,6 +61,14 @@ public class login extends ActionSupport {
 		    		phonenumber = rs.getString(4);
 		    		return SUCCESS;
 		    	}
+		    	if(email.equals(rs.getString(2))&&password.equals(rs.getString(3)))
+		    	{
+                    return SUCCESS;
+		    	}
+		    	if(email.equals(rs.getString(4))&&password.equals(rs.getString(3)))
+                {
+                    return SUCCESS;
+                }
 		    }
 		    rs.close();	    
             stmt.close();
