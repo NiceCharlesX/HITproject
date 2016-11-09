@@ -22,6 +22,7 @@
 	<link href="http://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css"
 		rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css"/>
+	<link rel="stylesheet" type="text/css" href="css/mystyle.css" />
 		
 	<script type="text/javascript" src="js/jquery.min.js">
 	</script>
@@ -462,7 +463,7 @@ $(document).ready(function() {
 			
 			
 			<br/>
-			<button type="submit" class="btn btn-default">Submit</button>
+			<button class="button button--winona buttonbody" data-text="Submit" type="submit"><span>Submit</span></button>
 			</form>
 		</div>
 		

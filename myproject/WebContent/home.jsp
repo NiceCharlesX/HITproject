@@ -267,13 +267,14 @@
 										<h3><s:property value="#var.name"/></h3>
 										<p><s:property value="#var.brief"/></p>	
 									</figcaption>
-									<img src="images/large/1.png" alt="img01"/>
+									<img src="images/big2.jpg" alt="img01"/>
 									</br>
 									<a href="<s:url action="collecting">
 	                        				<s:param name="actid"><s:property value='#var.actid' /></s:param>
 	                        				<s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                       					</s:url>
 	                      				 ">添加到我的收藏</a>
+
 								</figure>
 							</li>
 						</s:iterator>	
