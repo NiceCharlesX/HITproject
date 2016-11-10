@@ -58,9 +58,11 @@ public class SendEmail {
 			//璁剧疆鐩殑鍦板潃
 			
 		
-			String[] gods = toAddr.split("[,]");			
-			address = new InternetAddress[gods.length-1];
-			for(int i=0;i<gods.length-1;i++){
+			String[] gods = toAddr.split("[,]");	
+			System.out.println(toAddr);
+			System.out.println(gods.length);
+			address = new InternetAddress[gods.length];
+			for(int i=0;i<gods.length;i++){
 				address[i] = new InternetAddress(gods[i]);
 			}
 			msg.setRecipients(Message.RecipientType.TO,address);
