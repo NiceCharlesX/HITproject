@@ -54,6 +54,16 @@
         	<result name = "success">index.jsp</result>
         	<result name = "error">404.jsp</result>
         </action>
+        
+        <action name="cancelc" class="tutorial.cancelc">
+        	<result name = "success" type = "redirect">mycollection.action?phonenumber=${phonenumber}</result>
+        	<result name = "error">404.jsp</result>
+        </action>
+        
+        <action name = "delact" class = "tutorial.delact">
+        	<result name = "success" type = "redirect">myact.action?phonenumber=${phonenumber}</result>
+        	<result name = "error">404.jsp</result>
+        </action>
     </package>
     
     

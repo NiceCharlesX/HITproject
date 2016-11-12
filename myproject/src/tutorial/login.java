@@ -63,10 +63,12 @@ public class login extends ActionSupport {
 		    	}
 		    	if(email.equals(rs.getString(2))&&password.equals(rs.getString(3)))
 		    	{
+		    		phonenumber = rs.getString(4);
                     return SUCCESS;
 		    	}
 		    	if(email.equals(rs.getString(4))&&password.equals(rs.getString(3)))
                 {
+		    		phonenumber = rs.getString(4);
                     return SUCCESS;
                 }
 		    }

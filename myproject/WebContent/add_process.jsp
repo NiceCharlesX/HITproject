@@ -409,45 +409,51 @@ $(document).ready(function() {
 		<input type="hidden" name="actid" value="<s:property value = "actid"/>" />
 		<input type="hidden" name="phonenumber" value="<s:property value = "phonenumber" />" />			
 		
-		<label for="Name">填写进程</label>
+		<label for="Name" style="font-size:large;">填写进程</label>
 			<div class="yd_box">		
 				<div class = "movie_box">
 					<br/>
 					<ul class="wjdc_list">
-					
-					 <li>
-          				<div class="tm_btitlt"><i class="btwenzi">活动进程</i><i class="nmb">1</i></div>
+					 <li >
+          				<div class="tm_btitlt"><i class="btwenzi" style="font-size:large;">活动进程</i><i class="nmb" style="font-size:large;">1</i></div>
        				</li>
 					<li>
 					<div class="form-group">
-						<label for="Name" class="col-md-2">起止时间</label>
-	          			<div class="input-prepend input-group col-md-5 ">
+						<label for="Name" style="font-size:large;position:relative;left:40px;color: #6a7989">起止时间</label>
+	          			<div class="input-prepend input-group" style="position:relative;left:40px">
 	                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
 	                       <input type="text" style="width: 250px" name="time"  class="form-control reservationtime input-sm" value="08/01/2013 1:00 PM - 08/01/2013 1:30 PM"  class="span4" />
 	                     </div>        			       	         			
 					</div>
 					</li>
+					
 					<li>
-					<div class="form-group">
-						<label for="Name" class="col-md-2">主持人</label>
-	          			<div class = "col-md-10 col-lg-4">
-					 		<input type="text" class="form-control input-sm" id="Name" name="person"/>
-					 	</div>	          		      			       	         			
+					<div>
+							<span class="myinput input--jiro">
+								<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="person"  />
+								<label class="input__label input__label--jiro" for="input-10">
+									<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">主持人</span>
+								</label>
+							</span>
 					</div>	
 					</li>
+					
 					<li>
-					<div class="form-group">
-						<label for="Name" class="col-md-2">地点</label>
-						<div class = "col-md-10 col-lg-4">
-							<input type="text" class="form-control input-sm" id="Name" name="place"/>
-						</div>
+					<div>
+							<span class="myinput input--jiro">
+								<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="place"  />
+								<label class="input__label input__label--jiro" for="input-10">
+									<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">地点</span>
+								</label>
+							</span>
 					</div>
 					</li>
 					
 					<li>
-					<div class="form-group">
-						<label for="Name" class="col-md-2">内容</label>
-						<div class="textarea col-md-10" >
+					</br>
+					<div class="form-group" style="font-size:large;position:relative;left:40px;color: #6a7989">
+						<label for="Name" >内容</label>
+						<div class="textarea" >
                   			<textarea rows = "2" cols = "29" name="contents"> </textarea>
            			 	</div>
 					</div>
@@ -505,5 +511,44 @@ $(document).ready(function() {
 		</div>
 	</div>
 </div>
+
+
+<script src="js/classie.js"></script>
+		<script>
+			(function() {
+				// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+				if (!String.prototype.trim) {
+					(function() {
+						// Make sure we trim BOM and NBSP
+						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+						String.prototype.trim = function() {
+							return this.replace(rtrim, '');
+						};
+					})();
+				}
+
+				[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+					// in case the input is already filled..
+					if( inputEl.value.trim() !== '' ) {
+						classie.add( inputEl.parentNode, 'input--filled' );
+					}
+
+					// events:
+					inputEl.addEventListener( 'focus', onInputFocus );
+					inputEl.addEventListener( 'blur', onInputBlur );
+				} );
+
+				function onInputFocus( ev ) {
+					classie.add( ev.target.parentNode, 'input--filled' );
+				}
+
+				function onInputBlur( ev ) {
+					if( ev.target.value.trim() === '' ) {
+						classie.remove( ev.target.parentNode, 'input--filled' );
+					}
+				}
+			})();
+</script>
+
 </body>
 </html>

@@ -22,6 +22,7 @@
 		rel="stylesheet">
 	<link rel="stylesheet" type="text/css" media="all" href="css/daterangepicker-bs3.css"/>
 	<link rel="stylesheet" type="text/css" href="css/mystyle.css" />
+	<link rel="stylesheet" type="text/css" href="css/cs-select.css" />
 	
 	<script type="text/javascript" src="js/jquery.min.js">
 	</script>
@@ -153,18 +154,18 @@ $(document).ready(function() {
 				
 				<div>
 					<span class="myinput input--jiro">
-						<input class="input__field input__field--jiro" type="text" id="Name" name="name"  />
+						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="name"  />
 						<label class="input__label input__label--jiro" for="input-10">
-							<span class="input__label-content input__label-content--jiro">活动名称</span>
+							<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">活动名称</span>
 						</label>
 					</span>
 				</div>
 				
 				<div>
 					<span class="myinput input--jiro">
-						<input class="input__field input__field--jiro" type="text" id="Name" name="cphonenumber"  value=<%=request.getParameter("phonenumber") %> />
+						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="cphonenumber"   />
 						<label class="input__label input__label--jiro" for="input-10">
-							<span class="input__label-content input__label-content--jiro">联系方式</span>
+							<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">联系方式</span>
 						</label>
 					</span>
 				</div>
@@ -172,19 +173,19 @@ $(document).ready(function() {
 				<input type="hidden" name="phonenumber" value=<%=request.getParameter("phonenumber") %> />
 				
 				<div>
-					<span class="myinput input--jiro">
-						<input class="input__field input__field--jiro" type="text" id="Name" name="creator"  />
-						<label class="input__label input__label--jiro" for="input-10">
-							<span class="input__label-content input__label-content--jiro">举办者</span>
-						</label>
-					</span>
+						<span class="myinput input--jiro">
+							<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="creator"  />
+							<label class="input__label input__label--jiro" for="input-10">
+								<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">举办者</span>
+							</label>
+						</span>
 				</div>
 				
 				<div>
 					<span class="myinput input--jiro">
-						<input class="input__field input__field--jiro" type="text" id="Name" name="place"  />
+						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="place"  />
 						<label class="input__label input__label--jiro" for="input-10">
-							<span class="input__label-content input__label-content--jiro">地点</span>
+							<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">地点</span>
 						</label>
 					</span>
 				</div>
@@ -203,8 +204,8 @@ $(document).ready(function() {
 				</br>
 				 <div class="form-group">
       				<label for="Name"  style="font-size:large;position:relative;left:40px;color: #6a7989">选择类别</label>
-     					<div>
-        					<select id="basic" class="selectpicker show-tick form-control" name="type">
+     					<div style="position:relative;left:40px">
+        					<select id="basic" class="selectpicker show-tick " name="type" >
          						<option selected>请选择类别</option>
          						<option>会议</option>
           						<option>展览</option>
@@ -214,8 +215,7 @@ $(document).ready(function() {
         					</select>
       					</div>
     			</div>
-    			
-			
+
 			<br/>
 			<div class="control-group"  style="font-size:large;position:relative;left:25px;color: #6a7989">
           		<label class="Name">活动简介</label>
@@ -225,8 +225,7 @@ $(document).ready(function() {
            			 </div>
          		</div>
         	</div>
-			
-			
+
 			<br/>
 			<button  style="position:relative;left:10px" class="button button--winona buttonbody" data-text="Submit" type="submit" ><span>Submit</span></button>
 			</form>
@@ -271,6 +270,41 @@ $(document).ready(function() {
 	</div>
 </div>
 
+<script src="js/classie.js"></script>
+		<script>
+			(function() {
+				// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
+				if (!String.prototype.trim) {
+					(function() {
+						// Make sure we trim BOM and NBSP
+						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+						String.prototype.trim = function() {
+							return this.replace(rtrim, '');
+						};
+					})();
+				}
 
+				[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
+					// in case the input is already filled..
+					if( inputEl.value.trim() !== '' ) {
+						classie.add( inputEl.parentNode, 'input--filled' );
+					}
+
+					// events:
+					inputEl.addEventListener( 'focus', onInputFocus );
+					inputEl.addEventListener( 'blur', onInputBlur );
+				} );
+
+				function onInputFocus( ev ) {
+					classie.add( ev.target.parentNode, 'input--filled' );
+				}
+
+				function onInputBlur( ev ) {
+					if( ev.target.value.trim() === '' ) {
+						classie.remove( ev.target.parentNode, 'input--filled' );
+					}
+				}
+			})();
+		</script>
 </body>
 </html>

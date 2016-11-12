@@ -13,13 +13,13 @@
                     minimum-scale = 1.0,
                     maximum-scale = 1.0,
                     user-scalable = no"/>
-   
+   <link rel="shortcut icon" href="../favicon.ico">
    <link rel="stylesheet" href="css/bootstrap.min.css"> 
-   <script src="js/jquery.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-  	
-  	<link rel="shortcut icon" href="../favicon.ico">
-  	<link rel="stylesheet" type="text/css" href="css/component.css" />
+   	<link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/style-1.css"/>
+    <script src="js/modernizr.custom.63321.js"> </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	<script src="js/modernizr.custom.js"></script>
 	
  
@@ -30,8 +30,7 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			
-			
+
 			<nav class="navbar navbar-default  " role="navigation">
 				<div class="navbar-header">
 					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
@@ -40,9 +39,7 @@
 					 <s:param name="orderby">time</s:param>
 					 </s:url>
 					 ">主页</a>
-					
-					
-				
+
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
@@ -237,6 +234,10 @@
 			
 			<div class="row clearfix">
 				<div class="col-md-12 column">
+				
+			
+				
+				
 				<div id="grid-gallery" class="grid-gallery">
 				<section class="grid-wrap">
 					<ul class="grid">					
@@ -258,24 +259,59 @@
 				</section>
 				
 				
-				<section class="slideshow">
+				<section class="slideshow" >
 					<ul>
 						<s:iterator value="#request.list" var = "var">
-							<li>
-								<figure>
+							<li >
+								<figure >
 									<figcaption>
 										<h3><s:property value="#var.name"/></h3>
 										<p><s:property value="#var.brief"/></p>	
 									</figcaption>
 									<img src="images/big2.jpg" alt="img01"/>
 									</br>
-									<a href="<s:url action="collecting">
+
+								          <div class="main">
+											<ul class="timeline">
+												<div class="event">
+													<input type="radio" name="tl-group" checked/>
+													<label></label>
+													<div class="thumb user-4"><span>19 Nov</span></div>
+													<div class="content-perspective">
+														<div class="content">
+															<div class="content-inner">
+																<h3>I find your lack of faith disturbing</h3>
+																<p>Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force. The plans you refer to will soon be back in our hands. A tremor in the Force. The last time I felt it was in the presence of my old master. Escape is not his plan. I must face him. Alone.</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											
+											
+												<div class="event">
+													<input type="radio" name="tl-group" checked/>
+													<label></label>
+													<div class="thumb user-4"><span>19 Nov</span></div>
+													<div class="content-perspective">
+														<div class="content">
+															<div class="content-inner">
+																<h3>I find your lack of faith disturbing</h3>
+																<p>Don't be too proud of this technological terror you've constructed. The ability to destroy a planet is insignificant next to the power of the Force. The plans you refer to will soon be back in our hands. A tremor in the Force. The last time I felt it was in the presence of my old master. Escape is not his plan. I must face him. Alone.</p>
+															</div>
+														</div>
+													</div>
+												</div>
+											</ul>
+										</div>
+		
+	          							<a href="<s:url action="collecting">
 	                        				<s:param name="actid"><s:property value='#var.actid' /></s:param>
 	                        				<s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                       					</s:url>
 	                      				 ">添加到我的收藏</a>
-
+	                      			
 								</figure>
+								
 							</li>
 						</s:iterator>	
 					</ul>
