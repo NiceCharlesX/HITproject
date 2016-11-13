@@ -122,11 +122,12 @@
 	left: 45%;
 	margin: -280px 0 0 -330px;
 	visibility: hidden;
-	background: #c2edf4;
+	
 }
 
 .slideshow li.show {
 	visibility: visible;
+	
 }
 
 .slideshow li:after {

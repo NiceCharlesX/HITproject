@@ -17,6 +17,8 @@
    <link rel="stylesheet" href="css/bootstrap.min.css"> 
    	<link rel="stylesheet" type="text/css" href="css/component.css" />
     <link rel="stylesheet" type="text/css" href="css/style-1.css"/>
+    <link rel="stylesheet" type="text/css" href="css/component2.css" />
+    
     <script src="js/modernizr.custom.63321.js"> </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -122,19 +124,25 @@
 			<p>
 				 <a class="btn" href="#">View details »</a>
 			</p> 
-			<a style='text-decoration:none;' href="#"><button type="button" class="btn btn-block btn-default">编辑信息</button></a>
-			</br>
-	
-			<a style='text-decoration:none' href="<s:url action="myact.action">	   
+      
+	         <div class="dr-menu">
+						<div class="dr-trigger"><span class="dr-icon dr-icon-menu"></span><a style='text-decoration:none;'  class="dr-label">Account</a></div>
+						<ul>
+							<li><a style='text-decoration:none;' class="dr-icon dr-icon-user" href="#">编辑信息</a></li>
+							
+							<li><a style='text-decoration:none;' class="dr-icon dr-icon-heart" href="<s:url action="mycollection">	
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                  </s:url>
-	                  "><button type="button" class="btn btn-block btn-default">我的活动</button></a>
-	         
-	         </br>    
-	        <a style='text-decoration:none' href="<s:url action="mycollection">	
+	                  ">我的收藏</a></li>
+							
+							<li><a style='text-decoration:none;' class="dr-icon dr-icon-download" href="<s:url action="myact.action">	   
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                  </s:url>
-	                  "><button type="button" class="btn btn-block btn-default">我的收藏</button></a>
+	                  ">我的活动</a></li>
+							
+							<li><a style='text-decoration:none;' class="dr-icon dr-icon-switch" href="login.jsp">退出</a></li>
+						</ul>
+			</div>
 		</div>
 		
 		<div class="col-md-10 column">
@@ -170,10 +178,7 @@
 					</ol>
 				</div>
 				
-					
-				
-				
-				
+
 			</div>
 			
 			<div class="row clearfix">
@@ -226,18 +231,11 @@
 					</div>
 				</div>
 			</div>
-			
-			
-			
-						
-		
-			
+
+
 			<div class="row clearfix">
 				<div class="col-md-12 column">
-				
-			
-				
-				
+
 				<div id="grid-gallery" class="grid-gallery">
 				<section class="grid-wrap">
 					<ul class="grid">					
@@ -260,13 +258,13 @@
 				
 				
 				<section class="slideshow" >
-					<ul>
+					<ul >
 						<s:iterator value="#request.list" var = "var">
 							<li >
-								<figure >
+								<figure style="background: #e0e0e0;border: 50px solid #e0e0e0">
 									<figcaption>
-										<h3><s:property value="#var.name"/></h3>
-										<p><s:property value="#var.brief"/></p>	
+										<h3 ><s:property value="#var.name"/></h3>
+										<p style="font-weight:bold;"><s:property value="#var.brief"/></p>	
 									</figcaption>
 									<img src="images/big2.jpg" alt="img01"/>
 									</br>
@@ -304,7 +302,7 @@
 											</ul>
 										</div>
 		
-	          							<a href="<s:url action="collecting">
+	          							<a style="font-weight:bold;text-decoration:none;font-family:Microsoft YaHei " href="<s:url action="collecting">
 	                        				<s:param name="actid"><s:property value='#var.actid' /></s:param>
 	                        				<s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                       					</s:url>
@@ -404,8 +402,11 @@
 		<script src="js/masonry.pkgd.min.js"></script>
 		<script src="js/classie.js"></script>
 		<script src="js/cbpGridGallery.js"></script>
+		<script src="js/ytmenu.js"></script>
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 		</script>
+		
+		
 </body>
 </html>
