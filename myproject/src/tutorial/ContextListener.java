@@ -23,7 +23,9 @@ public class ContextListener implements  ServletContextListener{
 		/**
 		 * 瀹氭椂鍣ㄥ埌鎸囧畾鐨勬椂闂存椂,鎵ц鏌愪釜鎿嶄綔(濡傛煇涓被,鎴栨柟娉�)
 		 */
-		//鍚庤竟鏈�鍚庝竴涓弬鏁颁唬琛ㄧ洃瑙嗗櫒鐨勭洃瑙嗗懆鏈�,鐜板湪涓轰竴灏忔椂
+
+		//后边最后一个参数代表监视器的监视周期,现在为一小时
+
 		timer.schedule(new MyTask(event.getServletContext()), 0, 60*60*1000);
 
 		event.getServletContext().log("宸茬粡娣诲姞浠诲姟璋冨害琛�");

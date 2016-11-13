@@ -13,13 +13,15 @@
                     minimum-scale = 1.0,
                     maximum-scale = 1.0,
                     user-scalable = no"/>
-   
+   <link rel="shortcut icon" href="../favicon.ico">
    <link rel="stylesheet" href="css/bootstrap.min.css"> 
-   <script src="js/jquery.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-  	
-  	<link rel="shortcut icon" href="../favicon.ico">
-  	<link rel="stylesheet" type="text/css" href="css/component.css" />
+   	<link rel="stylesheet" type="text/css" href="css/component.css" />
+    <link rel="stylesheet" type="text/css" href="css/style-1.css"/>
+    <link rel="stylesheet" type="text/css" href="css/component2.css" />
+    <link rel="stylesheet" type="text/css" href="css/post.css"/>
+    <script src="js/modernizr.custom.63321.js"> </script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 	<script src="js/modernizr.custom.js"></script>
 	
  
@@ -30,8 +32,7 @@
 <div class="container">
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			
-			
+
 			<nav class="navbar navbar-default  " role="navigation">
 				<div class="navbar-header">
 					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
@@ -40,9 +41,7 @@
 					 <s:param name="orderby">time</s:param>
 					 </s:url>
 					 ">主页</a>
-					
-					
-				
+
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
@@ -125,19 +124,25 @@
 			<p>
 				 <a class="btn" href="#">View details »</a>
 			</p> 
-			<a style='text-decoration:none;' href="#"><button type="button" class="btn btn-block btn-default">编辑信息</button></a>
-			</br>
-	
-			<a style='text-decoration:none' href="<s:url action="myact.action">	   
+      
+	         <div class="dr-menu">
+						<div class="dr-trigger"><span class="dr-icon dr-icon-menu"></span><a style='text-decoration:none;'  class="dr-label">Account</a></div>
+						<ul>
+							<li><a style='text-decoration:none;' class="dr-icon dr-icon-user" href="#">编辑信息</a></li>
+							
+							<li><a style='text-decoration:none;' class="dr-icon dr-icon-heart" href="<s:url action="mycollection">	
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                  </s:url>
-	                  "><button type="button" class="btn btn-block btn-default">我的活动</button></a>
-	         
-	         </br>    
-	        <a style='text-decoration:none' href="<s:url action="mycollection">	
+	                  ">我的收藏</a></li>
+							
+							<li><a style='text-decoration:none;' class="dr-icon dr-icon-download" href="<s:url action="myact.action">	   
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                  </s:url>
-	                  "><button type="button" class="btn btn-block btn-default">我的收藏</button></a>
+	                  ">我的活动</a></li>
+							
+							<li><a style='text-decoration:none;' class="dr-icon dr-icon-switch" href="login.jsp">退出</a></li>
+						</ul>
+			</div>
 		</div>
 		
 		<div class="col-md-10 column">
@@ -173,10 +178,7 @@
 					</ol>
 				</div>
 				
-					
-				
-				
-				
+
 			</div>
 			
 			<div class="row clearfix">
@@ -229,20 +231,17 @@
 					</div>
 				</div>
 			</div>
-			
-			
-			
-						
-		
-			
+
+
 			<div class="row clearfix">
 				<div class="col-md-12 column">
+
 				<div id="grid-gallery" class="grid-gallery">
 				<section class="grid-wrap">
 					<ul class="grid">					
 						<li class="grid-sizer"></li><!-- for Masonry column width -->
 						
-						<s:iterator value="#request.list" var = "var">
+						<s:iterator value="#request.act" var = "var">
 							<li>
 								<figure>
 									<img src="images/thumb/1.png" alt="img01"/>
@@ -258,23 +257,57 @@
 				</section>
 				
 				
-				<section class="slideshow">
-					<ul>
-						<s:iterator value="#request.list" var = "var">
-							<li>
-								<figure>
+				<section class="slideshow" >
+					<ul >
+						<s:iterator value="#request.act" var = "var">
+							<li >
+								<figure style="background: #e0e0e0;border: 50px solid #e0e0e0">
 									<figcaption>
-										<h3><s:property value="#var.name"/></h3>
-										<p><s:property value="#var.brief"/></p>	
+										<h3 ><s:property value="#var.name"/></h3>
+										<p style="font-weight:bold;"><s:property value="#var.brief"/></p>	
+										
 									</figcaption>
-									<img src="images/large/1.png" alt="img01"/>
+									
+									<div class="post1">
+										 <img src="images/post1.jpg" alt="" />
+										<p class = "name1"><s:property value="#var.name"/></p>
+										<p class = "sdate1"><s:property value="#var.sdate"/></p>
+										<p class = "place1">地点：<s:property value="#var.place"/></p>
+										<p class = "creator1">主办方：<s:property value="#var.creator"/></p>
+										<p class = "cphonenumber1">联系方式：<s:property value="#var.cphonenumber"/></p>
+										<p class = "brief1"><s:property value="#var.brief"/></p>
+									</div>
+
 									</br>
-									<a href="<s:url action="collecting">
+								          <div class="main">
+											<ul class="timeline">
+												<s:iterator value="#var.slist" var="svar">
+												<div class="event">
+													<input type="radio" name="tl-group" checked/>
+													<label></label>
+													<div class="thumb user-4"><span><s:property value="#svar.sid"/></span></div>
+													<div class="content-perspective">
+														<div class="content">
+															<div class="content-inner">
+																<h3><s:property value="#svar.time"/></h3>
+																<p>负责人：<s:property value="#svar.person"/></p>
+																<p>地点：<s:property value="#svar.place"/></p>
+																<p>内容：<s:property value="#svar.contents"/></p>
+															</div>
+														</div>
+													</div>
+												</div>
+												</s:iterator>
+											</ul>
+										</div>
+	          							<a style="font-weight:bold;text-decoration:none;font-family:Microsoft YaHei " href="<s:url action="collecting">
 	                        				<s:param name="actid"><s:property value='#var.actid' /></s:param>
 	                        				<s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                       					</s:url>
 	                      				 ">添加到我的收藏</a>
+	                      			
 								</figure>
+								
 							</li>
 						</s:iterator>	
 					</ul>
@@ -314,8 +347,7 @@
 				<br/>
 				<br/>
 				
-				
-				
+
 				</div>
 			</div>
 			
@@ -367,8 +399,11 @@
 		<script src="js/masonry.pkgd.min.js"></script>
 		<script src="js/classie.js"></script>
 		<script src="js/cbpGridGallery.js"></script>
+		<script src="js/ytmenu.js"></script>
 		<script>
 			new CBPGridGallery( document.getElementById( 'grid-gallery' ) );
 		</script>
+		
+		
 </body>
 </html>

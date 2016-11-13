@@ -23,6 +23,7 @@ public class delact extends ActionSupport {
     public String execute(){
         String ret = ERROR;
         Connection conn = null;
+        user = new ArrayList<String>();
         try{            
             Class.forName("com.mysql.jdbc.Driver");
             conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");

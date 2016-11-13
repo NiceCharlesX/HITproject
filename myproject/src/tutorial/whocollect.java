@@ -5,7 +5,6 @@ import java.sql.*;
 import java.util.*;
 
 
-
 public class whocollect extends ActionSupport {
     public String phonenumber;
     public ArrayList<String> list;

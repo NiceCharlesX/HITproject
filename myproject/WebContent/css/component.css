@@ -77,11 +77,12 @@
 	z-index: 500;
 	opacity: 0;
 	visibility: hidden;
-	overflow: hidden;
+	overflow: auto;
 	-webkit-perspective: 1000px;
 	perspective: 1000px;
 	-webkit-transition: opacity 0.5s, visibility 0s 0.5s;
 	transition: opacity 0.5s, visibility 0s 0.5s;
+	
 }
 
 .slideshow-open .slideshow {
@@ -100,6 +101,7 @@
 	transform: translate3d(0,0,150px);
 	-webkit-transition: -webkit-transform 0.5s;
 	transition: transform 0.5s;
+	
 }
 
 .slideshow ul.animatable li {
@@ -113,17 +115,19 @@
 }
 
 .slideshow li {
-	width: 660px;
-	height: 560px;
+	width: 800px;
+	height: auto;
 	position: absolute;
 	top: 50%;
-	left: 50%;
+	left: 45%;
 	margin: -280px 0 0 -330px;
 	visibility: hidden;
+	
 }
 
 .slideshow li.show {
 	visibility: visible;
+	
 }
 
 .slideshow li:after {
@@ -184,10 +188,6 @@
 	right: 0;
 }
 
-.slideshow nav span.nav-prev {
-	left: 0;
-}
-
 .slideshow nav span.nav-close {
 	top: 0;
 	right: 0;
@@ -221,7 +221,6 @@ span.nav-close:before {
 }
 
 /* Info on arrow key navigation */
-
 .info-keys {
 	position: fixed;
 	top: 10px;
