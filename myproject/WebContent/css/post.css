@@ -1,0 +1,65 @@
+.post1 {
+	position:relative;
+	
+	height:500px;
+}
+
+.name1{
+	position:absolute;
+	top:50px;
+	left:50px;
+	z-indent:2;
+	color:#fff;
+	font-size:300%;
+	font-family:Microsoft YaHei;
+}
+
+.cphonenumber1{
+	position:absolute;
+	top:100px;
+	left:400px;
+	z-indent:2;
+	color:#fff;
+	font-size:150%;
+	font-family:Microsoft YaHei;
+}
+
+.creator1{
+	position:absolute;
+	top:150px;
+	left:400px;
+	z-indent:2;
+	color:#fff;
+	font-size:150%;
+	font-family:Microsoft YaHei;
+}
+
+.place1{
+	position:absolute;
+	top:200px;
+	left:400px;
+	z-indent:2;
+	color:#fff;
+	font-size:150%;
+	font-family:Microsoft YaHei;
+}
+
+.sdate1{
+	position:absolute;
+	top:250px;
+	left:400px;
+	z-indent:2;
+	color:#fff;
+	font-size:150%;
+	font-family:Microsoft YaHei;
+}
+
+.brief1{
+	position:absolute;
+	top:300px;
+	left:400px;
+	z-indent:2;
+	color:#fff;
+	font-size:150%;
+	font-family:Microsoft YaHei;
+}

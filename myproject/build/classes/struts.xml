@@ -17,7 +17,7 @@
         </action>
         
         <action name="login" class="tutorial.login">
-	        	<result name = "success" type = "redirect">showact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
+	        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}</result>
 	        	<result name = "error">login_error.jsp</result>
         </action>
         
@@ -63,6 +63,11 @@
         <action name = "delact" class = "tutorial.delact">
         	<result name = "success" type = "redirect">myact.action?phonenumber=${phonenumber}</result>
         	<result name = "error">404.jsp</result>
+        </action>
+        
+        <action name = "showallact" class = "tutorial.showallact">
+        	<result name = "success" >home.jsp</result>
+        	<result name = "error" >404.jsp</result>
         </action>
     </package>
     

@@ -13,6 +13,7 @@ public class activity {
     public String type;
     public String brief;
     public ArrayList<Map<String,String>> slist;
+    
     public ArrayList<Map<String,String>> getslist(){
         return slist;
     }
