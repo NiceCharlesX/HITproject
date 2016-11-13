@@ -7,12 +7,19 @@ public class showallact extends ActionSupport {
     public ArrayList<Map<String,String>> list;
 	public ArrayList<activity> act;
 	public String phonenumber;
+	public String orderby;
     public String getphonenumber(){
         return phonenumber;
     }
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
     }   
+    public String getorderby(){
+        return orderby;
+    }
+    public void setorderby(String orderby){
+        this.orderby = orderby;
+    }
 	public String execute(){
 		String ret = ERROR;
 		Connection con = null;
@@ -22,7 +29,15 @@ public class showallact extends ActionSupport {
   		    Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
             Statement stmt=con.createStatement();
-            String s="select * from act";
+            String s;
+            if(orderby.equals(null)||orderby.equals("time"))
+            {
+                s="select * from act where edate>=now() order by sdate";
+            }
+            else
+            {
+                s="select * from act where edate>=now() and type='"+orderby+"' order by sdate";
+            }
             ResultSet rs=stmt.executeQuery(s);
             while(rs.next())
             {
