@@ -30,7 +30,7 @@ public class MyTask extends TimerTask{
         whocollect co= new whocollect();
         co.execute();
         String actname= "error";
-        String addr=null;
+        String addr=new String();
         if (!isRunning) {  
             if (C_SCHEDULE_HOUR == cal.get(Calendar.HOUR_OF_DAY)) {  
                 isRunning = true;  
@@ -50,12 +50,19 @@ public class MyTask extends TimerTask{
                            send.setSubject("你是谁");
                            send.setContent(actname+"肖");
                            send.sendMail();
-                		   addr = null;
+                		   addr = new String();
                 		   
                 	  }
                 	  else
                 	  {
-                	      addr=temp+","+addr;
+                	      if(addr.isEmpty())
+                	      {
+                	          addr=temp;
+                	      }
+                	      else
+                	      {
+                	          addr=temp+","+addr;
+                	      }
                 	  }
                 }        
                 // new YouCode().changeState();  
