@@ -75,14 +75,15 @@ public class createact extends ActionSupport {
 		String ret = ERROR;
 		Connection conn = null;
 		date=time.split("[ - ]");
-	
-		
-		try{			
+		post Post= new post();
+		String posterid;
+		try{
+		    posterid=Post.getpost(type);
 			Class.forName("com.mysql.jdbc.Driver");
 		    conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
 		    Statement stmt=conn.createStatement();
 		    String sql;
-		    sql="insert into act(name,cphonenumber,creator,place,sdate,edate,type,brief) values('"+name+"','"+cphonenumber+"','"+creator+"','"+place+"','"+date[0]+"','"+date[2]+"','"+type+"','"+brief+"')";
+		    sql="insert into act(name,cphonenumber,creator,place,sdate,edate,type,brief,posterid) values('"+name+"','"+cphonenumber+"','"+creator+"','"+place+"','"+date[0]+"','"+date[2]+"','"+type+"','"+brief+"','"+posterid+"')";
             stmt.executeUpdate(sql);
             ret = SUCCESS;
             sql="select * from act where name ='"+name+"'";

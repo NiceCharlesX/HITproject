@@ -76,12 +76,15 @@ public class changeact extends ActionSupport {
     }   
 	public String execute(){
         String ret = ERROR;
+        String posterid;
         Connection con = null;
+        post Post= new post();
         try{
+            posterid= Post.getpost(type);
             Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
             Statement stmt=con.createStatement();
-            String sql="update act set actid='"+actid+"',name='"+name+"',cphonenumber='"+cphonenumber+"',creator='"+creator+"',place='"+place+"',sdate='"+sdate+"',edate='"+edate+"',type='"+type+"',brief='"+brief+"' where actid='"+actid+"'";
+            String sql="update act set actid='"+actid+"',name='"+name+"',cphonenumber='"+cphonenumber+"',creator='"+creator+"',place='"+place+"',sdate='"+sdate+"',edate='"+edate+"',type='"+type+"',brief='"+brief+"',posterid='"+posterid+"' where actid='"+actid+"'";
             stmt.executeUpdate(sql);
             sql= "drop table s"+actid+"";
             stmt.executeUpdate(sql);
