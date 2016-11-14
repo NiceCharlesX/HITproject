@@ -3,44 +3,39 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
-public class showallact extends ActionSupport {
+public class mycollecting extends ActionSupport {
+    public ArrayList<String> actid;
     public ArrayList<Map<String,String>> list;
-	public ArrayList<activity> act;
-	public String phonenumber;
-	public String orderby;
+    public ArrayList<activity> act;
+    public String phonenumber;
     public String getphonenumber(){
         return phonenumber;
     }
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
     }   
-    public String getorderby(){
-        return orderby;
-    }
-    public void setorderby(String orderby){
-        this.orderby = orderby;
-    }
-	public String execute(){
-		String ret = ERROR;
-		Connection con = null;
-		list = new ArrayList<Map<String,String>>();
+    public String execute(){
+        String ret = ERROR;
+        Connection con = null;
+        list = new ArrayList<Map<String,String>>();
         act= new ArrayList<activity>();
-		try{
-  		    Class.forName("com.mysql.jdbc.Driver");
+        actid = new ArrayList<String>();
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
             Statement stmt=con.createStatement();
-            String s;
-            if(orderby.equals(null)||orderby.equals("time"))
-            {
-                s="select * from act where edate>=now() order by sdate";
+            String s="select * from c"+phonenumber+"";
+            ResultSet r=stmt.executeQuery(s);
+            while(r.next())
+            {   
+                actid.add(r.getString(1));
             }
-            else
+            r.close();
+            for(String temp:actid)
             {
-                s="select * from act where edate>=now() and type='"+orderby+"' order by sdate";
-            }
-            ResultSet rs=stmt.executeQuery(s);
-            while(rs.next())
-            {
+                s="select * from act where actid ='"+temp+"'";
+                ResultSet rs=stmt.executeQuery(s);
+                rs.next();
                 Map<String,String> map = new HashMap<String,String>();
                 map.put("actid", rs.getString(1));
                 map.put("name", rs.getString(2));
@@ -52,8 +47,8 @@ public class showallact extends ActionSupport {
                 map.put("type", rs.getString(8));
                 map.put("brief", rs.getString(9));
                 list.add(map);
+                rs.close();
             }
-            rs.close();
             for(Map<String,String> temp:list)
             {
                 activity a= new activity();
@@ -84,20 +79,20 @@ public class showallact extends ActionSupport {
                  
             }
             stmt.close();
-        	con.close();
+            con.close();
             ret = SUCCESS;
-		}
-		catch(Exception e){
-			ret =  ERROR;
-		}finally{
-			if(con != null){
-				try{
-					con.close();
-				}catch(Exception e){
-					
-				}
-			}
-		}
-		return ret;
-	}
+        }
+        catch(Exception e){
+            ret =  ERROR;
+        }finally{
+            if(con != null){
+                try{
+                    con.close();
+                }catch(Exception e){
+                    
+                }
+            }
+        }
+        return ret;
+    }
 }
