@@ -19,8 +19,6 @@
 
 			
 			<%=email.sendMail() %>
-			
 		</center>
-
 	</body>
 </html>
