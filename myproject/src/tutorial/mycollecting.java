@@ -1,3 +1,5 @@
+//我的关注的活动
+
 package tutorial;
 
 import com.opensymphony.xwork2.ActionSupport;

@@ -13,6 +13,7 @@
                     minimum-scale = 1.0,
                     maximum-scale = 1.0,
                     user-scalable = no"/>
+                    
    <link rel="shortcut icon" href="../favicon.ico">
    <link rel="stylesheet" href="css/bootstrap.min.css"> 
    	<link rel="stylesheet" type="text/css" href="css/component.css" />
@@ -36,7 +37,7 @@
 			<nav class="navbar navbar-default  " role="navigation">
 				<div class="navbar-header">
 					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
-					 <a class="navbar-brand" href="<s:url action="showact"> 
+					 <a class="navbar-brand" href="<s:url action="showallact"> 
 					 <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 					 <s:param name="orderby">time</s:param>
 					 </s:url>
@@ -130,12 +131,12 @@
 						<ul>
 							<li><a style='text-decoration:none;' class="dr-icon dr-icon-user" href="#">编辑信息</a></li>
 							
-							<li><a style='text-decoration:none;' class="dr-icon dr-icon-heart" href="<s:url action="mycollection">	
+							<li><a style='text-decoration:none;' class="dr-icon dr-icon-heart" href="<s:url action="mycollecting">	
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                  </s:url>
 	                  ">我的收藏</a></li>
 							
-							<li><a style='text-decoration:none;' class="dr-icon dr-icon-download" href="<s:url action="myact.action">	   
+							<li><a style='text-decoration:none;' class="dr-icon dr-icon-download" href="<s:url action="myactivity">	   
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 	                  </s:url>
 	                  ">我的活动</a></li>
@@ -145,11 +146,12 @@
 			</div>
 		</div>
 		
+		
 		<div class="col-md-10 column">
 			<div class="row clearfix">
 				<div class="col-md-12 column">
 					<ol class="breadcrumb">
-						<li><a style='text-decoration:none'  href="<s:url action="showact"> 
+						<li><a style='text-decoration:none'  href="<s:url action="showallact"> 
 					 <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
 					 <s:param name="orderby">time</s:param>
 					 </s:url>
@@ -300,6 +302,7 @@
 												</s:iterator>
 											</ul>
 										</div>
+										
 	          							<a style="font-weight:bold;text-decoration:none;font-family:Microsoft YaHei " href="<s:url action="collecting">
 	                        				<s:param name="actid"><s:property value='#var.actid' /></s:param>
 	                        				<s:param name="phonenumber"><s:property value="phonenumber" /></s:param>

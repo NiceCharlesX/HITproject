@@ -17,39 +17,35 @@
         </action>
         
         <action name="login" class="tutorial.login">
-	        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}</result>
+	        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
 	        	<result name = "error">login_error.jsp</result>
         </action>
-        
-        <action name="showact" class="tutorial.showact">
-        	<result name = "success">home.jsp</result>
-        	<result name = "error">404.jsp</result>
-        </action>
-        
+
         <action name="createact" class="tutorial.createact">
         	<result name = "success">add_process.jsp</result>
         	<result name = "error">index.jsp</result>
         </action>
         
         <action name="collecting" class="tutorial.collecting">
-        	<result name = "success" type = "redirect">showact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
+        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
         	<result name = "error">index.jsp</result>
         </action>
         
         <action name="createschedule" class="tutorial.createschedule">
-        	<result name = "success" type = "redirect">showact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
+        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
         	<result name = "error">index.jsp</result>
         </action>
-        
-        <action name="myact" class="tutorial.myact">
+ 
+        <action name = "myactivity" class = "tutorial.myactivity">
         	<result name = "success">myact.jsp</result>
         	<result name = "error">404.jsp</result>
         </action>
         
-        <action name="mycollection" class="tutorial.mycollection">
-        	<result name = "success">mycollection.jsp</result>
+        <action name = "mycollecting" class = "tutorial.mycollecting">
+        	<result name = "success" >mycollection.jsp</result>
         	<result name = "error">404.jsp</result>
         </action>
+        
         <action name="whocollect" class="tutorial.whocollect">
         	<result name = "success">index.jsp</result>
         	<result name = "error">404.jsp</result>
@@ -69,6 +65,8 @@
         	<result name = "success" >home.jsp</result>
         	<result name = "error" >404.jsp</result>
         </action>
+        
+        
     </package>
     
     
