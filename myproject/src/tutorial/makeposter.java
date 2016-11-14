@@ -15,6 +15,13 @@ public class makeposter extends ActionSupport {
     public String type;
     public String brief;
     public  String phonenumber;
+    public  String posterid;
+    public String getposterid(){
+        return posterid;
+    }   
+    public void setposterid(String posterid){
+        this.posterid = posterid;
+    }
     public String getphonenumber(){
       return phonenumber;
     }
@@ -108,6 +115,7 @@ public class makeposter extends ActionSupport {
             edate=rss.getString(7);
             type=rss.getString(8);
             brief=rss.getString(9);
+            posterid= rss.getString(10);
             rss.close();
             stmt.close();
             con.close();

@@ -35,6 +35,7 @@ public class myact extends ActionSupport {
               map.put("edate", rs.getString(7));
               map.put("type", rs.getString(8));
               map.put("brief", rs.getString(9));
+              map.put("posterid", rs.getString(10));
               list.add(map);
           }
           rs.close();

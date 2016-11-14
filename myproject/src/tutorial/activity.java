@@ -12,6 +12,7 @@ public class activity {
     public String edate;
     public String type;
     public String brief;
+    public String posterid;
     public ArrayList<Map<String,String>> slist;
     
     public ArrayList<Map<String,String>> getslist(){
@@ -73,6 +74,12 @@ public class activity {
     }   
     public void setbrief(String brief){
         this.brief = brief;
+    }
+    public String getposterid(){
+        return posterid;
+    }   
+    public void setposterid(String posterid){
+        this.posterid = posterid;
     }
     
 
