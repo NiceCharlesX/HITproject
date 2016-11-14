@@ -246,7 +246,13 @@
 											</ul>
 										</div>
 
-									<a style='text-decoration:none;' href="#">修改活动</a>
+									<a style='text-decoration:none;' href="<s:url action = "showaact">
+										<s:param name="phonenumber"><s:property value="phonenumber"/></s:param>
+										<s:param name="actid"><s:property value="#var.actid"/></s:param>
+									</s:url>
+									">修改活动</a>
+									
+									
 									<a style='text-decoration:none;' href="<s:url action = "delact">								
 										<s:param name="phonenumber"><s:property value="phonenumber"/></s:param>
 										<s:param name="actid"><s:property value="#var.actid"/></s:param>

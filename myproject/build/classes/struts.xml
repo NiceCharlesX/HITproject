@@ -20,40 +20,24 @@
 	        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
 	        	<result name = "error">login_error.jsp</result>
         </action>
-        
-        <action name="showact" class="tutorial.showact">
-        	<result name = "success">home.jsp</result>
-        	<result name = "error">404.jsp</result>
-        </action>
-        
+
         <action name="createact" class="tutorial.createact">
         	<result name = "success">add_process.jsp</result>
         	<result name = "error">index.jsp</result>
         </action>
         
         <action name="collecting" class="tutorial.collecting">
-        	<result name = "success" type = "redirect">showact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
+        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
         	<result name = "error">index.jsp</result>
         </action>
         
         <action name="createschedule" class="tutorial.createschedule">
-        	<result name = "success" type = "redirect">showact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
+        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
         	<result name = "error">index.jsp</result>
         </action>
-        
-        <action name="myact" class="tutorial.myact">
-        	<result name = "success">myact.jsp</result>
-        	<result name = "error">404.jsp</result>
-        </action>
-        
+ 
         <action name = "myactivity" class = "tutorial.myactivity">
         	<result name = "success">myact.jsp</result>
-        	<result name = "error">404.jsp</result>
-        </action>
-        
-        
-        <action name="mycollection" class="tutorial.mycollection">
-        	<result name = "success">mycollection.jsp</result>
         	<result name = "error">404.jsp</result>
         </action>
         
@@ -68,12 +52,12 @@
         </action>
         
         <action name="cancelc" class="tutorial.cancelc">
-        	<result name = "success" type = "redirect">mycollection.action?phonenumber=${phonenumber}</result>
+        	<result name = "success" type = "redirect">mycollecting.action?phonenumber=${phonenumber}</result>
         	<result name = "error">404.jsp</result>
         </action>
         
         <action name = "delact" class = "tutorial.delact">
-        	<result name = "success" type = "redirect">myact.action?phonenumber=${phonenumber}</result>
+        	<result name = "success" type = "redirect">myactivity.action?phonenumber=${phonenumber}</result>
         	<result name = "error">404.jsp</result>
         </action>
         
@@ -82,10 +66,22 @@
         	<result name = "error" >404.jsp</result>
         </action>
         
+        <action name = "showaact" class = "tutorial.showaact">
+        	<result name = "success" >modify.jsp</result>
+        	<result name =  "error">404.jsp</result>
+        </action>
+        
+        <action name = "changeall" class = "tutorial.changeall">
+        	<result name = "success" type = "redirect">changesend.action?phonenumber=${phonenumber}&amp;actid=${actid}</result>
+        	<result name = "error">404.jsp</result>
+        </action>
+        
+        <action name = "changesend" class = "tutorial.changesend">
+        	<result name = "success"  type = "redirect">myactivity.action?phonenumber=${phonenumber}</result>
+        	<result name = "error">404.jsp</result>
+        </action>
         
     </package>
     
-    
-
    	<constant name="struts.action.excludePattern" value="/websocket*,^ws://.$"/>
 </struts>

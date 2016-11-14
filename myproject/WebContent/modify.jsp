@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE >
 <html>
 <head>
@@ -148,13 +149,16 @@ $(document).ready(function() {
 		</div>
 	</div>
 	<div class="row clearfix">
-		<form class="form-horizontal" role="form" action="#">
+		<form class="form-horizontal" role="form" action="changeall">
 		<div class="row clearfix">
 		<div class="col-md-6 column">
 				<label for="Name" style="font-size:large;">修改活动</label>
+				<input type = "hidden" name="actid" value = "<s:property value = 'act.actid'/>" />
+				<input type = "hidden" name="phonenumber" value = "<s:property value = 'phonenumber'/>" />
+				
 				<div>
 					<span class="myinput input--jiro">
-						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="name"  />
+						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="name"  value="<s:property value='act.name'/> "/>
 						<label class="input__label input__label--jiro" for="input-10">
 							<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">活动名称</span>
 						</label>
@@ -163,18 +167,18 @@ $(document).ready(function() {
 				
 				<div>
 					<span class="myinput input--jiro">
-						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="cphonenumber"   />
+						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="cphonenumber"  value="<s:property value='act.phonenumber'/>"  />
 						<label class="input__label input__label--jiro" for="input-10">
 							<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">联系方式</span>
 						</label>
 					</span>
 				</div>
 				
-				<input type="hidden" name="phonenumber" value=<%=request.getParameter("phonenumber") %> />
+
 				
 				<div>
 						<span class="myinput input--jiro">
-							<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="creator"  />
+							<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="creator"  value="<s:property value='act.creator'/>"/>
 							<label class="input__label input__label--jiro" for="input-10">
 								<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">举办者</span>
 							</label>
@@ -183,7 +187,7 @@ $(document).ready(function() {
 				
 				<div>
 					<span class="myinput input--jiro">
-						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="place"  />
+						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="aplace"  value="<s:property value='act.place'/>" />
 						<label class="input__label input__label--jiro" for="input-10">
 							<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">地点</span>
 						</label>
@@ -197,7 +201,7 @@ $(document).ready(function() {
 					</br>			
 					
 					<div class="input-prepend input-group " style="position:relative;left:40px" >
-                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" readonly style="width: 205px" name="time" class="form-control reservation" value="2016-11-10 - 2016-11-11" /> 
+                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" readonly style="width: 205px" name="acttime" class="form-control reservation" value="<s:property value='act.sdate'/> - <s:property value='act.edate'/>" /> 
                    </div>
 				</div>
 				
@@ -221,7 +225,7 @@ $(document).ready(function() {
           		<label class="Name">活动简介</label>
           		<div class="controls"  >
             		<div class="textarea">
-                  		<textarea rows = "5" cols = "47" name="brief"> </textarea>
+                  		<textarea rows = "5" cols = "47" name="brief"><s:property value='act.brief' /> </textarea>
            			 </div>
          		</div>
         	</div>
@@ -229,20 +233,20 @@ $(document).ready(function() {
 			<br/>
 
 		</div>
-		
 		<div class="col-md-6 column">	
 		<label for="Name" style="font-size:large;">修改进程</label>
-				
+		
+				<s:iterator value="#request.act.slist" var = "var">
 					<ul class="wjdc_list">
 					 <li >
-          				<div class="tm_btitlt"><i class="btwenzi" style="font-size:large;">活动进程</i><i class="nmb" style="font-size:large;">1</i></div>
+          				<div class="tm_btitlt"><i class="btwenzi" style="font-size:large;">活动进程</i><i class="nmb" style="font-size:large;"><s:property value = "#var.sid"/></i></div>
        				</li>
 					<li>
 					<div class="form-group">
 						<label for="Name" style="font-size:large;position:relative;left:40px;color: #6a7989">起止时间</label>
 	          			<div class="input-prepend input-group" style="position:relative;left:40px">
 	                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-	                       <input type="text" style="width: 250px" name="time"  class="form-control reservationtime input-sm" value="08/01/2013 1:00 PM - 08/01/2013 1:30 PM"  class="span4" />
+	                       <input type="text" style="width: 250px" name="time"  class="form-control reservationtime input-sm" value="<s:property value = '#var.time'/>"  class="span4" />
 	                     </div>        			       	         			
 					</div>
 					</li>
@@ -250,7 +254,7 @@ $(document).ready(function() {
 					<li>
 					<div>
 							<span class="myinput input--jiro">
-								<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="person"  />
+								<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="person"  value="<s:property value = '#var.person'/>"  />
 								<label class="input__label input__label--jiro" for="input-10">
 									<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">主持人</span>
 								</label>
@@ -261,7 +265,7 @@ $(document).ready(function() {
 					<li>
 					<div>
 							<span class="myinput input--jiro">
-								<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="place"  />
+								<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="place"  value="<s:property value = '#var.place'/>" />
 								<label class="input__label input__label--jiro" for="input-10">
 									<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">地点</span>
 								</label>
@@ -274,12 +278,12 @@ $(document).ready(function() {
 					<div class="form-group" style="font-size:large;position:relative;left:40px;color: #6a7989">
 						<label for="Name" >内容</label>
 						<div class="textarea" >
-                  			<textarea rows = "2" cols = "29" name="contents"> </textarea>
+                  			<textarea rows = "2" cols = "29" name="contents"><s:property value = '#var.contents'/> </textarea>
            			 	</div>
 					</div>
 					</li>
 					</ul>
-
+			</s:iterator>
 		</div>
 	</div>
 	
@@ -288,7 +292,6 @@ $(document).ready(function() {
 		 		<button class="button button--winona buttonbody" data-text="Submit" type="submit"><span>Submit</span></button>
 		 	</div>
 		 </div>
-		 
 		</form>
 	</div>
 	

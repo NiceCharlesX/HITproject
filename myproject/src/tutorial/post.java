@@ -5,15 +5,15 @@ import java.util.*;
 public class post{
   public String getpost(String type){
       switch(type){
-        case "»áÒé":
+        case "ä¼šè®®":
           return "1";
-        case "Õ¹ÀÀ":
+        case "å±•è§ˆ":
           return "2";
-        case "ÂÛÌ³":
+        case "è®ºå›":
           return "3";
-        case "¿Î³Ì":
+        case "è¯¾ç¨‹":
           return "4";
-        case "½²×ù":
+        case "è®²åº§":
           return "5";
         default:
           return "0";        

@@ -68,8 +68,6 @@ public class createact extends ActionSupport {
 	public void setbrief(String brief){
 		this.brief = brief;
 	}
-    
-
 
 	public String execute(){
 		String ret = ERROR;

@@ -9,6 +9,7 @@ public class changeall extends ActionSupport {
     public String cphonenumber;
     public String creator;
     public String aplace;
+    public String acttime;
     public String sdate;
     public String edate;
     public String type;
@@ -18,6 +19,17 @@ public class changeall extends ActionSupport {
     public String[] contents;
     public String[] place;
     public String[] person;
+    
+    public String[] date;
+    
+    public String getacttime(){
+    	return acttime;
+    }
+    
+    public void setacttime(String acttime){
+    	this.acttime = acttime;
+    }
+    
     public String getphonenumber(){
       return phonenumber;
     }    
@@ -104,6 +116,9 @@ public class changeall extends ActionSupport {
     }
     public String execute(){
         String ret = ERROR;
+        date=acttime.split("[ - ]");
+        sdate = date[0];
+        edate = date[2];
         String posterid;
         Connection con = null;
         post Post= new post();

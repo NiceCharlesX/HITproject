@@ -9,6 +9,7 @@ public class changesend extends ActionSupport {
   public ArrayList<String> list;
   public String actid;
   public ArrayList<String> up;
+  public String actname;
   public String getphonenumber(){
       return phonenumber;
   }
@@ -33,10 +34,10 @@ public class changesend extends ActionSupport {
           Class.forName("com.mysql.jdbc.Driver");
           conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");
           Statement stmt=conn.createStatement();
-          String s= "select * from act actid='"+actid+"'";
+          String s= "select * from act where actid='"+actid+"'";
           ResultSet r=stmt.executeQuery(s);
           r.next();
-          list.add(r.getString(2));
+          actname=r.getString(2);
           r.close();
           s="select * from user";
           ResultSet rs=stmt.executeQuery(s);
@@ -65,28 +66,9 @@ public class changesend extends ActionSupport {
           }
           stmt.close();
           conn.close();
-          String actname= "error";
           String addr=new String();
           for(String temp:list)
           {
-                if(temp.indexOf("@")==-1)
-                {
-                     actname= temp;
-                     System.out.println(actname); 
-                     System.out.println(addr);
-                     SendEmail send = new SendEmail();
-                     send.setToAddr(addr);
-                     send.setFromAddr("18245010845@163.com");
-                     send.setUsername("18245010845@163.com");
-                     send.setPassword("as123456");
-                     send.setSubject("����˭");
-                     send.setContent(actname+"Ф");
-                     send.sendMail();
-                     addr = new String();
-                     
-                }
-                else
-                {
                     if(addr.isEmpty())
                     {
                         addr=temp;
@@ -95,8 +77,20 @@ public class changesend extends ActionSupport {
                     {
                         addr=temp+","+addr;
                     }
-                }
           }  
+	      System.out.println(actname); 
+	      System.out.println(addr);
+	      if(!addr.isEmpty())
+	      {
+			      SendEmail send = new SendEmail();
+			      send.setToAddr(addr);
+			      send.setFromAddr("18245010845@163.com");
+			      send.setUsername("18245010845@163.com");
+			      send.setPassword("as123456");
+			      send.setSubject("你关注的活动有更新！");
+			      send.setContent(actname+"活动信息有更新，请注意！");
+			      send.sendMail();
+	      }
           ret = SUCCESS;
       }
       catch(Exception e){
