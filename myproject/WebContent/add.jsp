@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE >
 <html>
 <head>
@@ -135,14 +136,16 @@ $(document).ready(function() {
 				</div>
 			</nav>
 			<ul class="breadcrumb">
-				<li>
-					 <a href="#">Home</a>
-				</li>
-				<li>
-					 <a href="#">Library</a>
-				</li>
+				<li><a style='text-decoration:none'  href="<s:url action="showallact"> 
+					 <s:param name="phonenumber"><%=request.getParameter("phonenumber") %></s:param>
+					 <s:param name="username"><%=request.getParameter("username") %></s:param>
+	                  <s:param name="useremail"><%=request.getParameter("useremail") %></s:param>
+					 <s:param name="orderby">time</s:param>
+					 </s:url>
+					 ">主页</a></li>
+				
 				<li class="active">
-					Data
+					添加活动
 				</li>
 			</ul>
 		</div>
@@ -163,7 +166,7 @@ $(document).ready(function() {
 				
 				<div>
 					<span class="myinput input--jiro">
-						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="cphonenumber"   />
+						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="cphonenumber"  value="<%=request.getParameter("phonenumber") %>" />
 						<label class="input__label input__label--jiro" for="input-10">
 							<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">联系方式</span>
 						</label>
@@ -171,6 +174,9 @@ $(document).ready(function() {
 				</div>
 				
 				<input type="hidden" name="phonenumber" value=<%=request.getParameter("phonenumber") %> />
+				<input type="hidden" name="username" value=<%=request.getParameter("username") %> />
+				<input type="hidden" name="useremail" value=<%=request.getParameter("useremail") %> />
+				
 				
 				<div>
 						<span class="myinput input--jiro">
@@ -197,7 +203,7 @@ $(document).ready(function() {
 					</br>			
 					
 					<div class="input-prepend input-group " style="position:relative;left:40px" >
-                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" readonly style="width: 205px" name="time" class="form-control reservation" value="2016-11-10 - 2016-11-11" /> 
+                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" readonly style="width: 205px" name="time" class="form-control reservation" value="2016-11-16 - 2016-11-16" /> 
                    </div>
 				</div>
 				
@@ -207,11 +213,11 @@ $(document).ready(function() {
      					<div style="position:relative;left:40px">
         					<select id="basic" class="selectpicker show-tick " name="type" >
          						<option selected>请选择类别</option>
-         						<option>会议</option>
-          						<option>展览</option>
-          						<option>论坛</option>
-          						<option>课程</option>
+         						<option>课程</option>
+          						<option>体育</option>
+          						<option>歌唱</option>
           						<option>讲座</option>
+          						<option>舞蹈</option>
         					</select>
       					</div>
     			</div>

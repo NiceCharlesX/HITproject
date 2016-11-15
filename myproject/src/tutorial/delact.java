@@ -7,6 +7,22 @@ public class delact extends ActionSupport {
     public String actid;
     public String phonenumber;
     public ArrayList<String> user;
+    public String username;
+    public String useremail;
+    public String getusername(){
+    	return username;
+    }
+    
+    public void setusername(String useremail){
+    	this.useremail = useremail;
+    }
+    
+    public String getuseremail(){
+    	return useremail;
+    }
+    public void setuseremail(String useremail){
+    	this.useremail = useremail;
+    }
     public String getactid(){
         return actid;
     }   

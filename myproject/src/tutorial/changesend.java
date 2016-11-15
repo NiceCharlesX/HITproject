@@ -10,6 +10,23 @@ public class changesend extends ActionSupport {
   public String actid;
   public ArrayList<String> up;
   public String actname;
+  public String username;
+	public String useremail;
+	
+	public String getuseremai(){
+		return useremail;
+	}
+	public void setuseremail(String useremail){
+		this.useremail = useremail;
+	}
+	
+	public String getusername(){
+		return username;
+	}
+	
+	public void setusername(String username){
+		this.username = username;
+	}
   public String getphonenumber(){
       return phonenumber;
   }
@@ -17,6 +34,7 @@ public class changesend extends ActionSupport {
   public void setphonenumber(String phonenumber){
       this.phonenumber = phonenumber;
   }
+  
   public String getactid(){
       return actid;
   }

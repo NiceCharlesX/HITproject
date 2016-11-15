@@ -17,7 +17,7 @@
         </action>
         
         <action name="login" class="tutorial.login">
-	        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
+	        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time&amp;username=${username}&amp;useremail=${useremail}</result>
 	        	<result name = "error">login_error.jsp</result>
         </action>
 
@@ -32,7 +32,7 @@
         </action>
         
         <action name="createschedule" class="tutorial.createschedule">
-        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
+        	<result name = "success" type = "redirect">myactivity.action?phonenumber=${phonenumber}&amp;username=${username}&amp;useremail=${useremail}</result>
         	<result name = "error">index.jsp</result>
         </action>
  
@@ -52,12 +52,12 @@
         </action>
         
         <action name="cancelc" class="tutorial.cancelc">
-        	<result name = "success" type = "redirect">mycollecting.action?phonenumber=${phonenumber}</result>
+        	<result name = "success" type = "redirect">mycollecting.action?phonenumber=${phonenumber}&amp;username=${username}&amp;useremail=${useremail}</result>
         	<result name = "error">404.jsp</result>
         </action>
         
         <action name = "delact" class = "tutorial.delact">
-        	<result name = "success" type = "redirect">myactivity.action?phonenumber=${phonenumber}</result>
+        	<result name = "success" type = "redirect">myactivity.action?phonenumber=${phonenumber}&amp;username=${username}&amp;useremail=${useremail}</result>
         	<result name = "error">404.jsp</result>
         </action>
         
@@ -72,12 +72,12 @@
         </action>
         
         <action name = "changeall" class = "tutorial.changeall">
-        	<result name = "success" type = "redirect">changesend.action?phonenumber=${phonenumber}&amp;actid=${actid}</result>
+        	<result name = "success" type = "redirect">changesend.action?phonenumber=${phonenumber}&amp;actid=${actid}&amp;username=${username}&amp;useremail=${useremail}</result>
         	<result name = "error">404.jsp</result>
         </action>
         
         <action name = "changesend" class = "tutorial.changesend">
-        	<result name = "success"  type = "redirect">myactivity.action?phonenumber=${phonenumber}</result>
+        	<result name = "success"  type = "redirect">myactivity.action?phonenumber=${phonenumber}&amp;username=${username}&amp;useremail=${useremail}</result>
         	<result name = "error">404.jsp</result>
         </action>
         

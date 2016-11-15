@@ -7,6 +7,23 @@ public class showaact extends ActionSupport {
     public activity act;
     public String phonenumber;
     public String actid;
+    public String username;
+	public String useremail;
+	
+	public String getuseremail(){
+		return useremail;
+	}
+	public void setuseremail(String useremail){
+		this.useremail = useremail;
+	}
+	
+	public String getusername(){
+		return username;
+	}
+	
+	public void setusername(String username){
+		this.username = username;
+	}
     public String getphonenumber(){
         return phonenumber;
     }

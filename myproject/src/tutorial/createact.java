@@ -18,6 +18,22 @@ public class createact extends ActionSupport {
 	public String brief;
 	public String[] date;
 	public  String phonenumber;
+	 public String username;
+	    public String useremail;
+	    public String getusername(){
+	    	return username;
+	    }
+	    
+	    public void setusername(String useremail){
+	    	this.useremail = useremail;
+	    }
+	    
+	    public String getuseremail(){
+	    	return useremail;
+	    }
+	    public void setuseremail(String useremail){
+	    	this.useremail = useremail;
+	    }
 	
 	public String getphonenumber(){
       return phonenumber;

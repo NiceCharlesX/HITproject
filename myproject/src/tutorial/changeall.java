@@ -19,9 +19,26 @@ public class changeall extends ActionSupport {
     public String[] contents;
     public String[] place;
     public String[] person;
-    
     public String[] date;
     
+    public String username;
+	public String useremail;
+	
+	public String getuseremai(){
+		return useremail;
+	}
+	public void setuseremail(String useremail){
+		this.useremail = useremail;
+	}
+	
+	public String getusername(){
+		return username;
+	}
+	
+	public void setusername(String username){
+		this.username = username;
+	}
+	
     public String getacttime(){
     	return acttime;
     }

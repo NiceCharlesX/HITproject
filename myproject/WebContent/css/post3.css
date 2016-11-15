@@ -1,65 +1,65 @@
-.post1 {
+.post3{
 	position:relative;
-	height:500px;
+	height:1050px;
 }
 
 
-
-.name1{
+.name3{
 	position:absolute;
-	top:50px;
-	left:50px;
+	top:525px;
+	left:175px;
 	z-indent:2;
 	color:#fff;
-	font-size:300%;
+	font-size:400%;
 	font-family:Microsoft YaHei;
 }
 
 
-.cphonenumber1{
+
+.cphonenumber3{
 	position:absolute;
-	top:100px;
-	left:400px;
+	top:850px;
+	left:100px;
 	z-indent:2;
 	color:#fff;
-	font-size:150%;
+	font-size:125%;
 	font-family:Microsoft YaHei;
 }
 
-.creator1{
+.creator3{
 	position:absolute;
-	top:150px;
-	left:400px;
+	top:825px;
+	left:100px;
 	z-indent:2;
 	color:#fff;
-	font-size:150%;
+	font-size:125%;
 	font-family:Microsoft YaHei;
 }
 
-.place1{
+.place3{
 	position:absolute;
-	top:200px;
-	left:400px;
+	top:900px;
+	right:100px;
 	z-indent:2;
 	color:#fff;
-	font-size:150%;
+	font-size:125%;
 	font-family:Microsoft YaHei;
 }
 
-.sdate1{
+.sdate3{
 	position:absolute;
-	top:250px;
-	left:400px;
+	top:925px;
+	right:100px;
 	z-indent:2;
 	color:#fff;
-	font-size:150%;
+	font-size:125%;
 	font-family:Microsoft YaHei;
 }
 
-.brief1{
+.brief3{
 	position:absolute;
-	top:300px;
-	left:400px;
+	top:775px;
+	left:100px;
 	z-indent:2;
 	color:#fff;
 	font-size:150%;

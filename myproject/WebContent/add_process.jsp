@@ -321,9 +321,18 @@ $(document).ready(function() {
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<nav class="navbar navbar-default" role="navigation">
+			
 				<div class="navbar-header">
-					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
+					 <a class="navbar-brand" href="<s:url action="showallact"> 
+					 <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
+					 <s:param name="username"><s:property value="username" /></s:param>
+	                  <s:param name="useremail"><s:property value="useremail" /></s:param>
+					 <s:param name="orderby">time</s:param>
+					 </s:url>
+					 ">主页</a>					 
 				</div>
+				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active">
@@ -389,14 +398,18 @@ $(document).ready(function() {
 				</div>
 			</nav>
 			<ul class="breadcrumb">
+				<li><a style='text-decoration:none'  href="<s:url action="showallact"> 
+					 <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
+					 <s:param name="username"><s:property value="username" /></s:param>
+	                  <s:param name="useremail"><s:property value="useremail" /></s:param>
+					 <s:param name="orderby">time</s:param>
+					 </s:url>
+					 ">主页</a></li>
 				<li>
-					 <a href="#">Home</a>
-				</li>
-				<li>
-					 <a href="#">Library</a>
+					 添加活动
 				</li>
 				<li class="active">
-					Data
+					添加进程
 				</li>
 			</ul>
 		</div>
@@ -407,7 +420,9 @@ $(document).ready(function() {
 			
 	<form class="form-horizontal" role="form" action="createschedule">
 		<input type="hidden" name="actid" value="<s:property value = "actid"/>" />
-		<input type="hidden" name="phonenumber" value="<s:property value = "phonenumber" />" />			
+		<input type="hidden" name="phonenumber" value="<s:property value = "phonenumber" />" />	
+		<input type="hidden" name="username" value="<s:property value = "username" />" />	
+		<input type="hidden" name="useremail" value="<s:property value = "useremail" />" />			
 		
 		<label for="Name" style="font-size:large;">填写进程</label>
 			<div class="yd_box">		
@@ -422,7 +437,7 @@ $(document).ready(function() {
 						<label for="Name" style="font-size:large;position:relative;left:40px;color: #6a7989">起止时间</label>
 	          			<div class="input-prepend input-group" style="position:relative;left:40px">
 	                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-	                       <input type="text" style="width: 250px" name="time"  class="form-control reservationtime input-sm" value="08/01/2013 1:00 PM - 08/01/2013 1:30 PM"  class="span4" />
+	                       <input type="text" style="width: 250px" name="time"  class="form-control reservationtime input-sm" value="11/16/2016 8:00 PM - 11/16/2016 8:30 PM"  class="span4" />
 	                     </div>        			       	         			
 					</div>
 					</li>

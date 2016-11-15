@@ -8,6 +8,23 @@ public class myactivity extends ActionSupport {
     public ArrayList<Map<String,String>> list;
     public ArrayList<activity> act;
     public String phonenumber;
+    public String username;
+    public String useremail;
+    public String getusername(){
+    	return username;
+    }
+    
+    public void setusername(String useremail){
+    	this.useremail = useremail;
+    }
+    
+    public String getuseremail(){
+    	return useremail;
+    }
+    public void setuseremail(String useremail){
+    	this.useremail = useremail;
+    }
+    
     public String getphonenumber(){
         return phonenumber;
     }

@@ -8,6 +8,24 @@ public class showallact extends ActionSupport {
 	public ArrayList<activity> act;
 	public String phonenumber;
 	public String orderby;
+	public String username;
+	public String useremail;
+	
+	public String getuseremail(){
+		return useremail;
+	}
+	public void setuseremail(String useremail){
+		this.useremail = useremail;
+	}
+	
+	public String getusername(){
+		return username;
+	}
+	
+	public void setusername(String username){
+		this.username = username;
+	}
+	
     public String getphonenumber(){
         return phonenumber;
     }

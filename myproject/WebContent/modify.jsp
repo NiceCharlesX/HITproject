@@ -155,6 +155,8 @@ $(document).ready(function() {
 				<label for="Name" style="font-size:large;">修改活动</label>
 				<input type = "hidden" name="actid" value = "<s:property value = 'act.actid'/>" />
 				<input type = "hidden" name="phonenumber" value = "<s:property value = 'phonenumber'/>" />
+				<input type = "hidden" name="username" value = "<s:property value = 'username'/>" />
+				<input type = "hidden" name="useremail" value = "<s:property value = 'useremail'/>" />
 				
 				<div>
 					<span class="myinput input--jiro">
@@ -211,11 +213,11 @@ $(document).ready(function() {
      					<div style="position:relative;left:40px">
         					<select id="basic" class="selectpicker show-tick " name="type" >
          						<option selected>请选择类别</option>
-         						<option>会议</option>
-          						<option>展览</option>
-          						<option>论坛</option>
-          						<option>课程</option>
+         						<option>课程</option>
+          						<option>体育</option>
+          						<option>歌唱</option>
           						<option>讲座</option>
+          						<option>舞蹈</option>
         					</select>
       					</div>
     			</div>

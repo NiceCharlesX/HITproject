@@ -12,6 +12,24 @@ public class login extends ActionSupport {
 	public String email;
 	public String password;
 	public String phonenumber;
+	public String username;
+	public String useremail;
+	
+	public String getuseremai(){
+		return useremail;
+	}
+	public void setuseremail(String useremail){
+		this.useremail = useremail;
+	}
+	
+	public String getusername(){
+		return username;
+	}
+	
+	public void setusername(String username){
+		this.username = username;
+	}
+	
     public String getphonenumber(){
         return phonenumber;
     }
@@ -59,15 +77,21 @@ public class login extends ActionSupport {
 		    	{		    		
 		    		session.put("email", "abc");
 		    		phonenumber = rs.getString(4);
+		    		username = rs.getString(2);
+		    		useremail = rs.getString(1);
 		    		return SUCCESS;
 		    	}
 		    	if(email.equals(rs.getString(2))&&password.equals(rs.getString(3)))
 		    	{
+		    		useremail = rs.getString(1);
+		    		username = rs.getString(2);
 		    		phonenumber = rs.getString(4);
                     return SUCCESS;
 		    	}
 		    	if(email.equals(rs.getString(4))&&password.equals(rs.getString(3)))
                 {
+		    		useremail = rs.getString(1);
+		    		username = rs.getString(2);
 		    		phonenumber = rs.getString(4);
                     return SUCCESS;
                 }

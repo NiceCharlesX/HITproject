@@ -39,6 +39,8 @@
 					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> 
 					<a class="navbar-brand" href="<s:url action="showallact"> 
 					 <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
+					 <s:param name="username"><s:property value="username" /></s:param>
+	                 <s:param name="useremail"><s:property value="useremail" /></s:param>
 					 <s:param name="orderby">time</s:param>
 					 </s:url>
 					 ">主页</a>
@@ -117,9 +119,19 @@
 			<h2>
 				<s:property value="phonenumber" />
 			</h2>
-			<p>
-				 此处个人相关信息
-			</p>
+			</br>
+			<div>
+				<img src="images/iphone.png" />
+				<s:property value = "phonenumber"/> 
+			</div>
+			
+			</br>
+			<div>
+				<img src="images/e-mail.png" />
+				<s:property value = "useremail"/> 
+				
+			</div>
+			</br>
 			<p>
 				 <a class="btn" href="#">View details »</a>
 			</p> 
@@ -130,11 +142,15 @@
 							
 							<li><a style='text-decoration:none;' class="dr-icon dr-icon-heart" href="<s:url action="mycollecting">	
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
+	                  <s:param name="username"><s:property value="username" /></s:param>
+	                  <s:param name="useremail"><s:property value="useremail" /></s:param>
 	                  </s:url>
 	                  ">我的收藏</a></li>
 							
 							<li><a style='text-decoration:none;' class="dr-icon dr-icon-download" href="<s:url action="myactivity">	   
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
+	                  <s:param name="username"><s:property value="username" /></s:param>
+	                  <s:param name="useremail"><s:property value="useremail" /></s:param>
 	                  </s:url>
 	                  ">我的活动</a></li>
 							
@@ -149,31 +165,14 @@
 					<ol class="breadcrumb">
 						<li><a style='text-decoration:none'  href="<s:url action="showallact"> 
 						 	<s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
+						 	<s:param name="username"><s:property value="username" /></s:param>
+	                  		<s:param name="useremail"><s:property value="useremail" /></s:param>
 						 	<s:param name="orderby">time</s:param>
 						 	</s:url>
 					      ">主页</a>
 					     </li>		
-						<li><a href="#">2013</a></li>
 						<li class="active">我的收藏</li>
-						<li class="dropdown pull-right">
-								 <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
-								<ul class="dropdown-menu">
-									<li>
-										 <a href="#">操作</a>
-									</li>
-									<li>
-										 <a href="#">设置栏目</a>
-									</li>
-									<li>
-										 <a href="#">更多设置</a>
-									</li>
-									<li class="divider">
-									</li>
-									<li>
-										 <a href="#">分割线</a>
-									</li>
-								</ul>
-							</li>
+						
 					</ol>
 				</div>
 		
@@ -213,14 +212,14 @@
 										
 									</figcaption>
 									
-									<div class="post1">
-										 <img src="images/post1.jpg" alt="" />
-										<p class = "name1"><s:property value="#var.name"/></p>
-										<p class = "sdate1"><s:property value="#var.sdate"/></p>
-										<p class = "place1">地点：<s:property value="#var.place"/></p>
-										<p class = "creator1">主办方：<s:property value="#var.creator"/></p>
-										<p class = "cphonenumber1">联系方式：<s:property value="#var.cphonenumber"/></p>
-										<p class = "brief1"><s:property value="#var.brief"/></p>
+									<div class="post<s:property value="#var.posterid"/>" >
+										 <img src="images/post<s:property value="#var.posterid"/>.jpg" alt="" />
+										<p class = "name<s:property value="#var.posterid"/>"><s:property value="#var.name"/></p>
+										<p class = "sdate<s:property value="#var.posterid"/>"><s:property value="#var.sdate"/></p>
+										<p class = "place<s:property value="#var.posterid"/>">地点：<s:property value="#var.place"/></p>
+										<p class = "creator<s:property value="#var.posterid"/>">主办方：<s:property value="#var.creator"/></p>
+										<p class = "cphonenumber<s:property value="#var.posterid"/>">联系方式：<s:property value="#var.cphonenumber"/></p>
+										<p class = "brief<s:property value="#var.posterid"/>"><s:property value="#var.brief"/></p>
 									</div>
 
 									</br>
@@ -230,7 +229,7 @@
 												<div class="event">
 													<input type="radio" name="tl-group" checked/>
 													<label></label>
-													<div class="thumb user-4"><span><s:property value="#svar.sid"/></span></div>
+													<div class="thumb " style="background-image: url(images/number<s:property value="#svar.sid"/>.jpg);"><span><s:property value="#svar.sid"/></span></div>
 													<div class="content-perspective">
 														<div class="content">
 															<div class="content-inner">
@@ -249,6 +248,8 @@
 									<a style='text-decoration:none;' href="<s:url action="cancelc">
 										<s:param name="phonenumber"><s:property value = "phonenumber"/></s:param>
 										<s:param name="actid"><s:property value="#var.actid" /></s:param>
+										<s:param name="username"><s:property value = "username"/></s:param>
+										<s:param name="useremail"><s:property value = "useremail"/></s:param>
 										</s:url>
 									">取消收藏</a>
 						
@@ -313,25 +314,7 @@
 				<li class="disabled">
 					 <a href="#">信息</a>
 				</li>
-				<li class="dropdown pull-right">
-					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
-					<ul class="dropdown-menu">
-						<li>
-							 <a href="#">操作</a>
-						</li>
-						<li>
-							 <a href="#">设置栏目</a>
-						</li>
-						<li>
-							 <a href="#">更多设置</a>
-						</li>
-						<li class="divider">
-						</li>
-						<li>
-							 <a href="#">分割线</a>
-						</li>
-					</ul>
-				</li>
+				
 			</ul>
 		</div>
 	</div>
