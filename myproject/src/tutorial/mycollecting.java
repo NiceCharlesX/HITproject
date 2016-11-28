@@ -1,4 +1,13 @@
-//我的关注的活动
+/*
+   * Classname 
+   * mycollecting
+   * Version information
+   * 2.2.3
+   * Date
+   * 11-21
+   * Copyright notice
+   */
+//鎴戠殑鍏虫敞鐨勬椿鍔�
 
 package tutorial;
 

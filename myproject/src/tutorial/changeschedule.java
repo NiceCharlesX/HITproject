@@ -1,16 +1,25 @@
+ /*
+   * Classname 
+   * changeschedule
+   * Version information
+   * 2.2.3
+   * Date
+   * 11-21
+   * Copyright notice
+   */
 package tutorial;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
 public class changeschedule extends ActionSupport {
-	public String actid;
-	public String sid;
-	public String time;
-	public String contents;
-	public String place;
-	public String person;
-	public String phonenumber;
+	public String actid;            //id of activity
+	public String sid;              //id of schedule
+	public String time;             //time of schedule
+	public String contents;         //contents of schdule
+	public String place;            //place of schdule
+	public String person;           //person of schdule
+	public String phonenumber;      //phone number of creator
 	public String getphonenumber(){
         return phonenumber;
     }   
@@ -56,6 +65,9 @@ public class changeschedule extends ActionSupport {
 	public String execute(){
 		String ret = ERROR;
 		Connection con = null;
+		/*
+		 * change schdule
+		 */
 		try{
   		    Class.forName("com.mysql.jdbc.Driver");
             con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pro?useUnicode=true&characterEncoding=utf-8", "root", "123456");

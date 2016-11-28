@@ -1,4 +1,13 @@
-//我的创立的活动
+/*
+   * Classname 
+   * myactivity
+   * Version information
+   * 2.2.3
+   * Date
+   * 11-21
+   * Copyright notice
+   */
+//鎴戠殑鍒涚珛鐨勬椿鍔�
 package tutorial;
 
 import com.opensymphony.xwork2.ActionSupport;

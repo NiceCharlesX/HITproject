@@ -1,3 +1,12 @@
+ /*
+   * Classname 
+   * changesend
+   * Version information
+   * 2.2.3
+   * Date
+   * 11-21
+   * Copyright notice
+   */
 package tutorial;
 
 import com.opensymphony.xwork2.ActionSupport;
