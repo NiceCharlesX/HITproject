@@ -1,19 +1,29 @@
+ /*
+   * Classname 
+   * activity
+   * Version information
+   * 2.2.2
+   * Date
+   * 11-10
+   * Copyright notice
+   */
+	  
 package tutorial;
 
 import java.util.*;
 
 public class activity {
-    public String actid;
-    public  String name;
-    public  String cphonenumber;
-    public String creator;
-    public String place;
-    public String sdate;
-    public String edate;
-    public String type;
-    public String brief;
-    public String posterid;
-    public ArrayList<Map<String,String>> slist;
+    public String actid;            //id of activity
+    public  String name;            //name of activity
+    public  String cphonenumber;    //phone number of creator
+    public String creator;          //name of creator
+    public String place;            //place of activity
+    public String sdate;            //start date
+    public String edate;            //end date
+    public String type;             //type of activity
+    public String brief;            //brief introduction
+    public String posterid;         //id of poster
+    public ArrayList<Map<String,String>> slist;   //list of schedule
     
     public ArrayList<Map<String,String>> getslist(){
         return slist;

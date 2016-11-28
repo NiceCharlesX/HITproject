@@ -1,19 +1,28 @@
+ /*
+   * Classname 
+   * changeact
+   * Version information
+   * 2.2.2
+   * Date
+   * 11-11
+   * Copyright notice
+   */
 package tutorial;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
 public class changeact extends ActionSupport {
-    public String actid;
-    public String name;
-    public String cphonenumber;
-    public String creator;
-    public String place;
-    public String sdate;
-    public String edate;
-    public String type;
-    public String brief;
-    public String phonenumber;
+    public String actid;            //id of activity
+    public String name;             //name of activity
+    public String cphonenumber;     //phone number of creator
+    public String creator;          //name of creator
+    public String place;            //place of activity
+    public String sdate;            //start date
+    public String edate;            //end date
+    public String type;             //type of activity
+    public String brief;            //brief introduction
+    public String phonenumber;      //phonenumber of user
     public String getphonenumber(){
       return phonenumber;
     }    
@@ -79,6 +88,9 @@ public class changeact extends ActionSupport {
         String posterid;
         Connection con = null;
         post Post= new post();
+        /*
+         * change activity
+         */
         try{
             posterid= Post.getpost(type);
             Class.forName("com.mysql.jdbc.Driver");
