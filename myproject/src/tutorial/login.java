@@ -9,13 +9,10 @@
    */
 package tutorial;
 
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.Map;
-
-
 
 public class login extends ActionSupport {
 	public String email;
@@ -27,6 +24,7 @@ public class login extends ActionSupport {
 	public String getuseremai(){
 		return useremail;
 	}
+	
 	public void setuseremail(String useremail){
 		this.useremail = useremail;
 	}
@@ -42,9 +40,11 @@ public class login extends ActionSupport {
     public String getphonenumber(){
         return phonenumber;
     }
+    
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
-    }   
+    }
+    
 	Map<String,Object> session = ActionContext.getContext().getSession();
 	public Map<String,Object>  getsession(){
 		return session;
@@ -56,16 +56,20 @@ public class login extends ActionSupport {
 	
 	public String getemail(){
       return email;
-    }   
+    }
+	
     public void setemail(String email){
         this.email = email;
     }
+    
 	public String getpassword(){
 		return password;
-	}	
+	}
+	
 	public void setpassword(String password){
 		this.password = password;
 	}
+	
 	public String execute(){
 		String ret = ERROR;
 		Connection conn = null;
@@ -123,3 +127,5 @@ public class login extends ActionSupport {
 		return ret;
 	}
 }
+
+

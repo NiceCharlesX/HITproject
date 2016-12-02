@@ -12,7 +12,9 @@ package tutorial;
 import java.io.*;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
+
 @ServerEndpoint("/websocket")
+
 public class WebSocketTest {
  
   @OnMessage

@@ -13,12 +13,14 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
+
 public class myactivity extends ActionSupport {
     public ArrayList<Map<String,String>> list;
     public ArrayList<activity> act;
     public String phonenumber;
     public String username;
     public String useremail;
+    
     public String getusername(){
     	return username;
     }
@@ -30,6 +32,7 @@ public class myactivity extends ActionSupport {
     public String getuseremail(){
     	return useremail;
     }
+    
     public void setuseremail(String useremail){
     	this.useremail = useremail;
     }
@@ -37,9 +40,11 @@ public class myactivity extends ActionSupport {
     public String getphonenumber(){
         return phonenumber;
     }
+    
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
-    }   
+    }
+    
     public String execute(){
         String ret = ERROR;
         Connection con = null;
@@ -115,4 +120,5 @@ public class myactivity extends ActionSupport {
         return ret;
     }
 }
+
 

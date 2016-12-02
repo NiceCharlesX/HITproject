@@ -12,6 +12,7 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
+
 public class changeschedule extends ActionSupport {
 	public String actid;            //id of activity
 	public String sid;              //id of schedule
@@ -20,48 +21,63 @@ public class changeschedule extends ActionSupport {
 	public String place;            //place of schdule
 	public String person;           //person of schdule
 	public String phonenumber;      //phone number of creator
+	
 	public String getphonenumber(){
         return phonenumber;
-    }   
+    }
+	
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
     }
+    
 	public String getactid(){
 		return actid;
 	}
+	
 	public void setactid(String actid){
 		this.actid = actid;
 	}
+	
 	public String getsid(){
         return sid;
 	}
+	
     public void setsid(String sid){
         this.sid = sid;
     }
+    
     public String gettime(){
         return time;
     }
+    
     public void settime(String time){
         this.time = time;
     }
+    
     public String getcontents(){
         return contents;
     }
+    
     public void setcontents(String contents){
         this.contents = contents;
     }
+    
     public String getplace(){
         return place;
     }
+    
     public void setplace(String place){
         this.place = place;
     }
+    
     public String getperson(){
         return person;
     }
+    
     public void setperson(String person){
         this.person = person;
     }
+    
 	public String execute(){
 		String ret = ERROR;
 		Connection con = null;

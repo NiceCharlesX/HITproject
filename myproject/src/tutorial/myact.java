@@ -12,16 +12,20 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
+
 public class myact extends ActionSupport {
   public String email;
   public ArrayList<Map<String,String>> list;
   public String phonenumber;
+  
   public String getphonenumber(){
       return phonenumber;
   }
+  
   public void setphonenumber(String phonenumber){
       this.phonenumber = phonenumber;
-  }   
+  }
+  
   public String execute(){
       String ret = ERROR;
       Connection con = null;
@@ -66,3 +70,5 @@ public class myact extends ActionSupport {
       return ret;
   }
 }
+
+

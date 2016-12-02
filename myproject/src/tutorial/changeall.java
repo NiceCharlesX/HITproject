@@ -12,6 +12,7 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
+
 public class changeall extends ActionSupport {
 	public String actid;            //id of activity
     public String name;             //name of activity
@@ -36,6 +37,7 @@ public class changeall extends ActionSupport {
 	public String getuseremai(){
 		return useremail;
 	}
+	
 	public void setuseremail(String useremail){
 		this.useremail = useremail;
 	}
@@ -58,88 +60,116 @@ public class changeall extends ActionSupport {
     
     public String getphonenumber(){
       return phonenumber;
-    }    
+    }
+    
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
     }
+    
     public String getcphonenumber(){
         return cphonenumber;
     }
+    
     public void setcphonenumber(String cphonenumber){
         this.cphonenumber = cphonenumber;
-    }   
+    }
+    
     public String getbrief(){
       return brief;
-    }   
+    }
+    
     public void setbrief(String brief){
         this.brief = brief;
     }
+    
     public String getname(){
         return name;
-    }   
+    }
+    
     public void setname(String name){
         this.name = name;
     }
+    
     public String getcreator(){
         return creator;
-    } 
+    }
+    
     public void setcreator(String creator){
         this.creator = creator;
     }
+    
     public String getaplace(){
         return aplace;
-    } 
+    }
+    
     public void setaplace(String aplace){
         this.aplace = aplace;
     }
+    
     public String getsdate(){
         return sdate;
-    } 
+    }
+    
     public void setsdate(String sdate){
         this.sdate = sdate;
     }
+    
     public String getedate(){
       return edate;
-    } 
+    }
+    
     public void setedate(String edate){
         this.edate = edate;
     }
+    
     public String gettype(){
         return type;
-    } 
+    }
+    
     public void settype(String type){
         this.type = type;
     }
+    
     public String getactid(){
         return actid;
     }
+    
     public void setactid(String actid){
         this.actid = actid;
-    }   
+    }
+    
     public String[] gettime(){
         return time;
     }
+    
     public void settime(String[] time){
         this.time = time;
     }
+    
     public String[] getcontents(){
         return contents;
     }
+    
     public void setcontents(String[] contents){
         this.contents = contents;
     }
+    
     public String[] getplace(){
         return place;
     }
+    
     public void setplace(String[] place){
         this.place = place;
     }
+    
     public String[] getperson(){
         return person;
     }
+    
     public void setperson(String[] person){
         this.person = person;
     }
+    
     public String execute(){
         String ret = ERROR;
         date=acttime.split("[ - ]");

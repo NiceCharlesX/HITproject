@@ -12,6 +12,7 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
+
 public class showallact extends ActionSupport {
     public ArrayList<Map<String,String>> list;
 	public ArrayList<activity> act;
@@ -23,6 +24,7 @@ public class showallact extends ActionSupport {
 	public String getuseremail(){
 		return useremail;
 	}
+	
 	public void setuseremail(String useremail){
 		this.useremail = useremail;
 	}
@@ -38,15 +40,19 @@ public class showallact extends ActionSupport {
     public String getphonenumber(){
         return phonenumber;
     }
+    
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
-    }   
+    }
+    
     public String getorderby(){
         return orderby;
     }
+    
     public void setorderby(String orderby){
         this.orderby = orderby;
     }
+    
 	public String execute(){
 		String ret = ERROR;
 		Connection con = null;
@@ -130,3 +136,5 @@ public class showallact extends ActionSupport {
 		return ret;
 	}
 }
+
+

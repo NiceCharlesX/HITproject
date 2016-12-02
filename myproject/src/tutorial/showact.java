@@ -12,28 +12,33 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
+
 public class showact extends ActionSupport {
 	public String orderby;
 	public ArrayList<Map<String,String>> list;
 	public String phonenumber;
 	public int temp=0;
 	
-
 	public int gettemp(){
 		return temp;
 	}
+	
     public String getphonenumber(){
         return phonenumber;
     }
+    
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
-    }   
+    }
+    
 	public String getorderby(){
 		return orderby;
 	}
+	
 	public void setorderby(String orderby){
 		this.orderby = orderby;
 	}
+	
 	public String execute(){
 		String ret = ERROR;
 		Connection con = null;
@@ -95,3 +100,6 @@ public class showact extends ActionSupport {
 		return ret;
 	}
 }
+
+
+

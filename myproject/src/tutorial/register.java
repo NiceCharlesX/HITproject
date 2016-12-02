@@ -13,18 +13,20 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 
-
 public class register extends ActionSupport {
     public String email;
 	public String name;
 	public  String password;
-	public  String phonenumber;	
+	public  String phonenumber;
+	
 	public String getemail(){
         return email;
     }
+	
     public void setemail(String email){
         this.email = email;
     }
+    
 	public String getname(){
 		return name;
 	}
@@ -40,6 +42,7 @@ public class register extends ActionSupport {
 	public void setpassword(String password){
 		this.password = password;
 	}
+	
 	public String getphonenumber(){
 		return phonenumber;
 	}
@@ -47,6 +50,7 @@ public class register extends ActionSupport {
 	public void setphonenumber(String phonenumber){
 		this.phonenumber = phonenumber;
 	}
+	
 	public String execute(){
 		String ret = ERROR;
 		Connection conn = null;
@@ -101,3 +105,5 @@ public class register extends ActionSupport {
 		return ret;
 	}
 }
+
+

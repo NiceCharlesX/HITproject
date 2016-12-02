@@ -10,9 +10,7 @@
 package tutorial;
 
 import java.util.Date;
-
 import java.util.Properties;  
- 
 import java.util.*;
 import javax.mail.*;  
 import javax.mail.internet.*;  
@@ -107,6 +105,7 @@ public class SendEmail {
 	{
 		return password;
 	}
+	
 	public void setPassword(String password)
 	{
 		this.password = password;
@@ -116,6 +115,7 @@ public class SendEmail {
 	{
 		return host;
 	}
+	
 	public void setHost(String host)
 	{
 		this.host = host;
@@ -125,6 +125,7 @@ public class SendEmail {
 	{
 		return username;
 	}
+	
 	public void setUsername(String username)
 	{
 		this.username = username;
@@ -134,6 +135,7 @@ public class SendEmail {
 	{
 		return this.fromAddr;
 	}
+	
 	public void setFromAddr(String addr)
 	{
 		fromAddr = addr;
@@ -143,6 +145,7 @@ public class SendEmail {
 	{
 		return this.toAddr;
 	}
+	
 	public void setToAddr(String addr)
 	{
 		toAddr = addr;
@@ -152,6 +155,7 @@ public class SendEmail {
 	{
 		return subject;
 	}
+	
 	public void setSubject(String sub)
 	{
 		subject = sub;
@@ -161,11 +165,11 @@ public class SendEmail {
 	{
 		return content;
 	}
+	
 	public void setContent(String content)
 	{
 		this.content = content;
 	}
-	
-
-
 }
+
+

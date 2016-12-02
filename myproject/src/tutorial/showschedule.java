@@ -12,22 +12,28 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
+
 public class showschedule extends ActionSupport {
 	public String actid;
 	public ArrayList<Map<String,String>> list;
 	public String phonenumber;
+	
     public String getphonenumber(){
         return phonenumber;
     }
+    
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
-    }   
+    }
+    
 	public String getactid(){
 		return actid;
 	}
+	
 	public void setactid(String actid){
 		this.actid = actid;
-	}	
+	}
+	
 	public String execute(){
 		String ret = ERROR;
 		Connection con = null;
@@ -67,3 +73,5 @@ public class showschedule extends ActionSupport {
 		return ret;
 	}
 }
+
+

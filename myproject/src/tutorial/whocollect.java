@@ -13,7 +13,6 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
 
-
 public class whocollect extends ActionSupport {
     public String phonenumber;
     public ArrayList<String> list;
@@ -26,6 +25,7 @@ public class whocollect extends ActionSupport {
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
     }
+    
     public String execute(){
         String ret = ERROR;
         Connection conn = null;

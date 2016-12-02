@@ -21,6 +21,7 @@ public class createschedule extends ActionSupport {
 	public String phonenumber;
 	public String username;
     public String useremail;
+    
     public String getusername(){
     	return username;
     }
@@ -32,42 +33,55 @@ public class createschedule extends ActionSupport {
     public String getuseremail(){
     	return useremail;
     }
+    
     public void setuseremail(String useremail){
     	this.useremail = useremail;
     }
+    
     public String getphonenumber(){
         return phonenumber;
     }
+    
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
-    }   
+    }
+    
 	public String getactid(){
 		return actid;
 	}
+	
 	public void setactid(String actid){
 		this.actid = actid;
-	}	
+	}
+	
 	public String[] gettime(){
       return time;
     }
+	
     public void settime(String[] time){
         this.time = time;
     }
+    
     public String[] getcontents(){
       return contents;
     }
+    
     public void setcontents(String[] contents){
         this.contents = contents;
     }
+    
     public String[] getplace(){
       return place;
     }
+    
     public void setplace(String[] place){
         this.place = place;
     }
+    
     public String[] getperson(){
       return person;
     }
+    
     public void setperson(String[] person){
         this.person = person;
     }
@@ -104,3 +118,6 @@ public class createschedule extends ActionSupport {
 		return ret;
 	}
 }
+
+
+

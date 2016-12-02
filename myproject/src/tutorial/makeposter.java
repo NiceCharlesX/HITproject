@@ -12,6 +12,7 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
+
 public class makeposter extends ActionSupport {
     public String actid;
     public ArrayList<Map<String,String>> list;
@@ -25,12 +26,15 @@ public class makeposter extends ActionSupport {
     public String brief;
     public  String phonenumber;
     public  String posterid;
+    
     public String getposterid(){
         return posterid;
-    }   
+    }
+    
     public void setposterid(String posterid){
         this.posterid = posterid;
     }
+    
     public String getphonenumber(){
       return phonenumber;
     }
@@ -38,60 +42,79 @@ public class makeposter extends ActionSupport {
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
     }
+    
     public String getcphonenumber(){
         return cphonenumber;
     }
+    
     public void setcphonenumber(String cphonenumber){
         this.cphonenumber = cphonenumber;
-    }   
+    }
+    
     public String getbrief(){
       return brief;
-    }   
+    }
+    
     public void setbrief(String brief){
         this.brief = brief;
     }
+    
     public String getname(){
         return name;
-    }   
+    }
+    
     public void setname(String name){
         this.name = name;
     }
+    
     public String getcreator(){
         return creator;
-    } 
+    }
+    
     public void setcreator(String creator){
         this.creator = creator;
     }
+    
     public String getplace(){
         return place;
-    } 
+    }
+    
     public void setplace(String place){
         this.place = place;
     }
+    
     public String getsdate(){
         return sdate;
-    } 
+    }
+    
     public void setsdate(String sdate){
         this.sdate = sdate;
     }
+    
     public String getedate(){
       return edate;
-    } 
+    }
+    
     public void setedate(String edate){
         this.edate = edate;
     }
+    
     public String gettype(){
         return type;
-    } 
+    }
+    
     public void settype(String type){
         this.type = type;
     }
+    
     public String getactid(){
         return actid;
     }
+    
     public void setactid(String actid){
         this.actid = actid;
-    }   
+    }
+    
     public String execute(){
         String ret = ERROR;
         Connection con = null;
@@ -144,3 +167,5 @@ public class makeposter extends ActionSupport {
         return ret;
     }
 }
+
+

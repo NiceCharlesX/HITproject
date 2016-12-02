@@ -7,9 +7,11 @@
    * 11-21
    * Copyright notice
    */
+
 package tutorial;
 
 import com.opensymphony.xwork2.ActionSupport;
+
 import java.sql.*;
 import java.util.*;
 public class delact extends ActionSupport {
@@ -18,6 +20,7 @@ public class delact extends ActionSupport {
     public ArrayList<String> user;
     public String username;
     public String useremail;
+    
     public String getusername(){
     	return username;
     }
@@ -29,15 +32,19 @@ public class delact extends ActionSupport {
     public String getuseremail(){
     	return useremail;
     }
+    
     public void setuseremail(String useremail){
     	this.useremail = useremail;
     }
+    
     public String getactid(){
         return actid;
-    }   
+    }
+    
     public void setactid(String actid){
         this.actid = actid;
     }
+    
     public String getphonenumber(){
         return phonenumber;
     }
@@ -45,6 +52,7 @@ public class delact extends ActionSupport {
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
     }
+    
     public String execute(){
         String ret = ERROR;
         Connection conn = null;
@@ -99,3 +107,6 @@ public class delact extends ActionSupport {
         return ret;
     }
 }
+
+
+

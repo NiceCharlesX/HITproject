@@ -12,6 +12,7 @@ package tutorial;
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.*;
+
 public class cancelc extends ActionSupport {
     public String actid;            //id of activity
     public String phonenumber;      //phone number of creator
@@ -28,15 +29,19 @@ public class cancelc extends ActionSupport {
     public String getuseremail(){
     	return useremail;
     }
+    
     public void setuseremail(String useremail){
     	this.useremail = useremail;
     }
+    
     public String getactid(){
         return actid;
     }   
+    
     public void setactid(String actid){
         this.actid = actid;
     }
+    
     public String getphonenumber(){
         return phonenumber;
     }
@@ -44,6 +49,7 @@ public class cancelc extends ActionSupport {
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
     }
+    
     public String execute(){
         String ret = ERROR;
         Connection conn = null;

@@ -9,12 +9,10 @@
    */
 package tutorial;
 
-
 import com.opensymphony.xwork2.ActionSupport;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
-
 
 public class createact extends ActionSupport {
     public int actid;
@@ -27,23 +25,25 @@ public class createact extends ActionSupport {
 	public String brief;
 	public String[] date;
 	public  String phonenumber;
-	 public String username;
-	    public String useremail;
-	    public String getusername(){
-	    	return username;
-	    }
-	    
-	    public void setusername(String useremail){
-	    	this.useremail = useremail;
-	    }
-	    
-	    public String getuseremail(){
-	    	return useremail;
-	    }
-	    public void setuseremail(String useremail){
-	    	this.useremail = useremail;
-	    }
+	public String username;
+	public String useremail;
 	
+	public String getusername(){
+	    return username;
+    }
+    
+    public void setusername(String useremail){
+    	this.useremail = useremail;
+    }
+    
+    public String getuseremail(){
+    	return useremail;
+    }
+    
+    public void setuseremail(String useremail){
+    	this.useremail = useremail;
+    }
+
 	public String getphonenumber(){
       return phonenumber;
     }
@@ -51,45 +51,59 @@ public class createact extends ActionSupport {
     public void setphonenumber(String phonenumber){
         this.phonenumber = phonenumber;
     }
+    
     public String getcphonenumber(){
         return cphonenumber;
     }
+    
     public void setcphonenumber(String cphonenumber){
         this.cphonenumber = cphonenumber;
-    }   
+    }
+    
 	public String getname(){
 		return name;
-	}	
+	}
+	
 	public void setname(String name){
 		this.name = name;
 	}
+	
 	public String getcreator(){
 		return creator;
-	} 
+	}
+	
     public void setcreator(String creator){
         this.creator = creator;
     }
+    
     public String getplace(){
         return place;
-    } 
+    }
+    
     public void setplace(String place){
         this.place = place;
     }
+    
     public String gettime(){
         return time;
-    } 
+    }
+    
     public void settime(String time){
         this.time = time;
     }
+    
     public String gettype(){
         return type;
-    } 
+    }
+    
     public void settype(String type){
         this.type = type;
     }
+    
     public String getbrief(){
 		return brief;
-	}	
+	}
+    
 	public void setbrief(String brief){
 		this.brief = brief;
 	}
