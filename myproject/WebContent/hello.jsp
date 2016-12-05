@@ -1,563 +1,934 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>jQuery自定义添加删除表单代码 - 站长素材</title>
-<link rel="stylesheet" type="text/css" href="css/wenjuan_ht.css">
-<script src="jquery/jquery-1.8.3.min.js"></script>
-<script> var jq183 = jQuery.noConflict(true); </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="keywords" content="admin, dashboard, bootstrap, template, flat, modern, theme, responsive, fluid, retina, backend, html5, css, css3">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+  <link rel="shortcut icon" href="#" type="image/png">
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
+  <title>AdminX</title>
+
+  <!--icheck-->
+  <link href="js/iCheck/skins/minimal/minimal.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/square.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/red.css" rel="stylesheet">
+  <link href="js/iCheck/skins/square/blue.css" rel="stylesheet">
+
+  <!--dashboard calendar-->
+  <link href="css/clndr.css" rel="stylesheet">
 
 
-<script>
-jq183(document).ready(function(e) {
-    jq183(".btwen_text").val("题目");
-	 jq183(".btwen_text_dx").val("单选题目");
-	 jq183(".btwen_text_duox").val("多选题目");
-	  jq183(".btwen_text_tk").val("填空题目"); 
-	
-	jq183(".leftbtwen_text").val("例子：CCTV1，CCTV2，CCTV3");
-	jq183(".xxk_title li").click(function(){
-		var xxkjs = jq183(this).index(); 
-		jq183(this).addClass("on").siblings().removeClass("on");
-		jq183(".xxk_conn").children(".xxk_xzqh_box").eq(xxkjs).show().siblings().hide();
-		 
-		});
-		
-	//鼠标移上去显示按钮
-	
-	jq183(".movie_box").live("hover",function(event){ 
-	if(event.type=='mouseenter'){
-		var	html_cz = "<div class='kzqy_czbut'><a href='javascript:void(0)' class='sy'>上移</a><a href='javascript:void(0)'  class='xy'>下移</a><a href='javascript:void(0)'  class='bianji'>编辑</a><a href='javascript:void(0)' class='del' >删除</a></div>" 
-	 		 jq183(this).css({"border":"1px solid #0099ff"}); 
-			 jq183(this).children(".wjdc_list").after(html_cz);
-	}
-	else{
-		jq183(this).css({"border":"1px solid #fff"}); 
-		jq183(this).children(".kzqy_czbut").remove();
-	}
-	});
-		
+  <!--common-->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet">
 
-	
-		//下移
-		jq183(".xy").live("click", function() {  
-			//文字的长度 
-			var leng = jq183(".yd_box").children(".movie_box").length;
-			var dqgs = jq183(this).parent(".kzqy_czbut").parent(".movie_box").index();  
-			 
-			if(dqgs < leng-1){
-				var czxx = jq183(this).parent(".kzqy_czbut").parent(".movie_box");  
-				var xyghtml = czxx.next().html();
-				var syghtml = czxx.html(); 
-				czxx.next().html(syghtml);
-				czxx.html(xyghtml);
-				//序号
-				czxx.children(".wjdc_list").find(".nmb").text(dqgs+1);
-				czxx.next().children(".wjdc_list").find(".nmb").text(dqgs+2);
-				}else{
-					alert("到底了");
-					}  
-		});
-		//上移
-		jq183(".sy").live("click", function() {
-			//文字的长度 
-		    var leng = jq183(".yd_box").children(".movie_box").length;
-			var dqgs = jq183(this).parent(".kzqy_czbut").parent(".movie_box").index(); 
-			if(dqgs > 0){
-			var czxx = jq183(this).parent(".kzqy_czbut").parent(".movie_box");  
-			var xyghtml = czxx.prev().html();
-  			var syghtml = czxx.html();   
-			czxx.prev().html(syghtml);
-			czxx.html(xyghtml);
-			//序号
-			czxx.children(".wjdc_list").find(".nmb").text(dqgs+1);
-			czxx.prev().children(".wjdc_list").find(".nmb").text(dqgs);
-			
-				}else{
-					alert("到头了");
-					}  
-		});
-		//删除
-		jq183(".del").live("click", function() {  
-			var czxx = jq183(this).parent(".kzqy_czbut").parent(".movie_box"); 
-			var zgtitle_gs = czxx.parent(".yd_box").find(".movie_box").length;
-			var xh_num = 0; 
-			//重新编号
-			czxx.parent(".yd_box").find(".movie_box").each(function() { 
-				jq183(".yd_box").children(".movie_box").eq(xh_num).find(".nmb").text(xh_num);
-				 xh_num++;
-				//alert(xh_num);
-            }); 
-			 czxx.remove(); 	  		 
-		});
-		
-		//编辑
-		jq183(".bianji").live("click", function() {  
-		    //编辑的时候禁止其他操作	
-		    jq183(this).siblings().hide();
-			//jq183(this).parent(".kzqy_czbut").parent(".movie_box").unbind("hover"); 
-			var dxtm = jq183(".dxuan").html();
-			var duoxtm = jq183(".duoxuan").html();
-			var tktm = jq183(".tktm").html();
-			var jztm = jq183(".jztm").html();
-			//接受编辑内容的容器
-			var dx_rq = jq183(this).parent(".kzqy_czbut").parent(".movie_box").find(".dx_box");  
-		    var title = dx_rq.attr("data-t");
-			//alert(title);
-			//题目选项的个数
-			var timlrxm = jq183(this).parent(".kzqy_czbut").parent(".movie_box").children(".wjdc_list").children("li").length; 
-			
-			//单选题目
-			if(title==0){
-				dx_rq.show().html(dxtm);
-				//模具题目选项的个数
-				var bjxm_length = dx_rq.find(".title_itram").children(".kzjxx_iteam").length;
-			    var dxtxx_html = dx_rq.find(".title_itram").children(".kzjxx_iteam").html(); 
-				//添加选项题目
-				for (var i_tmxx = bjxm_length; i_tmxx < timlrxm-1 ; i_tmxx++) {
-                	 dx_rq.find(".title_itram").append("<div class='kzjxx_iteam'>"+dxtxx_html+"</div>"); 
-                 }
-				 //赋值文本框 
-				 //题目标题
-					var texte_bt_val = jq183(this).parent(".kzqy_czbut").parent(".movie_box").find(".wjdc_list").children("li").eq(0).find(".tm_btitlt").children(".btwenzi").text();  
-					dx_rq.find(".btwen_text").val(texte_bt_val);  
-				 //遍历题目项目的文字
-				 var  bjjs=0;
-				 jq183(this).parent(".kzqy_czbut").parent(".movie_box").find(".wjdc_list").children("li").each(function() { 
-					//可选框框
-					 var ktksfcz = jq183(this).find("input").hasClass("wenb_input");
-				    if(ktksfcz){
-					  var jsxz_kk = jq183(this).index(); 
-					 dx_rq.find(".title_itram").children(".kzjxx_iteam").eq(jsxz_kk-1).find("label").remove();
-					 } 
-					 //题目选项
-					var texte_val = jq183(this).find("span").text(); 
-					dx_rq.find(".title_itram").children(".kzjxx_iteam").eq(bjjs-1).find(".input_wenbk").val(texte_val);
-					bjjs++
-					 
-                }); 
-				}
-			//多选题目	
-			 if(title==1){
-				dx_rq.show().html(duoxtm);
-				//模具题目选项的个数
-				var bjxm_length = dx_rq.find(".title_itram").children(".kzjxx_iteam").length;
-			    var dxtxx_html = dx_rq.find(".title_itram").children(".kzjxx_iteam").html(); 
-				//添加选项题目
-				for (var i_tmxx = bjxm_length; i_tmxx < timlrxm-1 ; i_tmxx++) {
-                	 dx_rq.find(".title_itram").append("<div class='kzjxx_iteam'>"+dxtxx_html+"</div>");
-					 //alert(i_tmxx);
-                 }
-				 //赋值文本框 
-				 //题目标题
-					var texte_bt_val = jq183(this).parent(".kzqy_czbut").parent(".movie_box").find(".wjdc_list").children("li").eq(0).find(".tm_btitlt").children(".btwenzi").text(); 
-					dx_rq.find(".btwen_text").val(texte_bt_val); 
-				 //遍历题目项目的文字
-				 var  bjjs=0;
-				 jq183(this).parent(".kzqy_czbut").parent(".movie_box").find(".wjdc_list").children("li").each(function() {  
-					//可选框框
-					 var ktksfcz = jq183(this).find("input").hasClass("wenb_input");
-				    if(ktksfcz){
-					  var jsxz_kk = jq183(this).index(); 
-					 dx_rq.find(".title_itram").children(".kzjxx_iteam").eq(jsxz_kk-1).find("label").remove();
-					 } 
-					//题目选项
-					var texte_val = jq183(this).find("span").text(); 
-					dx_rq.find(".title_itram").children(".kzjxx_iteam").eq(bjjs-1).find(".input_wenbk").val(texte_val);
-					bjjs++
-					 
-                });
-			 }
-			 //填空题目
-			 if(title==2){
-			 	dx_rq.show().html(tktm);
-				 //赋值文本框 
-				 //题目标题
-					var texte_bt_val = jq183(this).parent(".kzqy_czbut").parent(".movie_box").find(".wjdc_list").children("li").eq(0).find(".tm_btitlt").children(".btwenzi").text(); 
-					dx_rq.find(".btwen_text").val(texte_bt_val);   
-			 }
-			 //矩阵题目
-			 if(title==3){
-				dx_rq.show().html(jztm);
-				}     		 
-		}); 
-		
-		//增加选项  
-		jq183(".zjxx").live("click", function() {  
-			 var zjxx_html =  jq183(this).prev(".title_itram").children(".kzjxx_iteam").html();
-			 jq183(this).prev(".title_itram").append("<div class='kzjxx_iteam'>"+zjxx_html+"</div>"); 
-		});
-		
-		
-		jq183(".zjxxx").live("click",function(){
-			var zjxxx_html = jq183(this).parent(".yd_box").children(".movie_box").html();
-			jq183(this).before("<div class='movie_box'>"+zjxxx_html+"</div>");
-			var zjxxx = jq183(this).prev(".movie_box");
-			var leng = jq183(this).parent(".yd_box").children(".movie_box").length;
-			zjxxx.children(".wjdc_list").find(".nmb").text(leng);			
-		});
-		
-		//删除一行 
-		jq183(".del_xm").live("click", function() {  
-			//获取编辑题目的个数
-			var zuxxs_num = jq183(this).parent(".kzjxx_iteam").parent(".title_itram").children(".kzjxx_iteam").length;
-			 if(zuxxs_num > 1){
-				  jq183(this).parent(".kzjxx_iteam").remove();
-				 }else{
-					alert("手下留情");
-					 } 
-		});
-		
-		//取消编辑
-		jq183(".dx_box .qxbj_but").live("click", function() {  
-			 jq183(this).parent(".bjqxwc_box").parent(".dx_box").empty().hide();
-			  jq183(".movie_box").css({"border":"1px solid #fff"});
-			  jq183(".kzqy_czbut").remove(); 
-			  // 			  
-		});
-		
-		//完成编辑（编辑）
-		jq183(".swcbj_but").live("click", function() {   
-		var jcxxxx = jq183(this).parent(".bjqxwc_box").parent(".dx_box");
-		//编辑题目选项的个数
-		  var bjtm_xm_length = jcxxxx.find(".title_itram").children(".kzjxx_iteam").length;
-		  var xmtit_length = jcxxxx.parent(".movie_box").children(".wjdc_list").children("li").length-1;
-		 
-		 //添加选项题目
-		 //添加选项
-		 if(bjtm_xm_length > xmtit_length){
-			var fzll = jcxxxx.parent(".movie_box").children(".wjdc_list").children("li").eq(1).html(); 
-			  for(var toljs_add = 0 ; toljs_add < bjtm_xm_length - xmtit_length ; toljs_add++){
-					 jcxxxx.parent(".movie_box").children(".wjdc_list").append("<li>"+fzll+"</li>") 
-				  } 
-			}
-			//删除选项
-			if(bjtm_xm_length < xmtit_length) {  
-				 for(var toljs = xmtit_length ; toljs > bjtm_xm_length ; toljs--){
-					 jcxxxx.parent(".movie_box").children(".wjdc_list").children("li").eq(toljs).remove();
-					 } 
-				}
-			 
-			 //赋值文本框 
-			 //题目标题
-			  var texte_bt_val_bj = jcxxxx.find(".btwen_text").val();  
-			  jcxxxx.parent(".movie_box").children(".wjdc_list").children("li").eq(0).find(".tm_btitlt").children(".btwenzi").text(texte_bt_val_bj); 
-			 //遍历题目项目的文字
-			  var  bjjs_bj=0;
-			  jcxxxx.children(".title_itram").children(".kzjxx_iteam").each(function() { 
-				 //题目选项
-				 var texte_val_bj = jq183(this).find(".input_wenbk").val(); 
-				 jcxxxx.parent(".movie_box").children(".wjdc_list").children("li").eq(bjjs_bj+1).find("span").text(texte_val_bj);
-				 bjjs_bj++
-				 //可填空  
-				 var kxtk_yf = jq183(this).find(".fxk").is(':checked');	 
-				 if(kxtk_yf){
-					 //第几个被勾选
-					 var jsxz = jq183(this).index();
-					 //alert(jsxz);
-					 jcxxxx.parent(".movie_box").children(".wjdc_list").children("li").eq(jsxz+1).find("span").after("<input name='' type='text' class='wenb_input'>");
-					  
-					 }  
-				 
-                });  
-				
-			//清除	 
-			 jq183(this).parent(".bjqxwc_box").parent(".dx_box").empty().hide();	
-		
-		});
-		
-			
-});
 
-</script>
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
 </head>
 
-<body>
-<div class=" all_660">
+<body class="sticky-header">
 
-  <div class="yd_box">
-    
+<section>
+    <!-- left side start-->
+    <div class="left-side sticky-left-side">
 
-    <div class="movie_box">
-      <ul class="wjdc_list">
-        <li>
-          <div class="tm_btitlt"><i class="nmb">1</i>. <i class="btwenzi">你有多久的公务员资历？</i></div>
-        </li>
-        <li>
-          <label>
-            <input name="a" type="radio" value="">
-            <span>0-3年</span></label>
-        </li>
-        <li>
-          <label>
-            <input name="a" type="radio" value="">
-             <span>4-10年</span></label>
-        </li>
-        <li>
-          <label>
-            <input name="a" type="radio" value="">
-            <span>11-20年</span></label>
-        </li>
-        <li>
-          <label>
-            <input name="a" type="radio" value="">
-            <span>20年以上</span></label>
-        </li>
-        <li>
-          <label>
-            <input name="a" type="radio" value="">
-            <span>其他</span> <input name="" type="text" class="wenb_input"></label>
-        </li>
-      </ul>
-      <div class="dx_box" data-t="0"></div>
-    </div>
-    
-    
-    <div class="movie_box">
-      <ul class="wjdc_list">
-        <li>
-          <div class="tm_btitlt"><i class="nmb">2</i>. <i class="btwenzi">对目前的工作哪方面不满意？</i><span class="tip_wz">【多选】</span></div>
-        </li>
-        <li>
-          <label>
-            <input name="" type="checkbox" value="">
-             <span>任务多、压力大</span></label>
-        </li>
-        <li>
-          <label>
-            <input name="" type="checkbox" value="">
-             <span>人际关系难处理，环境难适应</span></label>
-        </li>
-        <li>
-          <label>
-            <input name="" type="checkbox" value="">
-            <span> 缺少认同和成就感</span></label>
-        </li>
-        <li>
-          <label>
-            <input name="" type="checkbox" value="">
-            <span> 其他</span>
-            <input name="" type="text" class="wenb_input">
-          </label>
-        </li>
-      </ul>
-      <div class="dx_box" data-t="1"></div>
-    </div>
-    
-    
-    <div class="movie_box">
-      <ul class="wjdc_list">
-        <li>
-          <div class="tm_btitlt"><i class="nmb">3</i>.  <i class="btwenzi">任务多、压力大任务多、压力大任务多、压力大？</i><span class="tip_wz">【填空】</span></div>
-        </li> 
-        <li>
-          <label> 
-            <textarea name="" cols="" rows=""  class="input_wenbk btwen_text btwen_text_dx"    onblur="if(!this.value)this.value='单选题目'" onclick="if(this.value&&this.value=='单选题目' )  this.value=''"></textarea>
-          </label>
-        </li>
-      </ul>
-      <div class="dx_box" data-t="2"></div>
-    </div>
-    
-    
-    <div class="movie_box">
-      <div class="wjdc_list">
-        <h4 class="title_wjht"><i class="nmb">4</i>. 对目前的工作哪方面不满意？</h4>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tswjdc_table">
-          <tr>
-            <td class="lefttd_qk">&nbsp;</td>
-            <td>非常喜欢</td>
-            <td>喜欢</td>
-            <td>一般</td>
-            <td>不喜欢</td>
-            <td>非常不喜欢</td>
-          </tr>
-          <tr class="os_bjqk">
-            <td class="lefttd_qk">CCTV1</td>
-            <td><input name="c1" type="radio" value=""></td>
-            <td><input name="c2" type="radio" value=""></td>
-            <td><input name="c3" type="radio" value=""></td>
-            <td><input name="c4" type="radio" value=""></td>
-            <td><input name="c5" type="radio" value=""></td>
-          </tr>
-          <tr>
-            <td class="lefttd_qk">CCTV2</td>
-            <td><input name="c1" type="radio" value=""></td>
-            <td><input name="c2" type="radio" value=""></td>
-            <td><input name="c3" type="radio" value=""></td>
-            <td><input name="c4" type="radio" value=""></td>
-            <td><input name="c5" type="radio" value=""></td>
-          </tr>
-          <tr class="os_bjqk">
-            <td class="lefttd_qk">CCTV3</td>
-            <td><input name="c1" type="radio" value=""></td>
-            <td><input name="c2" type="radio" value=""></td>
-            <td><input name="c3" type="radio" value=""></td>
-            <td><input name="c4" type="radio" value=""></td>
-            <td><input name="c5" type="radio" value=""></td>
-          </tr>
-        </table>
-      </div>
-      <div class="dx_box" data-t="3"></div>
-    </div>
-    <a href="javascript:void(0)" class="zjxxx">增加选项</a> 
-    
-  </div>
-
- 
-  <!--选项卡区域  模板区域---------------------------------------------------------------------------------------------------------------------------------------->
-  
-  <div class="xxk_box" >
-    <ul class="xxk_title">
-      <li class="on">单选</li>
-      <li>多选</li>
-      <li>填空</li>
-      <li>矩阵</li>
-    </ul>
-    <div class="xxk_conn"> 
-      <!--单选----------------------------------------------------------------------------------------------------------------------------------------->
-      <div class="xxk_xzqh_box dxuan ">
-        <textarea name="" cols="" rows=""  class="input_wenbk btwen_text btwen_text_dx"    onblur="if(!this.value)this.value='单选题目'" onclick="if(this.value&&this.value=='单选题目' )  this.value=''"></textarea>
-        <div class="title_itram">
-          <div class="kzjxx_iteam">
-            <input name="" type="radio" value="" class="dxk">
-            <input name="" type="text" class="input_wenbk" value="选项" onblur="if(!this.value)this.value='选项'" onclick="if(this.value&&this.value=='选项' )  this.value=''">
-            <label>
-              <input name="" type="checkbox" value="" class="fxk">
-              <span>可填空</span></label>
-            <a href="javascript:void(0);" class="del_xm">删除</a> </div>
-          <div class="kzjxx_iteam">
-            <input name="" type="radio" value="" class="dxk">
-            <input name="" type="text" class="input_wenbk" value="选项" onblur="if(!this.value)this.value='选项'" onclick="if(this.value&&this.value=='选项' )  this.value=''">
-            <label>
-              <input name="" type="checkbox" value="" class="fxk">
-              <span>可填空</span></label>
-            <a href="javascript:void(0);" class="del_xm">删除</a> </div>
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt=""></a>
         </div>
-        <a href="javascript:void(0)" class="zjxx">增加选项</a> 
-        
-        <!--完成编辑-->
-        <div class="bjqxwc_box"> <a href="javascript:void(0);" class="qxbj_but">取消编辑</a> <a href="javascript:void(0);" class="swcbj_but" > 完成编辑</a> </div>
-      </div>
-      
-      <!--多选----------------------------------------------------------------------------------------------------------------------------------------->
-      <div class="xxk_xzqh_box duoxuan hide">
-        <textarea name="" cols="" rows=""  class="input_wenbk btwen_text btwen_text_duox"    onblur="if(!this.value)this.value='多选题目'" onclick="if(this.value&&this.value=='多选题目' )  this.value=''"></textarea>
-        <div class="title_itram">
-          <div class="kzjxx_iteam">
-            <input name="" type="radio" value="" class="dxk">
-            <input name="" type="text" class="input_wenbk" value="选项" onblur="if(!this.value)this.value='选项'" onclick="if(this.value&&this.value=='选项' )  this.value=''">
-            <label>
-              <input name="" type="checkbox" value="" class="fxk">
-              <span>可填空</span></label>
-            <a href="javascript:void(0);" class="del_xm">删除</a> </div>
-          <div class="kzjxx_iteam">
-            <input name="" type="radio" value="" class="dxk">
-            <input name="" type="text" class="input_wenbk" value="选项" onblur="if(!this.value)this.value='选项'" onclick="if(this.value&&this.value=='选项' )  this.value=''">
-            <label>
-              <input name="" type="checkbox" value="" class="fxk">
-              <span>可填空</span></label>
-            <a href="javascript:void(0);" class="del_xm">删除</a> </div>
+
+        <div class="logo-icon text-center">
+            <a href="index.html"><img src="images/logo_icon.png" alt=""></a>
         </div>
-        <a href="javascript:void(0)" class="zjxx">增加选项</a> 
-        
-        <!--完成编辑-->
-       <div class="bjqxwc_box"> <a href="javascript:void(0);" class="qxbj_but">取消编辑</a> <a href="javascript:void(0);" class="swcbj_but" > 完成编辑</a> </div>
-      </div>
-      
-      <!-- 填空----------------------------------------------------------------------------------------------------------------------------------------->
-      <div class="xxk_xzqh_box tktm hide">
-        <textarea name=""  cols="" rows="" class="input_wenbk btwen_text btwen_text_tk" onblur="if(!this.value)this.value='填空题目'" onclick="if(this.value&&this.value=='填空题目' )  this.value=''"></textarea>
-          
-        <!--完成编辑-->
-        <div class="bjqxwc_box"> <a href="javascript:void(0);" class="qxbj_but">取消编辑</a> <a href="javascript:void(0);" class="swcbj_but" > 完成编辑</a> </div>
-      </div>
-      
-      <!-- 矩阵----------------------------------------------------------------------------------------------------------------------------------------->
-      <div class="xxk_xzqh_box  hide">
-        <h4 class="title_wjht">1. 对目前的工作哪方面不满意？</h4>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tswjdc_table">
-          <tr>
-            <td class="lefttd_qk">&nbsp;</td>
-            <td>非常喜欢</td>
-            <td>喜欢</td>
-            <td>一般</td>
-            <td>不喜欢</td>
-            <td>非常不喜欢</td>
-          </tr>
-          <tr class="os_bjqk">
-            <td class="lefttd_qk">CCTV1</td>
-            <td><input name="c1" type="radio" value=""></td>
-            <td><input name="c2" type="radio" value=""></td>
-            <td><input name="c3" type="radio" value=""></td>
-            <td><input name="c4" type="radio" value=""></td>
-            <td><input name="c5" type="radio" value=""></td>
-          </tr>
-          <tr>
-            <td class="lefttd_qk">CCTV2</td>
-            <td><input name="c1" type="radio" value=""></td>
-            <td><input name="c2" type="radio" value=""></td>
-            <td><input name="c3" type="radio" value=""></td>
-            <td><input name="c4" type="radio" value=""></td>
-            <td><input name="c5" type="radio" value=""></td>
-          </tr>
-          <tr class="os_bjqk">
-            <td class="lefttd_qk">CCTV3</td>
-            <td><input name="c1" type="radio" value=""></td>
-            <td><input name="c2" type="radio" value=""></td>
-            <td><input name="c3" type="radio" value=""></td>
-            <td><input name="c4" type="radio" value=""></td>
-            <td><input name="c5" type="radio" value=""></td>
-          </tr>
-        </table>
-        <div class="line_dl"></div>
-        <div class="jztm">
-          <textarea name="" cols="" rows="" class="input_wenbk btwen_text"   onblur="if(!this.value)this.value='题目'" onclick="if(this.value&&this.value=='题目' )  this.value=''"></textarea>
-          <table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <tr valign="top">
-              <td width="135"><h4 class="ritwenz_xx">左标题</h4>
-                <textarea name="" cols="" rows="" class="leftbtwen_text" onblur="if(!this.value)this.value='例子：CCTV1，CCTV2，CCTV3'" onclick="if(this.value&&this.value=='例子：CCTV1，CCTV2，CCTV3' )  this.value=''"></textarea></td>
-              <td><h4 class="ritwenz_xx  ">右侧选项文字 <a href="#" class="xzqk">单选</a><a href="#" >多选</a></h4>
-                <div class="title_itram">
-                  <div class="kzjxx_iteam">
-                    <input name="" type="text" class="input_wenbk jzwent_input" value="选项" onblur="if(!this.value)this.value='选项'" onclick="if(this.value&&this.value=='选项' )  this.value=''">
-                    <label>
-                      <input name="" type="checkbox" value="" class="fxk">
-                      <span>可填空</span></label>
-                    <a href="javascript:void(0);" class="del_xm">删除</a> </div>
-                  <div class="kzjxx_iteam">
-                    <input name="" type="text" class="input_wenbk jzwent_input" value="选项" onblur="if(!this.value)this.value='选项'" onclick="if(this.value&&this.value=='选项' )  this.value=''">
-                    <label>
-                      <input name="" type="checkbox" value="" class="fxk">
-                      <span>可填空</span></label>
-                    <a href="javascript:void(0);" class="del_xm">删除</a> </div>
-                  <div class="kzjxx_iteam">
-                    <input name="" type="text" class="input_wenbk jzwent_input" value="选项" onblur="if(!this.value)this.value='选项'" onclick="if(this.value&&this.value=='选项' )  this.value=''">
-                    <label>
-                      <input name="" type="checkbox" value="" class="fxk">
-                      <span>可填空</span></label>
-                    <a href="javascript:void(0);" class="del_xm">删除</a> </div>
+        <!--logo and iconic logo end-->
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <div class="media logged-user">
+                    <img alt="" src="images/photos/user-avatar.png" class="media-object">
+                    <div class="media-body">
+                        <h4><a href="#">John Doe</a></h4>
+                        <span>"Hello There..."</span>
+                    </div>
                 </div>
-                <a href="javascript:void(0)" class="zjxx" style="margin-left:0;">增加选项</a></td>
-            </tr>
-          </table>
-          
-          <!--完成编辑-->
-         <div class="bjqxwc_box"> <a href="javascript:void(0);" class="qxbj_but">取消编辑</a> <a href="javascript:void(0);" class="swcbj_but" > 完成编辑</a> </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
-<p>来源：<a href="http://sc.chinaz.com/" target="_blank">站长素材</a></p>
-</div>
+                <h5 class="left-nav-title">Account Information</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                  <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                  <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                  <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+                </ul>
+            </div>
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li class="menu-list nav-active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="index_alt.html"> Dashboard 1</a></li>
+                        <li class="active"><a href="index.html"> Dashboard 2</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="blank_page.html"> Blank Page</a></li>
+                        <li><a href="boxed_view.html"> Boxed Page</a></li>
+                        <li><a href="leftmenu_collapsed_view.html"> Sidebar Collapsed</a></li>
+                        <li><a href="horizontal_menu.html"> Horizontal Menu</a></li>
+
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>UI Elements</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="general.html"> General</a></li>
+                        <li><a href="buttons.html"> Buttons</a></li>
+                        <li><a href="tabs-accordions.html"> Tabs & Accordions</a></li>
+                        <li><a href="typography.html"> Typography</a></li>
+                        <li><a href="slider.html"> Slider</a></li>
+                        <li><a href="panels.html"> Panels</a></li>
+                        <li><a href="widgets.html"> Widgets</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="grids.html"> Grids</a></li>
+                        <li><a href="gallery.html"> Media Gallery</a></li>
+                        <li><a href="calendar.html"> Calendar</a></li>
+                        <li><a href="tree_view.html"> Tree View</a></li>
+                        <li><a href="nestable.html"> Nestable</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>Fontawesome</span></a></li>
+
+                <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>Mail</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="mail.html"> Inbox</a></li>
+                        <li><a href="mail_compose.html"> Compose Mail</a></li>
+                        <li><a href="mail_view.html"> View Mail</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Forms</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="form_layouts.html"> Form Layouts</a></li>
+                        <li><a href="form_advanced_components.html"> Advanced Components</a></li>
+                        <li><a href="form_wizard.html"> Form Wizards</a></li>
+                        <li><a href="form_validation.html"> Form Validation</a></li>
+                        <li><a href="editors.html"> Editors</a></li>
+                        <li><a href="inline_editors.html"> Inline Editors</a></li>
+                        <li><a href="pickers.html"> Pickers</a></li>
+                        <li><a href="dropzone.html"> Dropzone</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>Charts</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="flot_chart.html"> Flot Charts</a></li>
+                        <li><a href="morris.html"> Morris Charts</a></li>
+                        <li><a href="chartjs.html"> Chartjs</a></li>
+                        <li><a href="c3chart.html"> C3 Charts</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>Data Tables</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="basic_table.html"> Basic Table</a></li>
+                        <li><a href="dynamic_table.html"> Advanced Table</a></li>
+                        <li><a href="responsive_table.html"> Responsive Table</a></li>
+                        <li><a href="editable_table.html"> Edit Table</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href="#"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="google_map.html"> Google Map</a></li>
+                        <li><a href="vector_map.html"> Vector Map</a></li>
+                    </ul>
+                </li>
+                <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="profile.html"> Profile</a></li>
+                        <li><a href="invoice.html"> Invoice</a></li>
+                        <li><a href="pricing_table.html"> Pricing Table</a></li>
+                        <li><a href="timeline.html"> Timeline</a></li>
+                        <li><a href="blog_list.html"> Blog List</a></li>
+                        <li><a href="blog_details.html"> Blog Details</a></li>
+                        <li><a href="directory.html"> Directory </a></li>
+                        <li><a href="chat.html"> Chat </a></li>
+                        <li><a href="404.html"> 404 Error</a></li>
+                        <li><a href="500.html"> 500 Error</a></li>
+                        <li><a href="registration.html"> Registration Page</a></li>
+                        <li><a href="lock_screen.html"> Lockscreen </a></li>
+                    </ul>
+                </li>
+                <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
+
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>
+    </div>
+    <!-- left side end-->
+    
+    <!-- main content start-->
+    <div class="main-content" >
+
+        <!-- header section start-->
+        <div class="header-section">
+
+            <!--toggle button start-->
+            <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+            <!--toggle button end-->
+
+            <!--search start-->
+            <form class="searchform" action="http://view.jqueryfuns.com/2014/4/10/7_df25ceea231ba5f44f0fc060c943cdae/index.html" method="post">
+                <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+            </form>
+            <!--search end-->
+
+            <!--notification menu start -->
+            <div class="menu-right">
+                <ul class="notification-menu">
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                            <i class="fa fa-tasks"></i>
+                            <span class="badge">8</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-head pull-right">
+                            <h5 class="title">You have 8 pending task</h5>
+                            <ul class="dropdown-list user-list">
+                                <li class="new">
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <div>Database update</div>
+                                        </div>
+                                        <div class="progress progress-striped">
+                                            <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
+                                                <span class="">40%</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="new">
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <div>Dashboard done</div>
+                                        </div>
+                                        <div class="progress progress-striped">
+                                            <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
+                                                <span class="">90%</span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <div>Web Development</div>
+                                        </div>
+                                        <div class="progress progress-striped">
+                                            <div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" role="progressbar" class="progress-bar progress-bar-info">
+                                                <span class="">66% </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <div>Mobile App</div>
+                                        </div>
+                                        <div class="progress progress-striped">
+                                            <div style="width: 33%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="33" role="progressbar" class="progress-bar progress-bar-danger">
+                                                <span class="">33% </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="task-info">
+                                            <div>Issues fixed</div>
+                                        </div>
+                                        <div class="progress progress-striped">
+                                            <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar">
+                                                <span class="">80% </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="new"><a href="">See All Pending Task</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge">5</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-head pull-right">
+                            <h5 class="title">You have 5 Mails </h5>
+                            <ul class="dropdown-list normal-list">
+                                <li class="new">
+                                    <a href="">
+                                        <span class="thumb"><img src="images/photos/user1.png" alt="" /></span>
+                                        <span class="desc">
+                                          <span class="name">John Doe <span class="badge badge-success">new</span></span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="thumb"><img src="images/photos/user2.png" alt="" /></span>
+                                        <span class="desc">
+                                          <span class="name">Jonathan Smith</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="thumb"><img src="images/photos/user3.png" alt="" /></span>
+                                        <span class="desc">
+                                          <span class="name">Jane Doe</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="thumb"><img src="images/photos/user4.png" alt="" /></span>
+                                        <span class="desc">
+                                          <span class="name">Mark Henry</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="thumb"><img src="images/photos/user5.png" alt="" /></span>
+                                        <span class="desc">
+                                          <span class="name">Jim Doe</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="new"><a href="">Read All Mails</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge">4</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-head pull-right">
+                            <h5 class="title">Notifications</h5>
+                            <ul class="dropdown-list normal-list">
+                                <li class="new">
+                                    <a href="">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        <span class="name">Server #1 overloaded.  </span>
+                                        <em class="small">34 mins</em>
+                                    </a>
+                                </li>
+                                <li class="new">
+                                    <a href="">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        <span class="name">Server #3 overloaded.  </span>
+                                        <em class="small">1 hrs</em>
+                                    </a>
+                                </li>
+                                <li class="new">
+                                    <a href="">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        <span class="name">Server #5 overloaded.  </span>
+                                        <em class="small">4 hrs</em>
+                                    </a>
+                                </li>
+                                <li class="new">
+                                    <a href="">
+                                        <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                        <span class="name">Server #31 overloaded.  </span>
+                                        <em class="small">4 hrs</em>
+                                    </a>
+                                </li>
+                                <li class="new"><a href="">See All Notifications</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <img src="images/photos/user-avatar.png" alt="" />
+                            John Doe
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                            <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
+                            <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
+                            <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--notification menu end -->
+
+        </div>
+        <!-- header section end-->
+
+
+
+        <!--body wrapper start-->
+        <div class="wrapper">
+            <div class="row states-info">
+            <div class="col-md-3">
+                <div class="panel red-bg">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-money"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <span class="state-title"> Dollar Profit Today </span>
+                                <h4>$ 23,232</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel blue-bg">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-tag"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <span class="state-title">  Copy Sold Today  </span>
+                                <h4>2,980</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel green-bg">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-gavel"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <span class="state-title">  New Order  </span>
+                                <h4>5980</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel yellow-bg">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-eye"></i>
+                            </div>
+                            <div class="col-xs-8">
+                                <span class="state-title">  Unique Visitors  </span>
+                                <h4>10,000</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Area Chart
+                        <span class="tools pull-right">
+                            <a href="javascript:;" class="fa fa-chevron-down"></a>
+                            <a href="javascript:;" class="fa fa-times"></a>
+                         </span>
+                        </header>
+                        <div class="panel-body">
+                            <div id="visitors-chart">
+                                <div id="visitors-container" style="width: 100%;height:358px; text-align: center; margin:0 auto;">
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-4">
+                    <div class="wdgt-profile">
+                        <div class="profile">
+                            <img src="images/gallery/wdgt-img.jpg" alt=""/>
+                            <div class="profile-social">
+                                <a href="#" ><i class="fa fa-pinterest"></i></a>
+                                <a href="#" ><i class="fa fa-twitter"></i></a>
+                                <a href="#" ><i class="fa fa-facebook"></i></a>
+                            </div>
+                            <ul class="profile-tab">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-camera"></i>
+                                        Photo
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">
+                                        <i class="fa fa-user"></i>
+                                        Profile
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-music"></i>
+                                        Music
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-comments"></i>
+                                        Comments
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="profile-info">
+                            <h5>Margarita Rose</h5>
+                            <span>Creative Designer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel widget-info-one">
+                        <div class="avatar-img">
+                            <img src="images/gallery/image3.jpg" alt=""/>
+                        </div>
+                        <div class="inner">
+                            <div class="avatar"><img alt="" src="images/photos/userprofile.png"></div>
+                            <h5>Margarita Rose</h5>
+                            <span class="subtitle">
+                                Praesent magna nunc, tincidunt pretium.
+                            </span>
+                        </div>
+                        <div class="panel-footer">
+                            <ul class="post-view">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                    109
+                                </li>
+                                <li class="active">
+                                    <a href="#">
+                                        <i class="fa fa-comment"></i>
+                                    </a>
+                                    233
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-heart"></i>
+                                    </a>
+                                    34
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body extra-pad">
+                                    <h4 class="pros-title">prospective <span>leads</span></h4>
+                                    <div class="row">
+                                        <div class="col-sm-4 col-xs-4">
+                                            <div id="p-lead-1"></div>
+                                            <p class="p-chart-title">Laptop</p>
+                                        </div>
+                                        <div class="col-sm-4 col-xs-4">
+                                            <div id="p-lead-2"></div>
+                                            <p class="p-chart-title">iPhone</p>
+                                        </div>
+                                        <div class="col-sm-4 col-xs-4">
+                                            <div id="p-lead-3"></div>
+                                            <p class="p-chart-title">iPad</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-body extra-pad">
+                                    <div class="col-sm-6 col-xs-6">
+                                        <div class="v-title">Visits</div>
+                                        <div class="v-value">10,090</div>
+                                        <div id="visit-1"></div>
+                                        <div class="v-info">Pages/Visit</div>
+                                    </div>
+                                    <div class="col-sm-6 col-xs-6">
+                                        <div class="v-title">Unique Visitors</div>
+                                        <div class="v-value">8,173</div>
+                                        <div id="visit-2"></div>
+                                        <div class="v-info">Avg. Visit Duration</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="iconic-list">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-heart"></i>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="#">
+                                        <i class="fa fa-camera-retro"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-calendar"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="last" href="#">
+                                        <i class="fa fa-crosshairs"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="col-md-4">
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="dir-info">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="avatar">
+                                            <img src="images/photos/user2.png" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5>Wild Awake</h5>
+                                        <span>
+                                            <a href="#" class="small"> katy Perry</a>
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <a class="dir-like" href="#">
+                                            <span class="small">434</span>
+                                            <i class="fa fa-heart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="avatar">
+                                            <img src="images/photos/user1.png" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5>Bulet Proof</h5>
+                                        <span>
+                                            <a href="#" class="small"> Bruno Mars</a>
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <a class="dir-like" href="#">
+                                            <span class="small">441</span>
+                                            <i class="fa fa-heart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="avatar">
+                                            <img src="images/photos/user3.png" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5>Bit it</h5>
+                                        <span>
+                                            <a href="#" class="small"> Jackson</a>
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <a class="dir-like" href="#">
+                                            <span class="small">124</span>
+                                            <i class="fa fa-heart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="avatar">
+                                            <img src="images/photos/user4.png" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5>Its my life</h5>
+                                        <span>
+                                            <a href="#" class="small"> Bon jovi</a>
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <a class="dir-like" href="#">
+                                            <span class="small">334</span>
+                                            <i class="fa fa-heart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <div class="avatar">
+                                            <img src="images/photos/user1.png" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5>Bulet Proof</h5>
+                                        <span>
+                                            <a href="#" class="small"> Bruno Mars</a>
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <a class="dir-like" href="#">
+                                            <span class="small">44</span>
+                                            <i class="fa fa-heart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel">
+                        <header class="panel-heading">
+                            Chat
+                        </header>
+                        <div class="panel-body">
+                            <ul class="chats cool-chat">
+                                <li class="in">
+                                    <img src="images/photos/user1.png" alt="" class="avatar">
+                                    <div class="message">
+                                        <span class="arrow"></span>
+                                        <a class="name" href="#">Jone Doe</a>
+                                        <span class="datetime">at Mar 12, 2014 6:12</span>
+                                        <span class="body">
+                                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="out">
+                                    <img src="images/photos/user2.png" alt="" class="avatar">
+                                    <div class="message">
+                                        <span class="arrow"></span>
+                                        <a class="name" href="#">Margarita Rose</a>
+                                        <span class="datetime">at Mar 12, 2014 6:13</span>
+                                        <span class="body">
+                                            sed diam nonummy nibh euismod tincidunt ut
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="in">
+                                    <img src="images/photos/user1.png" alt="" class="avatar">
+                                    <div class="message">
+                                        <span class="arrow"></span>
+                                        <a class="name" href="#">Jone Doe</a>
+                                        <span class="datetime">at Mar 12, 2014 6:12</span>
+                                        <span class="body">
+                                            aoreet dolore magna aliquam erat volutpat.
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="out">
+                                    <img src="images/photos/user2.png" alt="" class="avatar">
+                                    <div class="message">
+                                        <span class="arrow"></span>
+                                        <a class="name" href="#">Margarita Rose</a>
+                                        <span class="datetime">at Mar 12, 2014 6:13</span>
+                                        <span class="body">
+                                            sed diam nonummy nibh euismod tincidunt ut
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="in">
+                                    <img src="images/photos/user1.png" alt="" class="avatar">
+                                    <div class="message">
+                                        <span class="arrow"></span>
+                                        <a class="name" href="#">Jone Doe</a>
+                                        <span class="datetime">at Mar 12, 2014 6:12</span>
+                                        <span class="body">
+                                            aoreet dolore magna aliquam erat volutpat.
+                                        </span>
+                                    </div>
+                                </li>
+                                <li class="out">
+                                    <img src="images/photos/user2.png" alt="" class="avatar">
+                                    <div class="message">
+                                        <span class="arrow"></span>
+                                        <a class="name" href="#">Margarita Rose</a>
+                                        <span class="datetime">at Mar 12, 2014 6:13</span>
+                                        <span class="body">
+                                            sed diam nonummy nibh
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="chat-form ">
+                                <form role="form" class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" style="width: 100%" placeholder="Type a message here..." class="form-control">
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Send</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <section class="panel post-wrap pro-box">
+                        <aside class="post-highlight purple v-align">
+                            <div class="panel-body">
+                                <h2>AdminEx in Excelent templates <a href="javascript:;"> http://themebucket.net/</a> 1 days ago  by John Doe</h2>
+                            </div>
+                        </aside>
+                        <aside>
+                            <div class="post-info">
+                                <span class="arrow-pro left"></span>
+                                <div class="panel-body">
+                                    <div class="text-center twite">
+                                        <i class="fa fa-twitter"></i>
+                                        <h1>Twitter Feed</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                    </section>
+                    <div class="panel">
+                        <div class="panel-body">
+                            <div class="media usr-info">
+                                <a href="#" class="pull-left">
+                                    <img class="thumb" src="images/photos/user2.png" alt=""/>
+                                </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">Mila Watson</h4>
+                                    <span>Senior UI Designer</span>
+                                    <p>I use to design websites and applications for the web.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer custom-trq-footer">
+                            <ul class="user-states">
+                                <li>
+                                    <i class="fa fa-heart"></i> 127
+                                </li>
+                                <li>
+                                    <i class="fa fa-eye"></i> 853
+                                </li>
+                                <li>
+                                    <i class="fa fa-user"></i> 311
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="panel blue-box twt-info">
+                        <div class="panel-body">
+                            <h3>19 Februay 2014</h3>
+
+                            <p>AdminEx is new model of admin
+                                dashboard <a href="#">http://t.co/3laCVziTw4</a>
+                                4 days ago by John Doe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--body wrapper end-->
+
+        <!--footer section start-->
+        <footer>
+            2014 &copy; AdminEx by ThemeBucket
+        </footer>
+        <!--footer section end-->
+
+
+    </div>
+    <!-- main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="js/jquery-migrate-1.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modernizr.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<!--easy pie chart-->
+<script src="js/easypiechart/jquery.easypiechart.js"></script>
+<script src="js/easypiechart/easypiechart-init.js"></script>
+
+<!--Sparkline Chart-->
+<script src="js/sparkline/jquery.sparkline.js"></script>
+<script src="js/sparkline/sparkline-init.js"></script>
+
+<!--icheck -->
+<script src="js/iCheck/jquery.icheck.js"></script>
+<script src="js/icheck-init.js"></script>
+
+<!-- jQuery Flot Chart-->
+<script src="js/flot-chart/jquery.flot.js"></script>
+<script src="js/flot-chart/jquery.flot.tooltip.js"></script>
+<script src="js/flot-chart/jquery.flot.resize.js"></script>
+<script src="js/flot-chart/jquery.flot.pie.resize.js"></script>
+<script src="js/flot-chart/jquery.flot.selection.js"></script>
+<script src="js/flot-chart/jquery.flot.stack.js"></script>
+<script src="js/flot-chart/jquery.flot.time.js"></script>
+<script src="js/main-chart.js"></script>
+
+<!--common scripts for all pages-->
+<script src="js/scripts.js"></script>
+
+
 </body>
 </html>
-
