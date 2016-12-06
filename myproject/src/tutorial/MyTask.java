@@ -42,7 +42,7 @@ public class MyTask extends TimerTask{
         if (!isRunning) {  
             if (C_SCHEDULE_HOUR == cal.get(Calendar.HOUR_OF_DAY)) {  
                 isRunning = true;  
-                context.log("寮�濮嬫墽琛屾寚瀹氫换鍔�");                 
+                context.log("start send email");                 
                 for(String temp:co.list)
                 {
                 	  if(temp.indexOf("@")==-1)
@@ -76,10 +76,10 @@ public class MyTask extends TimerTask{
                 // new YouCode().changeState();  
                 
                 isRunning = false;  
-                context.log("鎸囧畾浠诲姟鎵ц缁撴潫");  
+                context.log("ending");  
             }  
         } else {  
-            context.log("涓婁竴娆′换鍔℃墽琛岃繕鏈粨鏉�");  
+            context.log("no email");  
         }  
     }   
 }  
