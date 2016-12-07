@@ -150,6 +150,18 @@ $(document).ready(function() {
 			</ul>
 		</div>
 	</div>
+	
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="progress progress-striped active">
+			    <div class="progress-bar" role="progressbar" aria-valuenow="60" 
+			        aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+			        <span class="sr-only">50% 完成</span>
+			    </div>
+			</div>
+		</div>
+	</div>
+	
 	<div class="row clearfix">
 		<div class="col-md-8 column">
 			
@@ -266,14 +278,9 @@ $(document).ready(function() {
 		
 		</div>
 	</div>
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="progress">
-				<div class="progress-bar progress-success">
-				</div>
-			</div>
-		</div>
-	</div>
+	
+
+	
 </div>
 
 <script src="js/classie.js"></script>

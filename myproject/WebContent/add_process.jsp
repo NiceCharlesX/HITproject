@@ -414,10 +414,20 @@ $(document).ready(function() {
 			</ul>
 		</div>
 	</div>
+	
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="progress progress-striped active">
+			    <div class="progress-bar" role="progressbar" aria-valuenow="60" 
+			        aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+			        <span class="sr-only">100% 完成</span>
+			    </div>
+			</div>
+		</div>
+	</div>
+	
 	<div class="row clearfix">
 		<div class="col-md-8 column">
-			
-			
 	<form class="form-horizontal" role="form" action="createschedule">
 		<input type="hidden" name="actid" value="<s:property value = "actid"/>" />
 		<input type="hidden" name="phonenumber" value="<s:property value = "phonenumber" />" />	
@@ -481,52 +491,13 @@ $(document).ready(function() {
 				<a href="javascript:void(0)" class="zjxx">增加活动进程</a> 
 			</div>
 				
-			
-			
 			<br/>
 			<button class="button button--winona buttonbody" data-text="Submit" type="submit"><span>Submit</span></button>
 			</form>
 		</div>
-		
-		<div class="col-md-4 column">
-			<img alt="140x140" src="images/touxiang.jpg" />
-			<br/>
-			<ul class="pagination">
-				<li>
-					 <a href="#">Prev</a>
-				</li>
-				<li>
-					 <a href="#">1</a>
-				</li>
-				<li>
-					 <a href="#">2</a>
-				</li>
-				<li>
-					 <a href="#">3</a>
-				</li>
-				<li>
-					 <a href="#">4</a>
-				</li>
-				<li>
-					 <a href="#">5</a>
-				</li>
-				<li>
-					 <a href="#">Next</a>
-				</li>
-			</ul>
-		
-		</div>
-	</div>
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<div class="progress">
-				<div class="progress-bar progress-success">
-				</div>
-			</div>
-		</div>
+			
 	</div>
 </div>
-
 
 <script src="js/classie.js"></script>
 		<script>
