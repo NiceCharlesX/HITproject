@@ -214,7 +214,7 @@ jq183(document).ready(function(e) {
 			 //矩阵题目
 			 if(title==3){
 				dx_rq.show().html(jztm);
-				}     		 
+				}   
 		}); 
 		
 		//增加选项  
@@ -405,10 +405,10 @@ $(document).ready(function() {
 					 <s:param name="orderby">time</s:param>
 					 </s:url>
 					 ">主页</a></li>
-				<li>
+				<li class="active">
 					 添加活动
 				</li>
-				<li class="active">
+				<li>
 					添加进程
 				</li>
 			</ul>
@@ -427,76 +427,91 @@ $(document).ready(function() {
 	</div>
 	
 	<div class="row clearfix">
-		<div class="col-md-8 column">
-	<form class="form-horizontal" role="form" action="createschedule">
-		<input type="hidden" name="actid" value="<s:property value = "actid"/>" />
-		<input type="hidden" name="phonenumber" value="<s:property value = "phonenumber" />" />	
-		<input type="hidden" name="username" value="<s:property value = "username" />" />	
-		<input type="hidden" name="useremail" value="<s:property value = "useremail" />" />			
-		
-		<label for="Name" style="font-size:large;">填写进程</label>
-			<div class="yd_box">		
-				<div class = "movie_box">
-					<br/>
-					<ul class="wjdc_list">
-					 <li >
-          				<div class="tm_btitlt"><i class="btwenzi" style="font-size:large;">活动进程</i><i class="nmb" style="font-size:large;">1</i></div>
-       				</li>
+		<div class="col-md-12 column">
+				<ul class="nav nav-tabs">
 					<li>
-					<div class="form-group">
-						<label for="Name" style="font-size:large;position:relative;left:40px;color: #6a7989">起止时间</label>
-	          			<div class="input-prepend input-group" style="position:relative;left:40px">
-	                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-	                       <input type="text" style="width: 250px" name="time"  class="form-control reservationtime input-sm" value="11/16/2016 8:00 PM - 11/16/2016 8:30 PM"  class="span4" />
-	                     </div>        			       	         			
+						 <a href="#panel-0" data-toggle="tab">空模版</a>
+					</li>
+					<li class="active">
+						 <a href="#panel-307605" data-toggle="tab">模版一</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane " id="panel-0">
+
+						<form class="form-horizontal" role="form" action="createschedule">
+						<input type="hidden" name="actid" value="<s:property value = "actid"/>" />
+						<input type="hidden" name="phonenumber" value="<s:property value = "phonenumber" />" />	
+						<input type="hidden" name="username" value="<s:property value = "username" />" />	
+						<input type="hidden" name="useremail" value="<s:property value = "useremail" />" />			
+						</br>
+						<label for="Name" style="font-size:large;">填写进程</label>
+							<div class="yd_box">		
+								<div class = "movie_box">
+									<br/>
+									<ul class="wjdc_list">
+									 <li >
+				          				<div class="tm_btitlt"><i class="btwenzi" style="font-size:large;">活动进程</i><i class="nmb" style="font-size:large;">1</i></div>
+				       				</li>
+									<li>
+									<div class="form-group">
+										<label for="Name" style="font-size:large;position:relative;left:40px;color: #6a7989">起止时间</label>
+					          			<div class="input-prepend input-group" style="position:relative;left:40px">
+					                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
+					                       <input type="text" style="width: 250px" name="time"  class="form-control reservationtime input-sm" value="11/16/2016 8:00 PM - 11/16/2016 8:30 PM"  class="span4" />
+					                     </div>        			       	         			
+									</div>
+									</li>
+									
+									<li>
+									<div>
+											<span class="myinput input--jiro">
+												<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="person"  />
+												<label class="input__label input__label--jiro" for="input-10">
+													<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">主持人</span>
+												</label>
+											</span>
+									</div>	
+									</li>
+									
+									<li>
+									<div>
+											<span class="myinput input--jiro">
+												<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="place"  />
+												<label class="input__label input__label--jiro" for="input-10">
+													<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">地点</span>
+												</label>
+											</span>
+									</div>
+									</li>
+									
+									<li>
+									</br>
+									<div class="form-group" style="font-size:large;position:relative;left:40px;color: #6a7989">
+										<label for="Name" >内容</label>
+										<div class="textarea" >
+				                  			<textarea rows = "2" cols = "29" name="contents"> </textarea>
+				           			 	</div>
+									</div>
+									</li>		
+									</ul>
+									<br/>
+								</div>
+								<a href="javascript:void(0)" class="zjxx">增加活动进程</a> 
+							</div>
+							<br/>
+							<button class="button button--winona buttonbody" data-text="Submit" type="submit"><span>Submit</span></button>
+							</form>
 					</div>
-					</li>
-					
-					<li>
-					<div>
-							<span class="myinput input--jiro">
-								<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="person"  />
-								<label class="input__label input__label--jiro" for="input-10">
-									<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">主持人</span>
-								</label>
-							</span>
-					</div>	
-					</li>
-					
-					<li>
-					<div>
-							<span class="myinput input--jiro">
-								<input class="input__field input__field--jiro" style="height:40px" type="text" id="Name" name="place"  />
-								<label class="input__label input__label--jiro" for="input-10">
-									<span class="input__label-content input__label-content--jiro" style="padding:0.3em 0;">地点</span>
-								</label>
-							</span>
+					<div class="tab-pane active" id="panel-307605">
+						<p>
+							此处应是模版一的内容
+						</p>
 					</div>
-					</li>
-					
-					<li>
-					</br>
-					<div class="form-group" style="font-size:large;position:relative;left:40px;color: #6a7989">
-						<label for="Name" >内容</label>
-						<div class="textarea" >
-                  			<textarea rows = "2" cols = "29" name="contents"> </textarea>
-           			 	</div>
-					</div>
-					</li>
-					
-					</ul>
-					<br/>
-					
 				</div>
-				<a href="javascript:void(0)" class="zjxx">增加活动进程</a> 
-			</div>
-				
-			<br/>
-			<button class="button button--winona buttonbody" data-text="Submit" type="submit"><span>Submit</span></button>
-			</form>
 		</div>
-			
 	</div>
+	
 </div>
 
 <script src="js/classie.js"></script>

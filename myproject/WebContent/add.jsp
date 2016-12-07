@@ -250,7 +250,7 @@ $(document).ready(function() {
 		</div>
 		
 		<div class="col-md-4 column">
-			<img alt="140x140" src="images/touxiang.jpg" />
+			<img alt="100x100" src="images/touxiang.jpg" />
 			<br/>
 			<ul class="pagination">
 				<li>
