@@ -72,8 +72,6 @@ jq183(document).ready(function(e) {
 	}
 	});
 		
-
-	
 		//下移
 		jq183(".xy").live("click", function() {  
 			//文字的长度 

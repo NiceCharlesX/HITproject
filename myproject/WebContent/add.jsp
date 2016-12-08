@@ -25,9 +25,11 @@
 	<link rel="stylesheet" type="text/css" href="css/mystyle.css" />
 	<link rel="stylesheet" type="text/css" href="css/cs-select.css" />
 	
+	<link rel = "stylesheet" type="text/css" href="css/bootstrap-responsive.css"/>
+
+	
 	<script type="text/javascript" src="js/jquery.min.js">
 	</script>
-	
 	
 	<script type="text/javascript" src="js/bootstrap.min.js">
 	</script>
@@ -40,8 +42,7 @@
 	<script src="js/bootstrap-select.js"></script>
   	<link rel="stylesheet" href="css/bootstrap-select.css">
 	
-	<script src="jquery/jquery-1.8.3.min.js"></script>
-	<script> var jq183 = jQuery.noConflict(true); </script>
+	<script src="js/image-picker.min.js" type="text/javascript"></script>
 
 <script>
 $(document).ready(function() {
@@ -56,6 +57,21 @@ $(document).ready(function() {
           }, function(start, end, label) {
             console.log(start.toISOString(), end.toISOString(), label);
           });
+		
+		$("select.image-picker").imagepicker({
+			hide_select:false
+		});
+		
+		$("select.image-picker.show-labels").imagepicker({
+			hide_select:false, 
+			show_label:true
+		});
+		
+		$("select.image-picker.limit_callback").imagepicker({
+			limit_reached:function(){
+				alert('We are full!')
+			},hide_select:false
+		});
 		
 	});
 
@@ -163,7 +179,7 @@ $(document).ready(function() {
 	</div>
 	
 	<div class="row clearfix">
-		<div class="col-md-8 column">
+		<div class="col-md-6 column">
 			
 			<form class="form-horizontal" role="form" action="createact">
 				
@@ -249,39 +265,27 @@ $(document).ready(function() {
 			</form>
 		</div>
 		
-		<div class="col-md-4 column">
-			<img alt="100x100" src="images/touxiang.jpg" />
-			<br/>
-			<ul class="pagination">
-				<li>
-					 <a href="#">Prev</a>
-				</li>
-				<li>
-					 <a href="#">1</a>
-				</li>
-				<li>
-					 <a href="#">2</a>
-				</li>
-				<li>
-					 <a href="#">3</a>
-				</li>
-				<li>
-					 <a href="#">4</a>
-				</li>
-				<li>
-					 <a href="#">5</a>
-				</li>
-				<li>
-					 <a href="#">Next</a>
-				</li>
-			</ul>
-		
+		<div class="col-md-6 column">
+			
+			<h4>海报选择：</h4>
+			<div class="picker" >
+			<select class="image-picker show-labels  show-tick selectpicker" >
+				<option data-img-src='images/01.jpg' value='1'>1</option>
+				<option data-img-src='images/02.jpg' value='2'>Cute Kitten 2</option>
+				<option data-img-src='images/03.jpg' value='3'>Cute Kitten 3</option>
+				<option data-img-src='images/04.jpg' value='4'>Cute Kitten 4</option>
+				<option data-img-src='images/04.jpg' value='5'>Cute Kitten 5</option>
+			</select>
+			</div>
 		</div>
 	</div>
 	
 
 	
 </div>
+
+
+<link rel="stylesheet" type="text/css" href="css/image-picker.css">
 
 <script src="js/classie.js"></script>
 		<script>
