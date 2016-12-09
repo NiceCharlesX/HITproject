@@ -33,7 +33,7 @@
         <div class="container">
             
             <header>
-                <h1>Login and Registration Form </h1>
+                <h1>注册与登录界面 </h1>
 				
             </header>
             <section>				
@@ -44,13 +44,13 @@
                     <div id="wrapper">
                         <div id="login" class="animate form">
                             <form  action="login" autocomplete="on"> 
-                                <h1>Log in</h1> 
+                                <h1>登录</h1> 
                                 <p> 
-                                    <label for="username" class="uname" data-icon="u" > Your email or username </label>
+                                    <label for="username" class="uname" data-icon="u" > 用户名或邮箱</label>
                                     <input id="username" name="email" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
                                 </p>
                                 <p> 
-                                    <label for="password" class="youpasswd" data-icon="p"> Your password </label>
+                                    <label for="password" class="youpasswd" data-icon="p"> 密码 </label>
                                     <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
                                 </p>
                                 
@@ -59,8 +59,8 @@
                                     <input type="submit" value="登录" /> 
 								</p>
                                 <p class="change_link">
-									Not a member yet ?
-									<a href="#toregister" class="to_register">Join us</a>
+									还没帐号 ?
+									<a href="#toregister" class="to_register">加入我们</a>
 								</p>
                             </form>
                             
@@ -71,36 +71,36 @@
 
                         <div id="register" class="animate form">
                             <form  action="register" autocomplete="on"> 
-                                <h1> Sign up </h1> 
+                                <h1> 注册 </h1> 
                                 <p> 
-                                    <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
+                                    <label for="usernamesignup" class="uname" data-icon="u">用户名</label>
                                     <input id="usernamesignup" name="name" required="required" type="text" placeholder="mysuperusername690" />
                                 </p>
                                 
                                 <p> 
-                                    <label for="usernamesignup" class="uname" data-icon="u">Your phone</label>
+                                    <label for="usernamesignup" class="uname" data-icon="u">电话</label>
                                     <input id="usernamesignup" name="phonenumber" required="required" type="text" placeholder="123456789" />
                                 </p>
                                 
                                 <p> 
-                                    <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+                                    <label for="emailsignup" class="youmail" data-icon="e" > 邮箱</label>
                                     <input id="emailsignup" name="email" required="required" type="email" placeholder="mysupermail@mail.com"/> 
                                 </p>
                                 
                                 <p> 
-                                    <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
+                                    <label for="passwordsignup" class="youpasswd" data-icon="p">密码</label>
                                     <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p> 
-                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
+                                    <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">确认密码 </label>
                                     <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p class="signin button"> 
 									<input type="submit" value="注册"/> 
 								</p>
                                 <p class="change_link">  
-									Already a member ?
-									<a href="#tologin" class="to_register"> Go and log in </a>
+									已经有账户了 ?
+									<a href="#tologin" class="to_register">登录 </a>
 								</p>
                             </form>
                         </div>
