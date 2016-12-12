@@ -81,6 +81,11 @@
         	<result name = "error">404.jsp</result>
         </action>
         
+        <action name = "download" class ="tutorial.showaact">
+        	<result name = "success">download.jsp</result>
+        	<result name = "error">404.jsp</result>
+        </action>
+        
     </package>
     
    	<constant name="struts.action.excludePattern" value="/websocket*,^ws://.$"/>

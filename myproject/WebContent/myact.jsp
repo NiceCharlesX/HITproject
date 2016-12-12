@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="css/style-1.css"/>
     <link rel="stylesheet" type="text/css" href="css/component2.css" />
     <link rel="stylesheet" type="text/css" href="css/post.css"/>
+    <link rel="stylesheet" type="text/css" href="css/post2.css"/>
+   <link rel="stylesheet" type="text/css" href="css/post3.css"/>
     <script src="js/modernizr.custom.63321.js"> </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -258,6 +260,14 @@
 										<s:param name="useremail"><s:property value="useremail"/></s:param>
 										</s:url>
 									">删除活动</a>
+									
+									<a style='text-decoration:none;' href="<s:url action = "download">								
+										<s:param name="phonenumber"><s:property value="phonenumber"/></s:param>
+										<s:param name="actid"><s:property value="#var.actid"/></s:param>
+										<s:param name="username"><s:property value="username"/></s:param>
+										<s:param name="useremail"><s:property value="useremail"/></s:param>
+										</s:url>
+									">下载海报</a>
 
 								</figure>
 							</li>
