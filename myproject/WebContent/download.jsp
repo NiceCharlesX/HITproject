@@ -2,9 +2,10 @@
     pageEncoding="UTF-8"%>
      <%@taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE >
-<html>
+<html id=htmlText>
 <head>
    <meta charset="utf-8"> 
+   <script type="text/javascript" src="http://www.xdocin.com/xdoc.js"></script>
    <title>下载海报</title>
    <meta name="viewport"
           content=" height = device-height,
@@ -22,18 +23,18 @@
 </head>
 				
 				<div class="post<s:property value="act.posterid"/>" >
-						<img src="images/post<s:property value="act.posterid"/>.jpg" alt="" />
+						<img src="http://chuantu.biz/t5/44/1481546190x3658053781.jpg" alt="" />
 						<p class = "name<s:property value="act.posterid"/>"><s:property value="act.name"/></p>
 						<p class = "sdate<s:property value="act.posterid"/>"><s:property value="act.sdate"/></p>
 						<p class = "place<s:property value="act.posterid"/>">地点：<s:property value="act.place"/></p>
 						<p class = "creator<s:property value="act.posterid"/>">主办方：<s:property value="act.creator"/></p>
 						<p class = "cphonenumber<s:property value="act.posterid"/>">联系方式：<s:property value="act.cphonenumber"/></p>
 						<p class = "brief<s:property value="act.posterid"/>"><s:property value="act.brief"/></p>
-						
 				</div>
 					
-				<jsp:forward page="myactivity"/>
-		
 <body>
 </body>
+<script>     
+        XDoc.run(document.getElementById("htmlText").value, "png", {}, "_blank");  
+</script>
 </html>

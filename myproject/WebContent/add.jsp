@@ -85,70 +85,16 @@ $(document).ready(function() {
 		<div class="col-md-12 column">
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="navbar-header">
-					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+					 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">主页</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active">
-							 <a href="#">Link</a>
-						</li>
-						<li>
-							 <a href="#">Link</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									 <a href="#">Action</a>
-								</li>
-								<li>
-									 <a href="#">Another action</a>
-								</li>
-								<li>
-									 <a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">Separated link</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">One more separated link</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
+			
+					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" />
 						</div> <button type="submit" class="btn btn-default">Submit</button>
 					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							 <a href="#">Link</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									 <a href="#">Action</a>
-								</li>
-								<li>
-									 <a href="#">Another action</a>
-								</li>
-								<li>
-									 <a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">Separated link</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
+					
 				</div>
 			</nav>
 			<ul class="breadcrumb">
@@ -180,9 +126,7 @@ $(document).ready(function() {
 	
 	<div class="row clearfix">
 		<div class="col-md-6 column">
-			
 			<form class="form-horizontal" role="form" action="createact">
-				
 				<div>
 					<span class="myinput input--jiro">
 						<input class="input__field input__field--jiro" style="height: 40px" type="text" id="Name" name="name"  />
@@ -204,7 +148,6 @@ $(document).ready(function() {
 				<input type="hidden" name="phonenumber" value=<%=request.getParameter("phonenumber") %> />
 				<input type="hidden" name="username" value=<%=request.getParameter("username") %> />
 				<input type="hidden" name="useremail" value=<%=request.getParameter("useremail") %> />
-				
 				
 				<div>
 						<span class="myinput input--jiro">
@@ -231,7 +174,7 @@ $(document).ready(function() {
 					</br>			
 					
 					<div class="input-prepend input-group " style="position:relative;left:40px" >
-                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" readonly style="width: 205px" name="time" class="form-control reservation" value="2016-11-16 - 2016-11-16" /> 
+                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" readonly style="width: 205px" name="time" class="form-control reservation" value="2016-12-16 - 2016-12-16" /> 
                    </div>
 				</div>
 				
@@ -266,15 +209,14 @@ $(document).ready(function() {
 		</div>
 		
 		<div class="col-md-6 column">
-			
 			<h4>海报选择：</h4>
 			<div class="picker" >
 			<select class="image-picker show-labels  show-tick selectpicker" >
-				<option data-img-src='images/01.jpg' value='1'>1</option>
-				<option data-img-src='images/02.jpg' value='2'>Cute Kitten 2</option>
-				<option data-img-src='images/03.jpg' value='3'>Cute Kitten 3</option>
-				<option data-img-src='images/04.jpg' value='4'>Cute Kitten 4</option>
-				<option data-img-src='images/04.jpg' value='5'>Cute Kitten 5</option>
+				<option data-img-src='images/posts1.jpg' value='1'>海报1</option>
+				<option data-img-src='images/posts2.jpg' value='2'>海报2</option>
+				<option data-img-src='images/posts3.jpg' value='3'>海报3</option>
+				<option data-img-src='images/posts4.jpg' value='4'>海报4</option>
+			
 			</select>
 			</div>
 		</div>

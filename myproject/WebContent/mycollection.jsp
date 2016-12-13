@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="css/style-1.css"/>
     <link rel="stylesheet" type="text/css" href="css/component2.css" />
     <link rel="stylesheet" type="text/css" href="css/post.css"/>
+   <link rel="stylesheet" type="text/css" href="css/post2.css"/>
+   <link rel="stylesheet" type="text/css" href="css/post3.css"/>
     <script src="js/modernizr.custom.63321.js"> </script>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -46,78 +48,26 @@
 					 ">主页</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active">
-							 <a href="#">Link</a>
-						</li>
-						<li>
-							 <a href="#">Link</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									 <a href="#">Action</a>
-								</li>
-								<li>
-									 <a href="#">Another action</a>
-								</li>
-								<li>
-									 <a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">Separated link</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">One more separated link</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
+					
+					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" />
-						</div> <button type="submit" class="btn btn-default">Submit</button>
+						</div> <button type="submit" class="btn btn-default">搜索</button>
 					</form>
-					<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-left">
 						<li>
 							 <a href="add.jsp?phonenumber=<s:property value='phonenumber'/>">发布活动</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							 <ul class="dropdown-menu">
-								<li>
-									 <a href="#">Action</a>
-								</li>
-								<li>
-									 <a href="#">Another action</a>
-								</li>
-								<li>
-									 <a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">Separated link</a>
-								</li>
-							</ul>
 						</li>
 					</ul>
 				</div>
 			</nav>
-			
-			
 		</div>
 	</div>
 	<div class="row clearfix">
 		<div class="col-md-2 column">
-			<img alt="140x140" src="images/touxiang.jpg" class="img-circle" />
+			<img alt="140x140" src="images/person.jpg" class="img-circle" />
 			<h2>
-				<s:property value="phonenumber" />
+				<s:property value="username" />
 			</h2>
 			</br>
 			<div>
@@ -132,11 +82,9 @@
 				
 			</div>
 			</br>
-			<p>
-				 <a class="btn" href="#">View details »</a>
-			</p> 
+			
 			 <div class="dr-menu">
-						<div class="dr-trigger"><span class="dr-icon dr-icon-menu"></span><a style='text-decoration:none;'  class="dr-label">Account</a></div>
+						<div class="dr-trigger"><span class="dr-icon dr-icon-menu"></span><a style='text-decoration:none;font-size:16px'  class="dr-label">用户操作</a></div>
 						<ul>
 							<li><a style='text-decoration:none;' class="dr-icon dr-icon-user" href="#">编辑信息</a></li>
 							
@@ -188,7 +136,7 @@
 						<s:iterator value="#request.list" var = "var">
 							<li>
 								<figure>
-									<img src="images/thumb/1.png" alt="img01"/>
+									<img src="images/thumb/cover<s:property value="#var.posterid"/>.png" alt="img01"/>
 									<figcaption><h3><s:property value="#var.name"/></h3>
 									<p>开始时间：<s:property value="#var.sdate"/></p>
 									<p>结束时间：<s:property value="#var.edate"/></p>

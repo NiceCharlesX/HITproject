@@ -27,7 +27,6 @@
 	<script type="text/javascript" src="js/jquery.min.js">
 	</script>
 	
-	
 	<script type="text/javascript" src="js/bootstrap.min.js">
 	</script>
 	<script type="text/javascript" src="js/moment.js">
@@ -310,8 +309,6 @@ $(document).ready(function() {
 
 </script>
 
-
-
 </head>
 
 <body>
@@ -332,67 +329,11 @@ $(document).ready(function() {
 				</div>
 				
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active">
-							 <a href="#">Link</a>
-						</li>
-						<li>
-							 <a href="#">Link</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									 <a href="#">Action</a>
-								</li>
-								<li>
-									 <a href="#">Another action</a>
-								</li>
-								<li>
-									 <a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">Separated link</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">One more separated link</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
+					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" />
 						</div> <button type="submit" class="btn btn-default">Submit</button>
 					</form>
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							 <a href="#">Link</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									 <a href="#">Action</a>
-								</li>
-								<li>
-									 <a href="#">Another action</a>
-								</li>
-								<li>
-									 <a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">Separated link</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
 				</div>
 			</nav>
 			<ul class="breadcrumb">
@@ -427,16 +368,15 @@ $(document).ready(function() {
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 				<ul class="nav nav-tabs">
-					<li>
+					<li class = "active">
 						 <a href="#panel-0" data-toggle="tab">空模版</a>
 					</li>
-					<li class="active">
+					<li>
 						 <a href="#panel-307605" data-toggle="tab">模版一</a>
 					</li>
 				</ul>
 				<div class="tab-content">
-					<div class="tab-pane " id="panel-0">
-
+					<div class="tab-pane active" id="panel-0">
 						<form class="form-horizontal" role="form" action="createschedule">
 						<input type="hidden" name="actid" value="<s:property value = "actid"/>" />
 						<input type="hidden" name="phonenumber" value="<s:property value = "phonenumber" />" />	
@@ -456,7 +396,7 @@ $(document).ready(function() {
 										<label for="Name" style="font-size:large;position:relative;left:40px;color: #6a7989">起止时间</label>
 					          			<div class="input-prepend input-group" style="position:relative;left:40px">
 					                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span>
-					                       <input type="text" style="width: 250px" name="time"  class="form-control reservationtime input-sm" value="11/16/2016 8:00 PM - 11/16/2016 8:30 PM"  class="span4" />
+					                       <input type="text" style="width: 250px" name="time"  class="form-control reservationtime input-sm" value="12/16/2016 8:00 PM - 12/16/2016 8:30 PM"  class="span4" />
 					                     </div>        			       	         			
 									</div>
 									</li>
@@ -485,12 +425,14 @@ $(document).ready(function() {
 									
 									<li>
 									</br>
+									
 									<div class="form-group" style="font-size:large;position:relative;left:40px;color: #6a7989">
 										<label for="Name" >内容</label>
 										<div class="textarea" >
-				                  			<textarea rows = "2" cols = "29" name="contents"> </textarea>
+				                  			<textarea rows = "5" cols = "47" name="contents"> </textarea>
 				           			 	</div>
 									</div>
+									
 									</li>		
 									</ul>
 									<br/>
@@ -501,7 +443,7 @@ $(document).ready(function() {
 							<button class="button button--winona buttonbody" data-text="Submit" type="submit"><span>Submit</span></button>
 							</form>
 					</div>
-					<div class="tab-pane active" id="panel-307605">
+					<div class="tab-pane " id="panel-307605">
 						<p>
 							此处应是模版一的内容
 						</p>

@@ -46,65 +46,15 @@
 					 ">主页</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active">
-							 <a href="#">Link</a>
-						</li>
-						<li>
-							 <a href="#">Link</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									 <a href="#">Action</a>
-								</li>
-								<li>
-									 <a href="#">Another action</a>
-								</li>
-								<li>
-									 <a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">Separated link</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">One more separated link</a>
-								</li>
-							</ul>
-						</li>
-					</ul>
-					<form class="navbar-form navbar-left" role="search">
+					
+					<form class="navbar-form navbar-right" role="search">
 						<div class="form-group">
 							<input type="text" class="form-control" />
-						</div> <button type="submit" class="btn btn-default">Submit</button>
+						</div> <button type="submit" class="btn btn-default">搜索</button>
 					</form>
-					<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-left">
 						<li>
 							 <a href="add.jsp?phonenumber=<s:property value='phonenumber'/>">发布活动</a>
-						</li>
-						<li class="dropdown">
-							 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-							<ul class="dropdown-menu">
-								<li>
-									 <a href="#">Action</a>
-								</li>
-								<li>
-									 <a href="#">Another action</a>
-								</li>
-								<li>
-									 <a href="#">Something else here</a>
-								</li>
-								<li class="divider">
-								</li>
-								<li>
-									 <a href="#">Separated link</a>
-								</li>
-							</ul>
 						</li>
 					</ul>
 				</div>
@@ -116,7 +66,7 @@
 	<div class="row clearfix">
 	
 		<div class="col-md-2 column">
-			<img alt="140x140" src="images/touxiang.jpg" class="img-circle" />
+			<img alt="140x140" src="images/person.jpg" class="img-circle" />
 			<h2>
 				<s:property value="username" />
 			</h2>
@@ -133,22 +83,24 @@
 				
 			</div>
 			</br>
-			<p>
-				 <a class="btn" href="#">View details »</a>
-			</p> 
+			
 			
  			<div class="dr-menu">
-						<div class="dr-trigger"><span class="dr-icon dr-icon-menu"></span><a style='text-decoration:none;'  class="dr-label">Account</a></div>
+						<div class="dr-trigger"><span class="dr-icon dr-icon-menu"></span><a style='text-decoration:none;font-size:16px'  class="dr-label">用户操作</a></div>
 						<ul>
 							<li><a style='text-decoration:none;' class="dr-icon dr-icon-user" href="#">编辑信息</a></li>
 							
 							<li><a style='text-decoration:none;' class="dr-icon dr-icon-heart" href="<s:url action="mycollecting">	
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
+	                   <s:param name="username"><s:property value="username" /></s:param>
+	                  <s:param name="useremail"><s:property value="useremail" /></s:param>
 	                  </s:url>
 	                  ">我的收藏</a></li>
 							
 							<li><a style='text-decoration:none;' class="dr-icon dr-icon-download" href="<s:url action="myactivity">	   
 	                  <s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
+	                   <s:param name="username"><s:property value="username" /></s:param>
+	                  <s:param name="useremail"><s:property value="useremail" /></s:param>
 	                  </s:url>
 	                  ">我的活动</a></li>
 							
@@ -187,7 +139,7 @@
 						<s:iterator value="#request.list" var = "var">
 							<li>
 								<figure>
-									<img src="images/thumb/1.png" alt="img01"/>
+									<img src="images/thumb/cover<s:property value="#var.posterid"/>.png" alt="img01"/>
 									<figcaption><h3><s:property value="#var.name"/></h3>
 									<p>开始时间：<s:property value="#var.sdate"/></p>
 									<p>结束时间：<s:property value="#var.edate"/></p>
@@ -208,7 +160,6 @@
 									<figcaption>
 										<h3 ><s:property value="#var.name"/></h3>
 										<p style="font-weight:bold;"><s:property value="#var.brief"/></p>	
-
 									</figcaption>
 									
 									<div class="post<s:property value="#var.posterid"/>" >
@@ -220,8 +171,7 @@
 										<p class = "cphonenumber<s:property value="#var.posterid"/>">联系方式：<s:property value="#var.cphonenumber"/></p>
 										<p class = "brief<s:property value="#var.posterid"/>"><s:property value="#var.brief"/></p>
 									</div>
-
-								
+									</br>
 								       <div class="main">
 											<ul class="timeline">
 												<s:iterator value="#var.slist" var="svar">
@@ -244,7 +194,7 @@
 											</ul>
 										</div>
 
-									<a style='text-decoration:none;' href="<s:url action = "showaact">
+									<a style='font-weight:bold;text-decoration:none;font-family:Microsoft YaHei ' href="<s:url action = "showaact">
 										<s:param name="phonenumber"><s:property value="phonenumber"/></s:param>
 										<s:param name="actid"><s:property value="#var.actid"/></s:param>
 										<s:param name="username"><s:property value="username"/></s:param>
@@ -253,7 +203,7 @@
 									">修改活动</a>
 									
 									
-									<a style='text-decoration:none;' href="<s:url action = "delact">								
+									<a style='font-weight:bold;text-decoration:none;font-family:Microsoft YaHei ' href="<s:url action = "delact">								
 										<s:param name="phonenumber"><s:property value="phonenumber"/></s:param>
 										<s:param name="actid"><s:property value="#var.actid"/></s:param>
 										<s:param name="username"><s:property value="username"/></s:param>
@@ -261,7 +211,7 @@
 										</s:url>
 									">删除活动</a>
 									
-									<a style='text-decoration:none;' href="<s:url action = "download">								
+									<a style='font-weight:bold;text-decoration:none;font-family:Microsoft YaHei ' href="<s:url action = "download">								
 										<s:param name="phonenumber"><s:property value="phonenumber"/></s:param>
 										<s:param name="actid"><s:property value="#var.actid"/></s:param>
 										<s:param name="username"><s:property value="username"/></s:param>
@@ -306,52 +256,13 @@
 				<br/>
 				<br/>
 				<br/>
-				
 				</div>
 			</div>
 			
 		</div>
 	</div>
 	
-	
-	
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-		
-			<ul class="nav nav-pills">
-				<li class="active">
-					 <a href="#">首页</a>
-				</li>
-				<li>
-					 <a href="#">简介</a>
-				</li>
-				<li class="disabled">
-					 <a href="#">信息</a>
-				</li>
-				<li class="dropdown pull-right">
-					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">下拉<strong class="caret"></strong></a>
-					<ul class="dropdown-menu">
-						<li>
-							 <a href="#">操作</a>
-						</li>
-						<li>
-							 <a href="#">设置栏目</a>
-						</li>
-						<li>
-							 <a href="#">更多设置</a>
-						</li>
-						<li class="divider">
-						</li>
-						<li>
-							 <a href="#">分割线</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div>
-	
-	
+
 </div>
 
 		<script src="js/imagesloaded.pkgd.min.js"></script>
