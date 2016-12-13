@@ -239,8 +239,6 @@
 				<br/>
 				<br/>
 				
-				
-				
 				</div>
 			</div>
 			
@@ -248,24 +246,6 @@
 	</div>
 	
 	
-	
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-		
-			<ul class="nav nav-pills">
-				<li class="active">
-					 <a href="#">首页</a>
-				</li>
-				<li>
-					 <a href="#">简介</a>
-				</li>
-				<li class="disabled">
-					 <a href="#">信息</a>
-				</li>
-				
-			</ul>
-		</div>
-	</div>
 	
 	
 </div>

@@ -15,6 +15,24 @@ import java.sql.*;
 public class collecting extends ActionSupport {
 	public String actid;
 	public String phonenumber;
+	public String username;
+    public String useremail;
+    
+    public String getusername(){
+    	return username;
+    }
+    
+    public void setusername(String username){
+    	this.username = username;
+    }
+    
+    public String getuseremail(){
+    	return useremail;
+    }
+    
+    public void setuseremail(String useremail){
+    	this.useremail = useremail;
+    }
 	
 	public String getactid(){
 		return actid;
@@ -33,7 +51,7 @@ public class collecting extends ActionSupport {
 	}
 	
 	public String execute(){
-		String ret = ERROR;
+		String ret = SUCCESS;
 		Connection conn = null;
 		try{			
 			Class.forName("com.mysql.jdbc.Driver");
@@ -46,7 +64,7 @@ public class collecting extends ActionSupport {
         	ret = SUCCESS;
 		}
 		catch(Exception e){
-			ret =  ERROR;
+			ret =  SUCCESS;
 		}finally{
 			if(conn != null){
 				try{

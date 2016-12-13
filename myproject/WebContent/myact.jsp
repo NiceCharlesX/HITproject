@@ -54,7 +54,7 @@
 					</form>
 					<ul class="nav navbar-nav navbar-left">
 						<li>
-							 <a href="add.jsp?phonenumber=<s:property value='phonenumber'/>">发布活动</a>
+							  <a href="add.jsp?phonenumber=<s:property value='phonenumber'/>&username=<s:property value='username'/>&useremail=<s:property value='useremail'/>">发布活动</a>
 						</li>
 					</ul>
 				</div>

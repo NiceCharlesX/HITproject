@@ -199,44 +199,44 @@
 				
 					<div class="carousel slide" id="carousel-634407">
 						<ol class="carousel-indicators">
-							<li data-slide-to="0" data-target="#carousel-634407">
+							<li data-slide-to="0" data-target="#carousel-634407"  class="active">
 							</li>
 							<li data-slide-to="1" data-target="#carousel-634407">
 							</li>
-							<li data-slide-to="2" data-target="#carousel-634407" class="active">
+							<li data-slide-to="2" data-target="#carousel-634407">
 							</li>
 						</ol>
 						<div class="carousel-inner">
-							<div class="item">
-								<img alt="" src="images/big1.jpg" />
+							<div class="item  active">
+								<img alt="" src="images/big11.jpg" />
 								<div class="carousel-caption">
-									<h4>
-										First Thumbnail label
-									</h4>
-									<p>
-										Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									<h3 style="color:black;">
+										活动百宝箱
+									</h3>
+									<p style="color:black;font-size:20px">
+										哈尔滨工业大学最大校园活动信息交流平台~
+									</p>
+								</div>
+							</div>
+						<div class="item">
+								<img alt="" src="images/big22.jpg" />
+								<div class="carousel-caption">
+									<h3 style="color:black;">
+										活动百宝箱
+									</h3>
+									<p style="color:black;font-size:20px">
+										办活动，上活动百宝箱就够了~
 									</p>
 								</div>
 							</div>
 							<div class="item">
-								<img alt="" src="images/big2.jpg" />
+								<img alt="" src="images/big33.jpg" />
 								<div class="carousel-caption">
-									<h4>
-										Second Thumbnail label
-									</h4>
-									<p>
-										Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
-									</p>
-								</div>
-							</div>
-							<div class="item active">
-								<img alt="" src="images/big3.jpg" />
-								<div class="carousel-caption">
-									<h4>
-										Third Thumbnail label
-									</h4>
-									<p>
-										Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+									<h3>
+										活动百宝箱
+									</h3>
+									<p style = "font-size:20px">
+										办活动，打开活动百宝箱，让校园活动转起来~
 									</p>
 								</div>
 							</div>
@@ -318,6 +318,8 @@
 	          							<a style="font-weight:bold;text-decoration:none;font-family:Microsoft YaHei " href="<s:url action="collecting">
 	                        				<s:param name="actid"><s:property value='#var.actid' /></s:param>
 	                        				<s:param name="phonenumber"><s:property value="phonenumber" /></s:param>
+	                        				<s:param name="username"><s:property value="username" /></s:param>
+	                  						<s:param name="useremail"><s:property value="useremail" /></s:param>
 	                       					</s:url>
 	                      				 ">添加到我的收藏</a>
 	                      			

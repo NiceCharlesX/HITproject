@@ -23,12 +23,12 @@
 
         <action name="createact" class="tutorial.createact">
         	<result name = "success">add_process.jsp</result>
-        	<result name = "error">index.jsp</result>
+        	<result name = "error">404.jsp</result>
         </action>
         
         <action name="collecting" class="tutorial.collecting">
-        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time</result>
-        	<result name = "error">index.jsp</result>
+        	<result name = "success" type = "redirect">showallact.action?phonenumber=${phonenumber}&amp;orderby=time&amp;username=${username}&amp;useremail=${useremail}</result>
+        	<result name = "error">404.jsp</result>
         </action>
         
         <action name="createschedule" class="tutorial.createschedule">
